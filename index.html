@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>virtual-chinrest</title>
+
+        <script src='https://www.naodao.com/public/experiment/libs/jspsych-7/jspsych.js'></script>
+        <script src="https://www.naodao.com/public/experiment/libs/plugin/plugin-html-keyboard-response.js"></script>
+        <script src="https://www.naodao.com/public/experiment/libs/plugin/plugin-categorize-html.js"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-virtual-chinrest@2.0.3"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.3"></script>
+        <script src="jsPsych_practice//index_browser_rdkmin.js"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.3"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-resize@1.0.3"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-fullscreen@1.2.1"></script>
+        <script src="https://unpkg.com/@jspsych/plugin-survey@1.0.1"></script>
+        <script src='https://www.naodao.com/public/experiment/libs/extension/naodao-2021-12.js'></script>
+        <script src='https://www.naodao.com/public/experiment/libs/axios.min.js'></script>
+
+        <link rel='stylesheet' href='https://www.naodao.com/public/experiment/libs/jspsych-7/css/jspsych.css'>
+        <link rel="stylesheet" href="https://unpkg.com/@jspsych/plugin-survey@1.0.1/css/survey.css">
+        <style>
+          .jspsych-display-element {
+             font-size: 22px;
+             color: black;
+          };
+          .jspsych-content {
+            max-width: 80%; 
+          };     
+        </style>
+    </head>
+
+
+    <body></body>
+
+    <script>
+
+        function generateUniqueRandomNumbers(min, max) {
+          var numbers = [];
+          for (var i = min; i <= max; i++) {
+            numbers.push(i);
+          };    
+          // Fisher-Yates shuffle algorithm for shuffling the array in-place
+          var currentIndex = numbers.length, temporaryValue, randomIndex;
+          while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+    
+            temporaryValue = numbers[currentIndex];
+            numbers[currentIndex] = numbers[randomIndex];
+            numbers[randomIndex] = temporaryValue;
+          };
+          return numbers;
+        };
+    
+        // generate 40 unique random numbers between 1 and 40
+        var uniqueRandomNumbers = generateUniqueRandomNumbers(1, 40);
+        console.log(uniqueRandomNumbers);
+    
+        //---------initialize--------
+
+        var subjectID = uniqueRandomNumbers.shift();
+        console.log(subjectID);
+
+        var jsPsych = initJsPsych({
+          on_finish: function() {
+            jsPsych.data.displayData();
+            var data = jsPsych.data.get().filter([
+              {part: "jsPsychVirtualChinrest"}, 
+              {part: "survey"},
+              {part: "jsPsychRdk"},
+            ]);
+            data = data.filterCustom(["view_dist_mm", "response", "rt", "correct","dot_color", "number_of_dots"])
+            data.localSave("csv", "RDK.csv");
+          },
+          default_iti: 1000,
+          extensions: [
+            {type: Naodao}
+          ]
+        });
+
+        // the body of the experiment
+        var main_timeline = [];
+        var practice_block = {
+          timeline: []
+        };
+        var group_1 = {
+          timeline: []
+        };
+        var group_2 = {
+          timeline: []
+        };
+
+        var userChoice = null;
+
+        var preload = {
+          type: jsPsychPreload,
+          images: "jsPsych_practice//card.png",
+          auto_preload: true 
+        };
+
+        var screen = {
+          type: jsPsychFullscreen,
+          fullscreen_mode: true,
+          data: {
+            part: "screen"  
+          }
+        };
+
+        //---------Create instructions---------
+
+        var beginning = {
+          type: jsPsychHtmlKeyboardResponse,
+          stimulus: `
+          <div style="text-align: left; color: white">
+            <h3 style="text-align: center; font-size: 30px; margin: 0;">欢迎参与本实验</h3>
+            <p>接下来，屏幕上会呈现一些运动的圆点，其中一半为<span style="color: hsla(0, 50%, 50%, 1)">红色</span>，一半为 <span style="color: hsla(225, 50%, 50%, 1)">蓝色</span>,</p>
+            <p><span style="font-weight: bold">大约0.2秒后,</span>  一部分点会随机变为另一种颜色（例如从红色变为蓝色），变化后某种颜色的数量会超过另一种。</p >
+            <p>您需要判断 <span style="font-weight: bold">变化后</span> 散点图多数点的颜色是红色还是蓝色，请又快又准确地作出相应的按键反应。</p >
+            <ul>
+              <li>多数点为 <span style="color: hsla(0, 50%, 50%, 1)">红色</span> 时，请按键盘 <span style="color: hsla(0, 50%, 50%, 1)">F</span> 键；</li>
+              <li>多数点为 <span style="color: hsla(225, 50%, 50%, 1)">蓝色</span> 时，请按键盘 <span style="color: hsla(225, 50%, 50%, 1)">J</span> 键；</li>
+            </ul>
+            <p>请按空格键进入实验</p >
+          </div>
+          `,
+          on_start: function() {
+            document.body.style.backgroundColor = "black";
+            document.body.style.cursor = 'none';
+          },
+          response_ends_trial: true,
+          choices: " ",
+          data: {
+            part: "instruction_beginning", 
+          }
+        };
+
+        var practice = {
+          type: jsPsychHtmlKeyboardResponse,
+          stimulus: `
+          <div style="text-align: center; color: white; padding: 35px; font-size: 30px">
+            <p>请把左手食指放在 "F" 键上，右手食指放在 "J" 键上</p >
+            <p>请按下空格键进入【练习阶段】</p >
+          </div>
+          `,
+          response_ends_trial: true,
+          choices: " ",
+          on_finish: function() {
+            document.body.style.backgroundColor = "black";
+          },
+          data: {
+            part: "instruction_practice"
+          }
+        };
+
+        var practice_end = {
+          type: jsPsychHtmlKeyboardResponse,
+          stimulus: `
+          <div style="text-align: center; color: white; padding: 30px; font-size: 30px">
+            <p>练习结束！</p >
+            <p>继续练习请按 "Q" 键 </p>
+            <p>进入正式实验请按空格键, 正式实验不再提供反馈</p>
+          </div>
+          `,
+          response_ends_trial: true,
+          choices: ["q", " ",],
+          on_finish: function () {
+            document.body.style.backgroundColor = "black";
+          },
+          data: {
+            part: "instruction_practiceEnd"
+          },
+        };
+
+        var exper_begin = {
+          type: jsPsychHtmlKeyboardResponse,
+          stimulus: `
+          <div style="text-align: center; color: white; padding: 35px; font-size: 30px">
+            <p>请把左手食指放在 "F" 键上，右手食指放在 "J" 键上</p >
+            <p>请按下空格键开始【正式实验】</p >
+          </div>
+          `,
+          response_ends_trial: true,
+          choices: " ",
+          on_finish: function() {
+            document.body.style.backgroundColor = "black";
+          },
+          data: {
+            part: "instruction_experBegin"
+          }
+        };
+
+        var rest = {
+          type: jsPsychHtmlKeyboardResponse,
+          stimulus: `
+          <div style="text-align: center; color: white; padding: 35px; font-size: 30px">
+            <p>休息一下，若准备好请按空格键继续</p >
+          </div>
+          `,
+          response_ends_trial: true,
+          choices: " ",
+          on_finish: function() {
+            document.body.style.backgroundColor = "black";
+          },
+          data: {
+            part: "instruction_rest"
+          }
+        };
+  
+        var end = {
+          type: jsPsychHtmlKeyboardResponse,
+          stimulus: `
+          <div style="text-align: center; color: white; padding: 20px; font-size: 30px">
+            <p>您已完成测试，按下空格或 5 秒后自动退出</p >
+          </div>
+          `,
+          trial_duration: 5000,
+          response_ends_trial: true,
+          choices: " ",
+          on_finish: function() {
+            document.body.style.backgroundColor = "white";
+            document.body.style.cursor = "default";
+          },
+          data: {
+            part: "instruction_end"
+          },
+          extensions: [
+            {type: Naodao}
+          ]
+        };
+        
+        //---------Create VirtualChinrest---------
+        
+        var card = {
+            type: jsPsychVirtualChinrest,
+            blindspot_reps: 3,
+            resize_units: "cm",
+            pixels_per_unit: 50,
+            item_path: "jsPsych_practice//card.png",
+            adjustment_prompt: `
+            <p> <span style="color: red">为了确保研究中的刺激以预期尺寸呈现，请您认真完成以下步骤。</span> </p>
+            <p>这是一个标准的屏幕校对程序，不涉及任何数据的收集。</p> 
+            <p>请您用一张与银行卡大小相匹配的物品，可以是银行卡或身份证，关键是物品的尺寸与标准银行卡尺寸相同。</p> 
+            <p>请单击并拖动图像的右下角，直到它与您的卡片精准匹配。</p>
+            <p>完成后单击“确认”按钮。</p>
+            `,
+            adjustment_button_prompt: `
+            <button type="button" style="font-size: 18px; width: 100px; height: 50px;">确认</button>
+            `,
+            blindspot_prompt: `
+            <p>现在我们将快速测量您的观看距离。</p>
+            <p>请将左手放在空格键上, 用右手遮住右眼, 左眼盯着黑色方块。 请一直保持这个姿势。</p>
+            <p>按下空格键后，红球会向左运动。当移动到一定距离时它会消失。球消失后请<span style="font-weight: bold">立即再次</span>按下空格键。</p>
+            <p>当您准备好后，请按空格键开始。</p>
+            `,
+            blindspot_measurements_prompt: "剩余次数",
+            viewing_distance_report: `
+            <p>根据您的回答，您的观看距离为<span id='distance-estimate' style='font-weight: bold;'></span></p>
+            <p>这个距离是否正确？</p>
+            `,
+            redo_measurement_button_label: `
+            <button type="button" style="font-size: 18px; width: 100px; height: 50px;">再试一次</button>
+            `,
+            blindspot_done_prompt: `
+            <button type="button" style="font-size: 18px; width: 100px; height: 50px;">是的</button>
+            `,
+            data: {
+              part: "jsPsychVirtualChinrest"
+            }
+        };
+          
+        var resized_stimulus = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: `
+              <p>如果之前的测量正确, 在保持您现在的观看距离下, 下面的黑色正方形边长应为<span style='font-weight: bold;'>10 cm</span>。</p>
+              <div style="background-color: black; width: 500px; height: 500px; margin: 20px auto;"></div>
+            `,
+            choices: [
+            `
+            <button type="button" style="font-size: 18px; width: 100px; height: 50px;">继续</button>
+            `
+            ],
+            data: {
+              part: "jsPsychVirtualChinrest"
+            }
+        };
+        
+         //---------collecte perticipent's information---------
+
+        const information = {
+          type: jsPsychSurvey,
+          survey_json: {
+            showQuestionNumbers: true,
+            title: '请填写基本信息',
+            completeText: '提交',
+            pages: [
+              {
+                name: 'page',
+                elements: [
+                    {
+                      type: 'radiogroup',
+                      title: "性别", 
+                      choices: ['男','女'],
+                      isRequired: true,
+                      showNoneItem: false,
+                      showOtherItem: false,
+                      colCount: 0,
+                      name: 'sex'
+                    }, 
+                    {
+                      type: 'text',
+                      title: '年龄', 
+                      name: 'age', 
+                      isRequired: true,
+                      inputType: 'number',
+                      min: 0,
+                      max: 100
+                    },
+                    {
+                      type: 'radiogroup',
+                      title: "利手或惯用手", 
+                      choices: ['左','右'],
+                      isRequired: true,
+                      showNoneItem: false,
+                      showOtherItem: false,
+                      colCount: 0,
+                      name: 'hands'
+                    },
+                    {
+                      type: 'radiogroup',
+                      title: "是否为色盲或色弱", 
+                      choices: ['色盲','色弱','都不是'],
+                      isRequired: true,
+                      showNoneItem: false,
+                      showOtherItem: false,
+                      colCount: 0,
+                      name: 'color-blindness'
+                    }
+
+                  ]
+              },
+            ]
+          },
+          data: {
+            part: "survey"
+          }
+        };
+
+        var color_test = {
+          type: jsPsychSurveyText,
+          preamble: `<img src="jsPsych_practice/color_blindness.jpg" style="width:600px;"></img>`,
+          questions: [
+            {prompt: '请在方框内输入你从上图中看到的字母，如果没有看见任何字母，请输入“无”', rows: 2}
+          ],
+          button_label: '提交',
+          data: {
+            part: "color_test"
+          }
+        };
+
+        //---------Create RDK task---------
+
+		    var block_A = [
+          // saturation: 50%, luminance: 50%, transparency: 100%
+          {
+            coherent_direction: 180,
+            coherence: 0,
+            number_of_dots: [60, 40],
+            correct_choice: ["f"],
+            correct_response: "f",
+            dot_color: ["hsla(0, 50%, 50%, 1)", "hsla(225, 50%, 50%, 1)"]
+          },
+          {
+            coherent_direction: 180,
+            coherence: 0,
+            number_of_dots: [80, 20],
+            correct_choice: ["f"],
+            correct_response: "f",
+            dot_color: ["hsla(0, 50%, 50%, 1)", "hsla(225, 50%, 50%, 1)"]
+          },
+          {
+            coherent_direction: 0,
+            coherence: 0,
+            number_of_dots: [60, 40],
+            correct_choice: ["j"],
+            correct_response: "j",
+            dot_color: ["hsla(225, 50%, 50%, 1)", "hsla(0, 50%, 50%, 1)"]
+          },
+          {
+            coherent_direction: 0,
+            coherence: 0,
+            number_of_dots: [80, 20],
+            correct_choice: ["j"],
+            correct_response: "j",
+            dot_color: ["hsla(225, 50%, 50%, 1)", "hsla(0, 50%, 50%, 1)"]
+          },
+        ];
+
+        var block_B = [
+          // saturation: 100%, luminance: 50%, transparency: 100%
+          {
+            coherent_direction: 180,
+            coherence: 0,
+            number_of_dots: [60, 40],
+            correct_choice: ["f"],
+            correct_response: "f",
+            dot_color: ["hsla(0, 100%, 50%, 1)", "hsla(225, 100%, 50%, 1)"]
+          },
+          {
+            coherent_direction: 180,
+            coherence: 0,
+            number_of_dots: [80, 20],
+            correct_choice: ["f"],
+            correct_response: "f",
+            dot_color: ["hsla(0, 100%, 50%, 1)", "hsla(225, 100%, 50%, 1)"]
+          },
+          {
+            coherent_direction: 0,
+            coherence: 0,
+            number_of_dots: [80, 20],
+            correct_choice: ["j"],
+            correct_response: "j",
+            dot_color: ["hsla(225, 100%, 50%, 1)", "hsla(0, 100%, 50%, 1)"]
+          },
+          {
+            coherent_direction: 0,
+            coherence: 0,
+            number_of_dots: [60, 40],
+            correct_choice: ["j"],
+            correct_response: "j",
+            dot_color: ["hsla(225, 100%, 50%, 1)", "hsla(0, 100%, 50%, 1)"]
+          }
+        ];
+      
+        var fixation = { type: jsPsychHtmlKeyboardResponse,
+          stimulus: "<p style='font-size: 48px; color: white'>+</p >",
+          trial_duration: 500,
+          choices: "NO-KEYS",
+          data: {
+             part: "fixation"
+          }
+        };
+
+        var RDK = {
+          type: jsPsychRdk, 
+          number_of_apertures: 2,
+          post_trial_gap: 500,
+          number_of_dots: jsPsych.timelineVariable("number_of_dots"),
+          RDK_type: 3,
+          dot_color: jsPsych.timelineVariable("dot_color"),
+          choices: ["f", "j"],
+          correct_choice: jsPsych.timelineVariable("correct_choice"),
+          coherent_direction: jsPsych.timelineVariable("coherent_direction"),
+          coherence: jsPsych.timelineVariable("coherence"),
+          dot_radius: 5.7,
+          move_distance: 3,
+          aperture_wide: 600,
+          aperture_height: 600,
+          background_color: "black",
+          trial_duration: 3000,
+          data: {
+            part: "jsPsychRdk",
+            task: "response",
+            correct_response: jsPsych.timelineVariable("correct_response")
+          },
+          on_start: function() {
+            var displayElement = jsPsych.getDisplayElement();
+            //stimulus presentation lasts for 1s
+            //hidding the stimulus
+            setTimeout(function() {
+              var elements = displayElement.querySelectorAll("*");
+              elements.forEach(function(el) {
+                el.style.display = 'none';
+              });
+            }, 1000);
+          },        
+          on_finish: function(data){
+            data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
+          },
+        };
+
+        var feedback = {
+          type: jsPsychHtmlKeyboardResponse,
+          trial_duration: 500,
+          stimulus: function(){
+            // this function will check the accuracy of the last response and use that information to set
+            // the stimulus value on each trial.
+            var trial_data = jsPsych.data.get().last(1).values()[0];
+            var correct = trial_data.correct;
+            var rt = trial_data.rt
+            if(rt > 0 && rt < 250){
+              return `<p style='font-size: 60px; color: yellow'>太快!</p>`; 
+            } else if(rt == -1) {
+              return `<p style='font-size: 60px; color: yellow'>太慢!</p>`; 
+            } else if(correct){
+              return `<p style='font-size: 60px; color: green'>正确!</p>`;
+            } else {
+              return `<p style='font-size: 60px; color: red'>错误!</p>`;
+            }
+          },
+        };
+
+        practice_block = {
+          timeline: [
+            practice,
+            {
+              timeline: [fixation, RDK, feedback],
+              timeline_variables: block_A,
+              repetitions: 1,
+              randomize_order: true
+            },
+            practice_end
+          ],
+          loop_function: function(){
+            var data = jsPsych.data.get().last(1).values()[0];
+            if(jsPsych.pluginAPI.compareKeys(data.response, ' ')){
+              return false;
+            } else {
+              return true;
+            }
+          }
+        };
+
+        group_1= {
+          timeline: [
+          exper_begin,
+          {
+            timeline: [fixation, RDK],
+            timeline_variables: block_A,
+            repetitions: 1,
+            randomize_order: true
+          },
+          rest,
+          {
+            timeline: [fixation, RDK],
+            timeline_variables: block_B,
+            repetitions: 1,
+            randomize_order: true
+          },
+          rest,
+          {
+            timeline: [fixation, RDK],
+            timeline_variables: block_B,
+            repetitions: 1,
+            randomize_order: true
+          },
+          rest,
+          {
+            timeline: [fixation, RDK],
+            timeline_variables: block_A,
+            repetitions: 1,
+            randomize_order: true
+          },
+          ],
+        };
+
+        group_2= {
+          timeline: [
+          exper_begin,
+          {
+            timeline: [fixation, RDK],
+            timeline_variables: block_B,
+            repetitions: 1,
+            randomize_order: true
+          },
+          rest,
+          {
+            timeline: [fixation, RDK],
+            timeline_variables: block_A,
+            repetitions: 1,
+            randomize_order: true
+          },
+          rest,
+          {
+            timeline: [fixation, RDK],
+            timeline_variables: block_A,
+            repetitions: 1,
+            randomize_order: true
+          },
+          rest,
+          {
+            timeline: [fixation, RDK],
+            timeline_variables: block_B,
+            repetitions: 1,
+            randomize_order: true
+          },
+          ],
+        };
+
+        var assignGroup = function(subjectID) {
+          return {
+            group: subjectID % 2 === 0 ? group_1 : group_2
+          };
+        };
+      
+         //---------pull to timeline---------
+
+        main_timeline = [preload, screen, card, resized_stimulus, information, color_test, beginning, practice_block, assignGroup(subjectID).group, end]
+
+      jsPsych.run(main_timeline);
+        
+    </script>
+</html>
