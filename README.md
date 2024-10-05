@@ -2,16 +2,15 @@
 
 ```
 └── 1_Protocol
-└── 2_Materials
-└── 3_Experiments
+└── 2_Experiments
 │    └── Formal_Experiment
 │    └── pilot_Experiment
 │        └── Coloe_code
 │                └── img
 │                └── jspsych-7.0
 │                └── index.html
-└── 4_Analysis
-└── 5_Reports
-└── 6_Others
+└── 3_Analysis
+└── 4_Reports
+└── 5_Others
 
 ```
