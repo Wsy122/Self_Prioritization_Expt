@@ -1,4 +1,4 @@
-# Perceptional_decision-making_Self_Prioritization
+# Self_Prioritization_Expt
 
 ```
 └── 1_Protocol
