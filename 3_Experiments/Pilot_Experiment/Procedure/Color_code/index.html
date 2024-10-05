@@ -12,7 +12,7 @@
         <script src="https://unpkg.com/@jspsych/plugin-virtual-chinrest@2.0.3"></script>
         <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script>
         <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.3"></script>
-        <script src="jsPsych_practice//index_browser_rdkmin.js"></script>
+        <script src="jspsych-7.0//plugins//index_browser_rdkmin.js"></script>
         <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.3"></script>
         <script src="https://unpkg.com/@jspsych/plugin-resize@1.0.3"></script>
         <script src="https://unpkg.com/@jspsych/plugin-fullscreen@1.2.1"></script>
@@ -239,7 +239,7 @@
             blindspot_reps: 3,
             resize_units: "cm",
             pixels_per_unit: 50,
-            item_path: "jsPsych_practice//card.png",
+            item_path: "img//card.png",
             adjustment_prompt: `
             <p> <span style="color: red">为了确保研究中的刺激以预期尺寸呈现，请您认真完成以下步骤。</span> </p>
             <p>这是一个标准的屏幕校对程序，不涉及任何数据的收集。</p> 
@@ -351,7 +351,7 @@
 
         var color_test = {
           type: jsPsychSurveyText,
-          preamble: `<img src="jsPsych_practice/color_blindness.jpg" style="width:600px;"></img>`,
+          preamble: `<img src="img/color_blindness.jpg" style="width:600px;"></img>`,
           questions: [
             {prompt: '请在方框内输入你从上图中看到的字母，如果没有看见任何字母，请输入“无”', rows: 2}
           ],
@@ -598,7 +598,8 @@
       
          //---------pull to timeline---------
 
-        main_timeline = [preload, screen, card, resized_stimulus, information, color_test, beginning, practice_block, assignGroup(subjectID).group, end]
+        main_timeline = [//preload, 
+          screen, card, resized_stimulus, information, color_test, beginning, practice_block, assignGroup(subjectID).group, end]
 
       jsPsych.run(main_timeline);
         
