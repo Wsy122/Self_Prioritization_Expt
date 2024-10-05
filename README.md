@@ -5,7 +5,7 @@
 └── 2_Experiments
 │    └── Formal_Experiment
 │    └── pilot_Experiment
-│        └── Coloe_code
+│        └── Color_code
 │                └── img
 │                └── jspsych-7.0
 │                └── index.html
