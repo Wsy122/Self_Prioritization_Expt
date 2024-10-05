@@ -1,0 +1,1 @@
+This is a study on the self-prioritization effect in perceptual decision-making.
