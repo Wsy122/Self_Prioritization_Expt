@@ -371,7 +371,9 @@
             number_of_dots: [60, 40],
             correct_choice: ["f"],
             correct_response: "f",
-            dot_color: ["hsl(0, 50%, 50%)", "hsla(225, 50%, 50%)"]
+            dot_color_beforeOne: "hsl(0, 50%, 50%)",
+            dot_color_beforeTwo: "hsl(225, 50%, 50%)",
+            dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]
           },
           {
             coherent_direction: 180,
@@ -379,7 +381,9 @@
             number_of_dots: [80, 20],
             correct_choice: ["f"],
             correct_response: "f",
-            dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]
+            dot_color_beforeOne: "hsl(0, 50%, 50%)",
+            dot_color_beforeTwo: "hsl(225, 50%, 50%)",
+            dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]
           },
           {
             coherent_direction: 0,
@@ -387,7 +391,9 @@
             number_of_dots: [60, 40],
             correct_choice: ["j"],
             correct_response: "j",
-            dot_color: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]
+            dot_color_beforeOne: "hsl(0, 50%, 50%)",
+            dot_color_beforeTwo: "hsl(225, 50%, 50%)",
+            dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]
           },
           {
             coherent_direction: 0,
@@ -395,7 +401,9 @@
             number_of_dots: [80, 20],
             correct_choice: ["j"],
             correct_response: "j",
-            dot_color: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]
+            dot_color_beforeOne: "hsl(0, 50%, 50%)",
+            dot_color_beforeTwo: "hsl(225, 50%, 50%)",
+            dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]
           },
         ];
 
@@ -407,7 +415,9 @@
             number_of_dots: [60, 40],
             correct_choice: ["f"],
             correct_response: "f",
-            dot_color: ["hsl(0, 100%, 50%)", "hsl(225, 100%, 50%)"]
+            dot_color_beforeOne: "hsl(0, 100%, 50%)",
+            dot_color_beforeTwo: "hsl(225, 100%, 50%)",
+            dot_color_after: ["hsl(0, 100%, 50%)", "hsl(225, 100%, 50%)"]
           },
           {
             coherent_direction: 180,
@@ -415,7 +425,9 @@
             number_of_dots: [80, 20],
             correct_choice: ["f"],
             correct_response: "f",
-            dot_color: ["hsl(0, 100%, 50%)", "hsl(225, 100%, 50%)"]
+            dot_color_beforeOne: "hsl(0, 100%, 50%)",
+            dot_color_beforeTwo: "hsl(225, 100%, 50%)",
+            dot_color_after: ["hsl(0, 100%, 50%)", "hsl(225, 100%, 50%)"]
           },
           {
             coherent_direction: 0,
@@ -423,7 +435,9 @@
             number_of_dots: [80, 20],
             correct_choice: ["j"],
             correct_response: "j",
-            dot_color: ["hsl(225, 100%, 50%)", "hsl(0, 100%, 50%)"]
+            dot_color_beforeOne: "hsl(0, 100%, 50%)",
+            dot_color_beforeTwo: "hsl(225, 100%, 50%)",
+            dot_color_after: ["hsl(225, 100%, 50%)", "hsl(0, 100%, 50%)"]
           },
           {
             coherent_direction: 0,
@@ -431,7 +445,9 @@
             number_of_dots: [60, 40],
             correct_choice: ["j"],
             correct_response: "j",
-            dot_color: ["hsl(225, 100%, 50%)", "hsl(0, 100%, 50%)"]
+            dot_color_beforeOne: "hsl(0, 100%, 50%)",
+            dot_color_beforeTwo: "hsl(225, 100%, 50%)",
+            dot_color_after: ["hsl(225, 100%, 50%)", "hsl(0, 100%, 50%)"]
           }
         ];
       
@@ -444,13 +460,19 @@
           }
         };
 
+        const randomInteger = (min, max) => {
+          return Math.floor(Math.random() * (max - min + 1)) + min
+        };
+
         var RDK = {
           type: jsPsychRdk, 
           number_of_apertures: 2,
           post_trial_gap: 500,
           number_of_dots: jsPsych.timelineVariable("number_of_dots"),
           RDK_type: 3,
-          dot_color: jsPsych.timelineVariable("dot_color"),
+          dot_color_beforeOne: jsPsych.timelineVariable("dot_color_beforeOne"),
+          dot_color_beforeTwo: jsPsych.timelineVariable("dot_color_beforeTwo"),
+          dot_color_after: jsPsych.timelineVariable("dot_color_after"),
           choices: ["f", "j"],
           correct_choice: jsPsych.timelineVariable("correct_choice"),
           coherent_direction: jsPsych.timelineVariable("coherent_direction"),
@@ -461,6 +483,7 @@
           aperture_height: 600,
           background_color: "black",
           trial_duration: 3000,
+          dot_color_delay: randomInteger(6, 12),
           data: {
             part: "jsPsychRdk",
             task: "response",
