@@ -1,11 +1,11 @@
-# Perceptional_decision-making_Self_Prioritization
+# Self_Prioritization_Expt
 
 ```
 └── 1_Protocol
 └── 2_Experiments
 │    └── Formal_Experiment
 │    └── pilot_Experiment
-│        └── Coloe_code
+│        └── Color_code
 │                └── img
 │                └── jspsych-7.0
 │                └── index.html
