@@ -12,6 +12,7 @@
         <script src="https://unpkg.com/@jspsych/plugin-virtual-chinrest@2.0.3"></script>
         <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.2.0"></script>
         <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.3"></script>
+        <script src="jspsych-7.0/jspsych-psychopysics-3.4.0/jspsych-psychophysics.js"></script>
         <script src="jspsych-7.0//plugins//index_browser_rdkmin.js"></script>
         <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.3"></script>
         <script src="https://unpkg.com/@jspsych/plugin-resize@1.0.3"></script>
@@ -34,7 +35,9 @@
     </head>
 
 
-    <body></body>
+    <body>
+      <script src="template_Expt/move.js"></script>
+    </body>
 
     <script>
     
@@ -180,7 +183,7 @@
           type: jsPsychHtmlKeyboardResponse,
           stimulus: `
           <div style="text-align: center; color: white; padding: 35px; font-size: 35px">
-            <p>休息一下，若准备好请按空格键继续</p >
+            <p>请休息一下，若准备好可按空格键继续</p >
           </div>
           `,
           response_ends_trial: true,
@@ -371,7 +374,7 @@
             coherent_direction: 180,
             coherence: 0,
             number_of_dots: [60, 40],
-            correct_choice: ["f"],
+            correct_choice: "f",
             correct_response: "f",
             dot_color_beforeOne: "hsl(0, 50%, 50%)",
             dot_color_beforeTwo: "hsl(225, 50%, 50%)",
@@ -382,7 +385,7 @@
             coherent_direction: 180,
             coherence: 0,
             number_of_dots: [80, 20],
-            correct_choice: ["f"],
+            correct_choice: "f",
             correct_response: "f",
             dot_color_beforeOne: "hsl(0, 50%, 50%)",
             dot_color_beforeTwo: "hsl(225, 50%, 50%)",
@@ -393,7 +396,7 @@
             coherent_direction: 0,
             coherence: 0,
             number_of_dots: [60, 40],
-            correct_choice: ["j"],
+            correct_choice: "j",
             correct_response: "j",
             dot_color_beforeOne: "hsl(0, 50%, 50%)",
             dot_color_beforeTwo: "hsl(225, 50%, 50%)",
@@ -404,7 +407,7 @@
             coherent_direction: 0,
             coherence: 0,
             number_of_dots: [80, 20],
-            correct_choice: ["j"],
+            correct_choice: "j",
             correct_response: "j",
             dot_color_beforeOne: "hsl(0, 50%, 50%)",
             dot_color_beforeTwo: "hsl(225, 50%, 50%)",
@@ -419,7 +422,7 @@
             coherent_direction: 180,
             coherence: 0,
             number_of_dots: [60, 40],
-            correct_choice: ["f"],
+            correct_choice: "f",
             correct_response: "f",
             dot_color_beforeOne: "hsl(0, 100%, 50%)",
             dot_color_beforeTwo: "hsl(225, 100%, 50%)",
@@ -430,7 +433,7 @@
             coherent_direction: 180,
             coherence: 0,
             number_of_dots: [80, 20],
-            correct_choice: ["f"],
+            correct_choice: "f",
             correct_response: "f",
             dot_color_beforeOne: "hsl(0, 100%, 50%)",
             dot_color_beforeTwo: "hsl(225, 100%, 50%)",
@@ -441,7 +444,7 @@
             coherent_direction: 0,
             coherence: 0,
             number_of_dots: [80, 20],
-            correct_choice: ["j"],
+            correct_choice: "j",
             correct_response: "j",
             dot_color_beforeOne: "hsl(0, 100%, 50%)",
             dot_color_beforeTwo: "hsl(225, 100%, 50%)",
@@ -452,7 +455,7 @@
             coherent_direction: 0,
             coherence: 0,
             number_of_dots: [60, 40],
-            correct_choice: ["j"],
+            correct_choice: "j",
             correct_response: "j",
             dot_color_beforeOne: "hsl(0, 100%, 50%)",
             dot_color_beforeTwo: "hsl(225, 100%, 50%)",
@@ -467,10 +470,6 @@
           data: {
              part: "fixation"
           }
-        };
-
-        const randomInteger = (min, max) => {
-          return Math.floor(Math.random() * (max - min + 1)) + min
         };
 
         var RDK = {
@@ -512,7 +511,7 @@
             }, 1000);
           },        
           on_finish: function(data){
-            data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
+            data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_choice);
           },
         };
 
@@ -562,7 +561,7 @@
             var data = jsPsych.data.get().last(1).values()[0];
             if(jsPsych.pluginAPI.compareKeys(data.response, ' ')){
               return false;
-            } else {
+            } else if (jsPsych.pluginAPI.compareKeys(data.response,'f')) { 
               return true;
             }
           }
@@ -673,7 +672,9 @@
          //---------push to timeline---------
 
         main_timeline = [//preload, 
-          screen, card, resized_stimulus, information, color_test, beginning, practice_block, assignOrder, end]
+         screen,  card, resized_stimulus, information,  move, //color_test, beginning, practice_block, assignOrder, 
+         end
+        ]
 
       jsPsych.run(main_timeline);
         
