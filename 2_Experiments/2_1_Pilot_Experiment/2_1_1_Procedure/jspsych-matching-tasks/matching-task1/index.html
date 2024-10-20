@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="./jspsych8.0.2/jspsych.js"></script>
+  <script src="./jspsych8.0.2/plugin-keynbutton-html.js"></script>
+  <script src="./jspsych8.0.2/plugin-fullscreen.js"></script>
+
+  <link href="./jspsych8.0.2/jspsych.css" rel="stylesheet" >
+  <link href="./css/tailwindcss.css" rel="stylesheet">
+  <link href="./css/countDown.css" rel="stylesheet" >
+  <link href="./css/matching-task.css" rel="stylesheet" >
+</head>
+<body>
+  
+</body>
+<script>
+
+
+class DesignGenerator {
+  
+  keyMap;
+  id;
+
+  constructor(id, keyMap) {
+    this.id = id;
+    this.keyMap = keyMap;
+   }
+
+   generateCombo(obj) {
+    const keys = Object.keys(obj);
+    const result = [];
+  
+    function generate(currentIndex, currentCombination) {
+      if (currentIndex === keys.length) {
+        result.push({ ...currentCombination });
+        return;
+      }
+  
+      for (const value of obj[keys[currentIndex]]) {
+        generate(currentIndex + 1, { ...currentCombination, [keys[currentIndex]]: value });
+      }
+    }
+  
+    generate(0, {});
+    return result;
+  }
+  
+  selectCondition(conditionList, id = this.id) {
+    if (id === undefined) {
+      throw new Error('ID is required unless provided via the constructor or class property.');
+    }
+    const remainder = id % conditionList.length;
+    return conditionList[remainder];
+  }
+
+  findLabelByKey(key, keyMap = this.keyMap) {
+    return findLabelByKey(key, keyMap)
+  }
+  findKeyByLabel(label, keyMap = this.keyMap) {
+    return findKeyByLabel(label, keyMap);
+  }
+}
+
+function findLabelByKey(key, keyMap) {
+  const index = keyMap.key.indexOf(key);
+  if (index !== -1) {
+    return keyMap.label[index];
+  }
+  return null;
+}
+function findKeyByLabel(label, keyMap) {
+  const index = keyMap.label.indexOf(label);
+  if (index !== -1) {
+    return keyMap.key[index];
+  }
+  return null;
+}
+
+class HtmlGenerator {
+
+  constructor() {}
+  
+  generateButton(choice, choice_index, keyMap = { key:[], label:[] }) {
+  
+    let str;
+    if (choice == " ") str = "请按空格继续";
+    else if (choice == "ALL_KEY") str = "请按任意键";
+    else if (choice == "继续" || choice.toLowerCase() == "continue") return "继续";
+    else if (keyMap.key.length > 0){ 
+      let choice1 = findLabelByKey(choice, keyMap);
+      if(choice1.includes("match")){
+        choice1 = choice1.replace("mismatch", "不匹配").replace("match", "匹配");
+      }
+      str = `${choice1}`;
+    } else str = `请按${choice}`;
+  
+    return `<button class="jspsych-btn bg-gray-300 hover:bg-gray-400 active:bg-gray-500 text-gray-800 font-bold py-2 md:py-3 lg:py-4 px-4 md:px-8 lg:px-12 rounded focus:outline-none focus:shadow-outline">${str}</button>`;
+  }
+
+  generate_block(stim_design, html_callback) {
+    const results = stim_design.map(item => {
+      const newItem = { ...item };
+      newItem["html"] = html_callback(newItem);
+      return newItem;
+    });
+    return results;
+  };
+}
+
+/**============================================
+ *               定义全局数据变量
+ *=============================================**/
+// index.html?test=true&id=5
+// 使用window.location.search获取查询字符串
+const queryString = window.location.search;
+// 使用new URLSearchParams解析查询字符串
+const urlParams = new URLSearchParams(queryString);
+// 获取参数值
+const testMode = urlParams.get('test')=="true"?true:false
+const userId = parseInt(urlParams.get('id'));
+console.log("userId: ", userId, 'testMode: ',testMode)
+
+const all_blocks_results = {}
+const is_PC = true
+let pactice_pass_acc
+let nreps_stim_prac
+let nreps_stim_test
+let nreps_block_test
+let n_all_blocks
+if (testMode) {
+  n_all_blocks = 4
+  nreps_stim_prac = 1;
+  nreps_stim_test = 1;
+  nreps_block_test = 2;
+  pactice_pass_acc=0;
+} else {
+  n_all_blocks = 10
+  nreps_stim_prac = 5;
+  nreps_stim_test = 10;
+  nreps_block_test = 5;
+  pactice_pass_acc=85; // 85%
+}
+
+
+// 定义实验设计
+const keyBalance = [
+  {"key": ['q', 'p'],"label": ['圆', '方']},
+  {"key": ['q', 'p'],"label": ['方', '圆']},
+  {"key": ['q', 'p'],"label": ['match', 'mismatch']},
+  {"key": ['q', 'p'],"label": ['mismatch', 'match']},
+]
+const designGenerator = new DesignGenerator(userId)
+const session_design = designGenerator.generateCombo(
+  {
+    session_order: [["shape", "matchness"], ["matchness", "shape"]],
+    key_balance: [
+      [keyBalance[0], keyBalance[2]],
+      [keyBalance[0], keyBalance[3]],
+      [keyBalance[1], keyBalance[2]],
+      [keyBalance[1], keyBalance[3]],
+    ]
+  }
+)
+const exp_bw_cond = designGenerator.selectCondition(session_design)
+const htmlGenerator = new HtmlGenerator()
+
+// 定义实验变量
+const stimHtmlFunc = (input) => {
+
+const stimOptions = {
+  "圆": `<div class="circle"></div>`,
+  "方": `<div class="square"></div>`,
+};
+const { ismatch, target } = input
+const targetStim = stimOptions[target];
+const otherOptionKey = target === '圆' ? '方' : '圆';
+const flankerStim = ismatch === 'match' ? targetStim : stimOptions[otherOptionKey];
+
+const stim_html = `<div class="flex flex-row stim-length pb-8 md:pd-20 justify-evenly items-center">${flankerStim}${targetStim}${flankerStim}</div>`;
+
+return stim_html;
+};
+const stimGenerator = new DesignGenerator(userId)
+let stim_design = stimGenerator.generateCombo({ ismatch: ['mismatch', 'match'], target: ['圆', '方'] })
+
+function saveJsonToFile(jsonData, filename) {
+  // 将JSON对象转换为字符串
+  const jsonString = JSON.stringify(jsonData);
+
+  // 创建Blob对象，类型为application/json
+  const blob = new Blob([jsonString], { type: "application/json" });
+
+  // 创建一个链接元素用于下载
+  const link = document.createElement("a");
+  link.href = window.URL.createObjectURL(blob);
+  link.download = filename.endsWith('.json') ? filename : `${filename}.json`;
+
+  // 模拟点击下载
+  document.body.appendChild(link);
+  link.click();
+
+  // 清理：移除链接并释放创建的URL对象
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(link.href);
+}
+
+//初始化jsPsych
+const jsPsych = initJsPsych({
+  use_webaudio: false,
+  on_finish: async (data) => {
+    if (testMode) jsPsych.data.displayData("csv");
+    
+    jsPsych.data.addProperties({subj_id: userId})
+    jsPsych.data.get().localSave("csv", `subj${userId}_matching-task1.csv`);
+    
+    // 保存 all_blocks_results 为 json 文件
+    saveJsonToFile(all_blocks_results, `subj${userId}_matching-task1.json`);
+    // jsPsych.data.addProperties(all_blocks_results)
+    // jsPsych.data.get().localSave("json", `subj${userId}_matching-task1.json`);
+  }
+});
+
+// some pre-exp checks
+const enter_fullscreen = {
+  type: jsPsychFullscreen,
+  message: `<div class="mx-auto px-8">实验需要全屏模式，请点击按钮进入全屏模式</div>`,
+  button_label: htmlGenerator.generateButton("继续"),
+  fullscreen_mode: true
+};
+const exit_fullscreen = {
+  type: jsPsychFullscreen,
+  message: `<div class="mx-auto px-8">退出全屏</div>`,
+  fullscreen_mode: false,
+  delay_after: 1500
+};
+// var chinrest = {
+//   type: jsPsychVirtualChinrest,
+//   blindspot_reps: 3,
+//   resize_units: "cm",
+//   pixels_per_unit: 50
+// };
+// 实验指导语和结束语等
+const instrucGenerator = (keyMap, session)=>{
+  return {
+    type: jsPsychHtmlKeyAndButtonPlugin,
+    stimulus: () => {
+      let str = `
+        <div class="jp px-2 xxs:px-5 mx-auto">
+        <p class="text-center text-red-600 text-[1.2em] pb-5">欢迎您参加知觉
+          <strong>${session=="matchness"?"匹配":"判断"}实验。</strong>
+        </p>
+        <p>接下来的任务中您将看到一排图形。</p>
+        <p>(圆形●或方形■)</p>`
+      if (session=="matchness"){
+        str += `<p>您需要专注于中间的图形，判断中间的图形和两侧的图形<strong>是否匹配</strong>。</p>
+        <p>如果图形${keyMap.label[0]=="match"?"匹配":"不匹配"}，请按“${keyMap.key[0]}”；</p>
+        <p>如果图形${keyMap.label[1]=="match"?"匹配":"不匹配"}，请按“${keyMap.key[1]}”。</p>
+        `
+      }else{
+        str += `<p>您的任务是<strong>忽略两侧的图形，专注于中间的图形</strong>。</p>
+        <p>如果中间的图形是${keyMap.label[0]}，请按“${keyMap.key[0]}”；</p>
+        <p>如果是${keyMap.label[1]}，请按“${keyMap.key[1]}”。</p>`
+      }
+      str += `<p>请尽量又快又准地做出反应。</p>
+      <p>请按空格键开始练习。</p>
+      </div>`
+      return str
+    },
+    choices: [" "],
+    button_html: htmlGenerator.generateButton
+  }
+};
+const formal_test_instruc = {
+    type: jsPsychHtmlKeyAndButtonPlugin,
+    stimulus: () => {
+      let str = `
+        <div class="jp px-2 xxs:px-5 mx-auto">
+        <p class="text-center text-red-600 text-[1.2em] pb-5">练习结束，现在开始正式实验</p>
+        <p>请注意：正式实验中将不再会呈现反馈。</p>
+        </div>
+        `
+      return str
+    },
+    choices: [" "],
+    button_html: htmlGenerator.generateButton
+  };
+const end_instruc = {
+  type: jsPsychHtmlKeyAndButtonPlugin,
+  stimulus: () => {
+    let str = `
+      <div class="px-2 xxs:px-5 mx-auto">
+      <p class="text-center text-red-600 text-[1.2em] pb-5">任务结束，期待下次再见。</p></div>
+      `
+    return str
+  },
+  choices: [" "],
+  button_html: htmlGenerator.generateButton,
+  on_finish: () => {
+    console.log('all_blocks_results',all_blocks_results)
+  }
+};
+
+/**============================================
+ *               生成实验 block
+ *=============================================**/
+let block_counter = 0
+const BlockGenerator = (
+  stim_design,
+  keyMap,
+  judgment_aim = "shape", // "shape" or "matchness"
+  task_name = "test",
+  nreps_stim = 2,
+  nreps_block = 1,
+  loop_by_acc = pactice_pass_acc, // False or number
+  trial_feedback_conf = {is_show: true, min_rt: 200, max_rt: 1500, duration: 500},
+  show_block_feedback = true,
+  is_countDown = true,
+  fixation_duration = 500,
+  stim_duration = 2000,
+) => {
+  /**============================================
+   *               定义全局闭包变量
+   *=============================================**/
+  let practice_counter = 0
+  const block_results = []
+
+  /**============================================
+   *               定义函数
+   *=============================================**/
+  const get_task_name = (task_name)=>{
+    let task_name2 = task_name
+    if (practice_counter>0) task_name2 += `_${practice_counter}`
+    if (block_counter>0) task_name2 += `_${block_counter}`
+
+    return task_name2
+  };
+  const get_last_block_res = () => {
+    return block_results[block_results.length - 1]
+  }
+  const html_loop_by_acc = ()=>`<div class="jp"><p>您的正确率${get_last_block_res().accuracy}%低于最低标准${loop_by_acc}%！</p><p>请重复进行练习</p><div>`;
+  const html_block_feedback = ()=>{
+    let str = ""
+    if (n_all_blocks > 1 & task_name.includes("test") ){
+      str += `<p>您已完成${block_counter+1}/${n_all_blocks}部分</p>`
+      if (block_counter < n_all_blocks - 1) str += '<p>请休息一会儿</p>'
+      else str += '<p>恭喜您完成全部任务！</p>'
+    } 
+    str += `
+    <p>您的正确率是：${get_last_block_res().accuracy}%</p>
+    <p>您的平均反应时间是：${get_last_block_res().rt}毫秒</p>`
+
+    return `<div class="jp">${str}</div>`
+  };
+
+  /**============================================
+   *               定义试次
+   *=============================================**/
+  const count_down = {
+    type: jsPsychHtmlKeyAndButtonPlugin,
+    stimulus: `<count-down title=""></count-down>`,
+    trial_duration: 3200,
+    data: {trail_tag: 'countDown_trial'},
+    choices: "NO_KEYS"
+  }
+  // NOTE: 需要根据刺激的高度调整 pd
+  const trial_fixation = {
+    type: jsPsychHtmlKeyAndButtonPlugin,
+    stimulus: () => `<div class="pb-14 text-7xl">+</div>`,
+    data: {trail_tag: 'fixation'},
+    choices: "NO_KEYS",
+    // trial_duration: 1000000
+    trial_duration: fixation_duration
+  };
+  const trial_matching = {
+    type: jsPsychHtmlKeyAndButtonPlugin,
+    stimulus:  () => {
+      const target = jsPsych.evaluateTimelineVariable('target');
+      const ismatch = jsPsych.evaluateTimelineVariable('ismatch');
+      
+      return stimHtmlFunc({target, ismatch});
+    },
+    data: { task: task_name },
+    on_finish: function (data) {
+      const target = jsPsych.evaluateTimelineVariable('target');
+      const ismatch = jsPsych.evaluateTimelineVariable('ismatch');
+      data.ismatch = ismatch;
+      data.target = target;
+      
+      if (judgment_aim == "shape") {
+        data.correct_key = designGenerator.findKeyByLabel(target, keyMap);
+      } else if (judgment_aim == "matchness") {
+        data.correct_key = designGenerator.findKeyByLabel(ismatch, keyMap);
+      }
+
+      const correct = data.response == data.correct_key;
+      data.correct = correct;
+      data.response_key = designGenerator.findLabelByKey(data.response, keyMap);
+
+      data.task = get_task_name(task_name)
+    },
+    choices: ['q', 'p'],
+    show_button: !is_PC,
+    // show_button: true,
+    button_html: (choice, choice_index) => htmlGenerator.generateButton(choice, choice_index, keyMap),
+    trial_duration: stim_duration
+  };
+  const trial_feedback = {
+    type: jsPsychHtmlKeyAndButtonPlugin,
+    data: { trail_tag: "trial_feedback" },
+    stimulus: function () {
+
+      const last_data = jsPsych.data.get().last(1).values()[0]
+      // console.log('last_data', last_data)
+      let time = last_data.rt;
+      if (time > trial_feedback_conf.max_rt || time === null) { //大于1500或为null为过慢
+        return `<span class='text-yellow-500 text-4xl md:text-5xl lg:text-6xl'>太慢!</span>`
+      } else if (time < trial_feedback_conf.min_rt) { //小于两百为过快反应
+        return `<span class='text-yellow-500 text-4xl md:text-5xl lg:text-6xl'>过快!</span>`
+      } else {
+        if (last_data.correct == 1) { //如果按键 == 正确按键
+          return `<span class='text-green-400 text-4xl md:text-5xl lg:text-6xl'>正确!</span>`
+        } else {
+          return `<span class='text-red-500 text-4xl md:text-5xl lg:text-6xl'>错误!</span>`
+        }
+      }
+    },
+    choices: "NO_KEYS",
+    trial_duration: trial_feedback_conf.duration
+  };
+  const block_feeback = {
+    type: jsPsychHtmlKeyAndButtonPlugin,
+    data: { trail_tag: "block_feedback" },
+    choices: [" "],
+    stimulus: html_block_feedback,
+    button_html: htmlGenerator.generateButton,
+    on_finish: ()=>{
+      if (task_name.includes("test")) block_counter++
+    }
+  };
+
+  /**============================================
+   *               定义 timeline
+   *=============================================**/
+  // 主要试次呈现部分
+  let trials_list = [trial_fixation, trial_matching]
+  if (trial_feedback_conf.is_show) trials_list.push(trial_feedback)
+  let test_timeline = {
+    timeline: trials_list,
+    randomize_order: true,
+    repetitions: nreps_stim,
+    timeline_variables: stim_design,
+    on_timeline_finish: function () {
+      
+      const task_name2 = get_task_name(task_name)
+      const trials = jsPsych.data.get().filter({ task: task_name2 });
+      const correct_trials = trials.filter({ correct: true });
+      const accuracy = Math.round((correct_trials.count() / trials.count()) * 100);
+      const rt = Math.round(trials.select('rt').mean());
+      const rt_std =  Math.round(trials.select('rt').sd());
+
+      block_results.push({ task: task_name2,accuracy:accuracy, rt:rt, rt_sd:rt_std })
+      console.log('each block', task_name2, block_results, practice_counter, block_counter)
+    }
+  };
+  // 添加其他组件生成 block
+  let block_list = []
+  if (is_countDown) block_list.push(count_down)
+  block_list.push(test_timeline)
+  // 根据正确率决定是否进入下一个 block
+  if (loop_by_acc){
+    const conditional_feedback_node = {
+      timeline: [
+        {
+          type: jsPsychHtmlKeyAndButtonPlugin,
+          data: { trail_tag: "loop_feedback" },
+          stimulus: html_loop_by_acc,
+          choices: [" "],
+          button_html: htmlGenerator.generateButton
+        }
+      ],
+      conditional_function: () => get_last_block_res().accuracy < loop_by_acc
+    }
+    block_list.push(conditional_feedback_node)
+    const loop_node = {
+      timeline: block_list,
+      loop_function: () => {
+        const acc = get_last_block_res().accuracy
+        const isLoop = acc < loop_by_acc
+        if (isLoop) practice_counter++
+        return isLoop
+      }
+    }
+    block_list = [loop_node]
+  };
+  if (show_block_feedback) block_list.push(block_feeback)
+
+  return {
+    timeline: block_list,
+    repetitions: nreps_block,
+    on_timeline_finish: ()=>{
+      
+      all_blocks_results[task_name] = block_results
+      console.log('end of block', all_blocks_results, block_counter, practice_counter)
+    }
+  }
+};
+
+/**============================================
+ *               生成 timeline
+ *=============================================**/
+const timeline = []
+timeline.push(enter_fullscreen)
+const add_block = ()=>{
+  exp_bw_cond.session_order.forEach((session, index) => {
+    const keyMap = exp_bw_cond.key_balance[session=="shape"?0:1]
+    timeline.push(...[
+      instrucGenerator(keyMap, session),
+      // practice
+      BlockGenerator(
+        stim_design, 
+        keyMap, 
+        session,                  // judgment_aim
+        `${session}_practice`,    // task_name
+        nreps_stim_prac,                        // nreps_stim = 5,
+      ),
+      // test
+      formal_test_instruc,
+      BlockGenerator(
+        stim_design, 
+        keyMap, 
+        session,             // judgment_aim
+        `${session}_test`,   // NOTE: task_name: must include "test" for block counter down
+        nreps_stim_test,                   // nreps_stim = 10,
+        nreps_block_test,                   // nreps_block = 5
+        false,               // loop_by_acc = False
+        {is_show:false},     // trial_feedback_conf
+      )
+    ])
+  });
+}
+add_block()
+
+timeline.push(
+  end_instruc,
+  exit_fullscreen
+)
+
+jsPsych.run(timeline);
+
+
+</script>
+
+</html>

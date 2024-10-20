@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RDK_COLOR</title>
+
+  <script src="jspsych-7.0//plugins/jspsych.js"></script>
+  <script src="jspsych-7.0//plugins/plugin-html-keyboard-response.js"></script>
+  <!-- <script src="https://www.naodao.com/public/experiment/libs/plugin/plugin-categorize-html.js"></script> -->
+  <!-- <script src="https://unpkg.com/@jspsych/plugin-virtual-chinrest@2.0.3"></script> -->
+  <script src="jspsych-7.0//plugins/plugin-html-button-response.js"></script>
+  <script src="jspsych-7.0//plugins/plugin-survey-text.js"></script>
+  <script src="jspsych-7.0//plugins/index_browser_rdkmin.js"></script>
+  <script src="jspsych-7.0//plugins/plugin-preload.js"></script>
+  <script src="jspsych-7.0//plugins/plugin-fullscreen.js"></script>
+  <script src="jspsych-7.0//plugins/plugin-survey1.js"></script>
+
+  <link rel='stylesheet' href="jspsych-7.0//css/jspsych.css">
+  <link rel="stylesheet" href="jspsych-7.0//css/survey.css">
+  <style>
+    .jspsych-display-element {
+      font-size: 22px;
+      color: black;
+    }
+
+    ;
+
+    .jspsych-content {
+      max-width: 80%;
+    }
+
+    ;
+  </style>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+  let userId;
+  // 使用 window.location.search 获取查询字符串
+  const queryString = window.location.search;
+  // 使用 new URLSearchParams 解析查询字符串
+  const urlParams = new URLSearchParams(queryString);
+  // 获取参数值
+  userId = parseInt(urlParams.get('id'));
+
+  //---------initialize--------
+
+
+  var jsPsych = initJsPsych({
+    on_finish: function () {
+      jsPsych.data.get().localSave('csv',`${userId}.csv`);
+    },
+    default_iti: 1000,
+  });
+
+  var randomInteger = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+  };
+
+
+  // the body of the experiment
+
+  var main_timeline = [];
+
+  var move = {
+    timeline: []
+  };
+
+  var color = {
+    timeline: []
+  };
+
+  var fullScreen = {
+    type: jsPsychFullscreen,
+    fullscreen_mode: true,
+    message: "<p>实验需要全屏模式，实验期间请勿退出全屏</P>",
+    button_label: " <span class='add_' style='color:black; font-size: 20px'> 点击这里进入全屏</span>",
+    data: {
+      part: "fullScreen"
+    },
+  };
+
+  //---------Create instructions---------
+
+
+  var end = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+        <div style="text-align: center; color: white; padding: 20px; font-size: 35px">
+          <p>您已完成实验，按下空格或 5 秒后自动退出</p >
+        </div>
+        `,
+    trial_duration: 5000,
+    response_ends_trial: true,
+    choices: " ",
+    on_start: function() {
+      document.body.style.backgroundColor = "black";
+    },
+    on_finish: function () {
+      document.body.style.cursor = "default";
+    },
+    data: {
+      part: "instruction_end"
+    },
+  };
+
+  //---------Create VirtualChinrest---------
+
+
+  //---------collecte perticipent's information---------
+
+  const information = {
+    type: jsPsychSurvey,
+    survey_json: {
+      showQuestionNumbers: true, title: "请填写基本信息", completeText: "提交", pageNextText: "继续", pagePrevText: "返回", 
+      pages: [
+        {
+          name: "page1",
+          elements: [
+            {
+              type: "text",
+              title: "请填入你的被试编号",
+              name: "subjectID",
+              isRequired: true,
+              inputType: "number",
+              min: 0,
+              max: 100000
+            },
+            {
+              type: "radiogroup",
+              title: "性别",
+              choices: ["男", "女"],
+              isRequired: true,
+              showNoneItem: false,
+              showOtherItem: false,
+              colCount: 0,
+              name: "sex"
+            }
+          ]
+        },
+        /*{
+          name: "page2",
+          elements: [
+            {
+              type: 'text',
+              title: "年龄",
+              name: "age",
+              isRequired: true,
+              inputType: "number",
+              min: 0,
+              max: 100
+            },
+            {
+              type: "radiogroup",
+              title: "利手或惯用手",
+              choices: ["左", "右"],
+              isRequired: true,
+              showNoneItem: false,
+              showOtherItem: false,
+              colCount: 0,
+              name: "hands"
+            },
+            {
+              type: "radiogroup",
+              title: "是否为色盲或色弱",
+              choices: ["色盲", "色弱", "都不是", "不确定"],
+              isRequired: true,
+              showNoneItem: false,
+              showOtherItem: false,
+              colCount: 0,
+              name: "color_blindness"
+            }
+          ]
+        }*/
+      ]
+    },
+    data: {
+      part: "survey"
+    },
+    on_finish: function (data) {
+      //window.subjectIdGlobal = data.response.subjectID;  //在这里获得被试id，把它存储为一个全局变量，用作之后的条件分配
+    }
+  };
+
+
+
+
+  var coherence_85 = 0.4;
+  var coherence_65 = 0.3;
+  var correctCount = 0; // 正确回答计数
+  var incorrectCount = 0; // 错误回答计数
+  var stepSize = 0.05; // 连贯性调整步长
+  var trial_numbers1 = 0;
+  var trial_numbers2 = 0;
+  var trial_numbers3 = 0;
+  var trial_numbers4 = 0;
+
+
+  var fixation = { 
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: "<p style='font-size: 48px; color: white'>+</p >",
+    trial_duration: 500,
+    choices: "NO-KEYS",
+    on_start: function() {
+      document.body.style.backgroundColor = "black";
+    },
+    data: {
+     part: "fixation"
+    }
+  };
+
+  // 运动方向判断任务
+
+  //指导语
+
+  var instruction_RDK_beginning = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+      <div style="text-align: left; color: white; padding: 10px"> 
+        <h3 style="text-align: center; font-size: 30px; margin: 10px">任务一：运动方向判断</h3>
+        <p>接下来，屏幕上会呈现一些运动的圆点，</p>
+        <p>大约 <span style="font-weight: bold">0.2秒</span> 后会有一定比例的点 <span style="font-weight: bold">向左或向右运动</span> ，</p >
+        <p>您需要在3秒内判断 <span style="font-weight: bold">散点图的整体（即大多数点）运动方向是向左 还是向右</span>:</p >
+        <ul>
+          <li><span style="font-weight: bold">向左</span>，请按键盘 <span style="font-weight: bold">左键</span></li>
+          <li><span style="font-weight: bold">向右</span>，请按键盘 <span style="font-weight: bold">右键</span> </li>
+        </ul>
+        <p>请按下空格键开始</p>
+      </div>`,
+    on_start: function() {
+      document.body.style.backgroundColor = "black";
+      document.body.style.cursor = 'none';
+    },
+    response_ends_trial: true,
+    choices: " ",
+    data: {
+      part: "instruction_RDK_beginning", 
+    }
+  };
+  
+  move.timeline.push(instruction_RDK_beginning);
+
+  //运动方向判断任务的不同条件
+
+  var conditions_RDK_selfLeft = [
+    { coherent_direction: 180, correct_choice: "ArrowLeft"},
+    { coherent_direction: 180, correct_choice: "ArrowLeft"},
+    { coherent_direction: 0, correct_choice: "ArrowRight"},
+    { coherent_direction: 0, correct_choice: "ArrowRight" },
+  ];
+
+  var conditions_RDK_selfRight = [
+    { coherent_direction: 180, correct_choice: "ArrowLeft"},
+    { coherent_direction: 180, correct_choice: "ArrowLeft"},
+    { coherent_direction: 0, correct_choice: "ArrowRight"},
+    { coherent_direction: 0, correct_choice: "ArrowRight"},
+  ];
+
+  //主要呈现的刺激
+
+  var move_85 = {
+    type: jsPsychRdk,
+    number_of_apertures: 1,
+    post_trial_gap: 500,
+    number_of_dots: 100,
+    RDK_type: 3,
+    dot_color_beforeOne: "hsl(225, 50%, 50%)",
+    dot_color_beforeTwo: "hsl(0, 50%, 50%)",
+    choices: ["ArrowRight", "ArrowLeft"],
+    correct_choice: function () { return jsPsych.timelineVariable("correct_choice") },
+    coherent_direction: function () { return jsPsych.timelineVariable("coherent_direction") },
+    coherence: function () { return coherence_85 },
+    dot_radius: 5.7,
+    move_distance: 3,
+    //aperture_type: 1,
+    aperture_width: 600,
+    aperture_height: 600,
+    aperture_center_y: 330,
+    aperture_center_x: 600,
+    background_color: "black",
+    trial_duration: 3000,
+    move_delay: randomInteger(6, 12),
+    dot_color_delay: 3000,
+    data: {
+      part: "move_85",
+      task: "response",
+      coherence_85: coherence_85,
+    },
+    on_start: function() {
+      /*var displayElement = jsPsych.getDisplayElement();
+      // 1000毫秒后隐藏刺激
+      setTimeout(function() {
+        var elements = displayElement.querySelectorAll("*");
+        elements.forEach(function(el) {
+          el.style.display = 'none';
+        });
+      }, 3000);*/
+    },
+    on_finish: function (data) {
+      trial_numbers1++;
+      data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_choice);
+      var trial_data = jsPsych.data.get().last(1).values()[0];
+      var correct = trial_data.correct;
+      var trials = jsPsych.data.get().filter({ task: 'response' }).last(8)
+      var correct_trials = trials.filter({ correct: true });
+      var accuracy_85 = Math.round(correct_trials.count() / trials.count() * 100);
+      if (trial_numbers1 <= 20) {
+        coherence_85 = 0.3;
+      } else if (trial_numbers1 > 20 && trial_numbers1 <= 40) {
+        coherence_85 = 0.25;
+      } else if (trial_numbers1 > 40 && trial_numbers1 <= 60) {
+        coherence_85 = 0.2;
+      };
+      console.log("coherence_85:", coherence_85);
+
+      jsPsych.data.addProperties({ coherence_85: coherence_85 });
+      return {
+       coherence_85
+      };
+    }
+  };
+
+
+  var move_65 = {
+    type: jsPsychRdk,
+    number_of_apertures: 1,
+    post_trial_gap: 500,
+    number_of_dots: 100,
+    RDK_type: 3,
+    dot_color_beforeOne: "hsl(225, 50%, 50%)",
+    dot_color_beforeTwo: "hsl(0, 50%, 50%)",
+    choices: ["ArrowRight", "ArrowLeft"],
+    correct_choice: function () { return jsPsych.timelineVariable("correct_choice") },
+    coherent_direction: function () { return jsPsych.timelineVariable("coherent_direction") },
+    coherence: function () { return coherence_65 },
+    dot_radius: 5.7,
+    move_distance: 3,
+    //aperture_type: 1,
+    aperture_width: 600,
+    aperture_height: 600,
+    aperture_center_y: 330,
+    aperture_center_x: 600,
+    background_color: "black",
+    trial_duration: 3000,
+    move_delay: randomInteger(6, 12),
+    dot_color_delay: 3000,
+    data: {
+      part: "move_65",
+      task: "response",
+      coherence_65: coherence_65,
+    },
+    on_start: function() {
+      /*var displayElement = jsPsych.getDisplayElement();
+      // 1000毫秒后隐藏刺激
+      setTimeout(function() {
+        var elements = displayElement.querySelectorAll("*");
+        elements.forEach(function(el) {
+          el.style.display = 'none';
+        });
+      }, 3000);*/
+    },
+    on_finish: function (data) {
+      trial_numbers2++;
+      data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_choice);
+      /*var trial_data = jsPsych.data.get().last(1).values()[0];
+      var correct = trial_data.correct;
+      var trials = jsPsych.data.get().filter({ task: 'response' }).last(8)
+      var correct_trials = trials.filter({ correct: true });
+      var accuracy_65 = Math.round(correct_trials.count() / trials.count() * 100);*/
+      if (trial_numbers2 <= 20) {
+        coherence_65 = 0.15;
+      } else if (trial_numbers2 > 20 && trial_numbers2 <= 40) {
+        coherence_65 = 0.1;
+      } else if (trial_numbers2 > 40 && trial_numbers2 <= 60) {
+        coherence_65 = 0.05;
+      };
+      console.log("coherence_65:", coherence_65);
+
+      jsPsych.data.addProperties({ coherence_65: coherence_65 });
+      return {
+       coherence_65
+      };
+    }
+  };
+
+
+
+  //设置反馈
+
+  var feedbackBlock_RDK = {
+    type: jsPsychHtmlKeyboardResponse,
+    trial_duration: 3000,
+    stimulus: function () {
+      var trials = jsPsych.data.get().filter({ task: 'response' }).last(20)
+      var correct_trials = trials.filter({ correct: true });
+      var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+      console.log("ACC:", accuracy);
+      return `<p style='font-size: 35px; color: white'>这组测试中，您的正确率为： ${accuracy}% </p>`;
+    }
+  };
+
+  //测试阶段的任务--------方向判断
+
+  var formal_block_RDK_selfLeft = {
+    timeline: [
+      {
+        timeline: [fixation, move_85],
+        timeline_variables: conditions_RDK_selfLeft,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK,
+      {
+        timeline: [fixation, move_85],
+        timeline_variables: conditions_RDK_selfLeft,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK,
+      {
+        timeline: [fixation, move_85],
+        timeline_variables: conditions_RDK_selfLeft,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK,
+      {
+        timeline: [fixation, move_65],
+        timeline_variables: conditions_RDK_selfLeft,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK,
+      {
+        timeline: [fixation, move_65],
+        timeline_variables: conditions_RDK_selfLeft,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK,
+      {
+        timeline: [fixation, move_65],
+        timeline_variables: conditions_RDK_selfLeft,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK,
+    ]
+  };
+  
+  var formal_block_RDK_selfRight = {
+    timeline: [
+      {
+        timeline: [fixation, move_65],
+        timeline_variables: conditions_RDK_selfRight,
+        repetitions: 25,
+        randomize_order: true
+      },
+      feedbackBlock_RDK,
+      {
+        timeline: [fixation, move_85],
+        timeline_variables: conditions_RDK_selfRight,
+        repetitions: 25,
+        randomize_order: true
+      },
+      feedbackBlock_RDK,
+    ]
+  };
+  
+  var formal_RDK_selfLeft = {
+    timeline: [formal_block_RDK_selfLeft],
+    conditional_function: function(){
+      if (userId % 2 === 0) {
+        console.log("formal_selfLeft");
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+  
+  var formal_RDK_selfRight = {
+    timeline: [formal_block_RDK_selfRight],
+    conditional_function: function(){
+      if (userId % 2 !== 0) {
+        console.log("formal_selfRight");
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+  
+  
+  var formal_block_RDK= { 
+    timeline: [formal_RDK_selfLeft, formal_RDK_selfRight]
+  };
+  
+  move.timeline.push(formal_block_RDK);
+
+  // 整体颜色判断任务
+
+  var x_85 = 80; // x 代表第一个 aperture 的点数
+  var y_85 = 20; // y 代表第二个 aperture 的点数
+  var x_65 = 60;
+  var y_65 = 40;
+  var stepSize2 = 5
+  var choice = "d";
+  var dot_color_after = ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"];
+
+  //指导语
+
+  var instruction_RDK_beginning = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+        <div style="text-align: left; color: white; padding: 10px"> 
+          <h3 style="text-align: center; font-size: 30px; margin: 10px">任务二：整体颜色判断</h3>
+          <p>接下来，屏幕上会呈现一些运动的圆点，其中一半为 <span style="color: hsl(0, 50%, 50%)">红色</span> ，一半为 <span style="color: hsl(225, 50%, 50%)">蓝色</span>，</p>
+          <p><span style="font-weight: bold">大约0.2秒后,</span>  一部分点会随机变为另一种颜色（例如从红色变为蓝色），变化后某种颜色的数量会超过另一种。</p >
+          <p>您需要在3秒内判断 <span style="font-weight: bold">变化后，散点图的整体颜色（即大多数点的颜色）是红色还是蓝色 </span>：</p >
+          <ul>
+            <li>整体为 <span style="color: hsl(0, 50%, 50%)">红色</span>，请按键盘 <span style="color: hsl(0, 50%, 50%)">"D" 键</span></li>
+            <li>整体为 <span style="color: hsl(225, 50%, 50%)">蓝色</span>，请按键盘 <span style="color: hsl(225, 50%, 50%)">"k" 键</span> </li>
+          </ul>
+          <p>请按下空格键开始</p>
+        </div>`,
+    on_start: function() {
+      document.body.style.backgroundColor = "black";
+      document.body.style.cursor = 'none';
+    },
+    response_ends_trial: true,
+    choices: " ",
+    data: {
+      part: "instruction_RDK_beginning",
+    }
+  };
+  
+  color.timeline.push(instruction_RDK_beginning);
+  
+  //整体颜色判断任务的不同条件
+  
+  var conditions_RDK_selfRed = [
+    { number_of_dots: [80, 20], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d"},
+    { number_of_dots: [75, 25], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d"},
+    { number_of_dots: [70, 30], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d"},
+    { number_of_dots: [80, 20], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "k"},
+    /*{ number_of_dots: [75, 25], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k"},
+    { number_of_dots: [70, 30], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k"},*/
+  ];
+  
+  var conditions_RDK_selfBlue = [
+    { number_of_dots: [80, 20], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d"},
+    { number_of_dots: [75, 25], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d"},
+    { number_of_dots: [70, 30], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d"},
+    { number_of_dots: [80, 20], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "k"},
+    /*{ number_of_dots: [75, 25], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k"},
+    { number_of_dots: [70, 30], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k"},*/
+  ];
+
+
+  //主要呈现的刺激
+  
+  var color_85 = {
+    type: jsPsychRdk,
+    number_of_apertures: 2,
+    post_trial_gap: 500,
+    number_of_dots: [function () { return x_85 }, function () { return y_85 }],
+    RDK_type: 3,
+    choices: ["d", "k"],
+    correct_choice: function () { return choice  },
+    dot_color_beforeOne: "hsl(225, 50%, 50%)",
+    dot_color_beforeTwo: "hsl(0, 50%, 50%)",
+    dot_color_after: function () { return jsPsych.timelineVariable("dot_color_after") },
+    coherent_direction: 0,
+    coherence: 0,
+    dot_radius: 5.7,
+    move_distance: 3,
+    //aperture_type: 1,
+    aperture_width: 600,
+    aperture_height: 600,
+    aperture_center_y: 330,
+    aperture_center_x: 600,
+    background_color: "black",
+    trial_duration: 3000,
+    move_delay: randomInteger(6, 12),
+    data: {
+      part: "color_85",
+      task: "response"
+    },
+    on_start: function() {
+      /*var displayElement = jsPsych.getDisplayElement();
+      // 1000毫秒后隐藏刺激
+      setTimeout(function() {
+        var elements = displayElement.querySelectorAll("*");
+        elements.forEach(function(el) {
+          el.style.display = 'none';
+        });
+      }, 100000);
+      */
+        
+    },
+    on_finish: function (data) {
+      trial_numbers3++;
+      data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_choice);
+      /*var trial_data = jsPsych.data.get().last(1).values()[0];
+      var correct = trial_data.correct;
+      var trials = jsPsych.data.get().filter({ task: 'response' }).last(8)
+      var correct_trials = trials.filter({ correct: true });
+      var accuracy_85 = Math.round(correct_trials.count() / trials.count() * 100);*/
+      let state;
+      if (Math.random() < 0.5) {
+        state = 'a';
+      } else {
+        state = 'b';
+      };
+      if (trial_numbers3 <= 20) {
+        if (state === 'b') {
+          x_85 = 80; y_85 = 20; choice = "d"; dot_color_after = ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]
+        } else {
+          x_85 = 20; y_85 = 80; choice = "k"; dot_color_after = ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]
+        }
+      } else if (trial_numbers3 > 20 && trial_numbers3 <= 40) {
+        if (state === 'a') {
+          x_85 = 75; y_85 = 25; choice = "d"; dot_color_after =  ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]
+        } else {
+          x_85 = 25; y_85 = 75; choice = "k"; dot_color_after =  ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]
+        }
+      } else if (trial_numbers3 > 40 && trial_numbers3 <= 60) {
+        if (state === 'b') {
+          x_85 = 70; y_85 = 30; choice = "d"; dot_color_after = ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]
+        } else {
+          x_85 = 30; y_85 = 70; choice = "k"; dot_color_after = ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]
+        }
+      };
+      console.log("number_of_dots_85:", [x_85, y_85]);
+      jsPsych.data.addProperties({ number_of_dots_85: [x_85, y_85] });
+      return {
+        x_85,
+        y_85,
+        choice,
+        dot_color_after
+      };
+    }
+  };
+
+  var color_65 = {
+    type: jsPsychRdk,
+    number_of_apertures: 2,
+    post_trial_gap: 500,
+    number_of_dots: [function () { return x_65 }, function () { return y_65 }],
+    RDK_type: 3,
+    choices: ["d", "k"],
+    correct_choice: function () { return jsPsych.timelineVariable("correct_choice") },
+    dot_color_beforeOne: "hsl(225, 50%, 50%)",
+    dot_color_beforeTwo: "hsl(0, 50%, 50%)",
+    dot_color_after:  ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"] ,//function () { return dot_color_after },
+    coherent_direction: 0,
+    coherence: 0,
+    dot_radius: 5.7,
+    move_distance: 3,
+    //aperture_type: 1,
+    aperture_width: 600,
+    aperture_height: 600,
+    aperture_center_y: 330,
+    aperture_center_x: 600,
+    background_color: "black",
+    trial_duration: 3000,
+    move_delay: randomInteger(6, 12),
+    data: {
+      part: "color_65",
+      task: "response"
+    },
+    on_start: function() {
+      /*var displayElement = jsPsych.getDisplayElement();
+      // 1000毫秒后隐藏刺激
+      setTimeout(function() {
+        var elements = displayElement.querySelectorAll("*");
+        elements.forEach(function(el) {
+          el.style.display = 'none';
+        });
+      }, 100000);
+      */   
+    },
+    on_finish: function (data) {
+      trial_numbers4++;
+      data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_choice);
+      var trial_data = jsPsych.data.get().last(1).values()[0];
+      var correct = trial_data.correct;
+      var trials = jsPsych.data.get().filter({ task: 'response' }).last(8)
+      var correct_trials = trials.filter({ correct: true });
+      var accuracy_65 = Math.round(correct_trials.count() / trials.count() * 100);
+      let state;
+      if (Math.random() < 0.5) {
+        state = 'a';
+      } else {
+        state = 'b';
+      };
+      if (trial_numbers4 <= 20) {
+        if (state === 'a') {
+          x_65 = 65; y_65 = 35; choice = "d";
+        } else {
+          x_65 = 35; y_65 = 65; choice = "k";
+        }
+      } else if (trial_numbers4 > 20 && trial_numbers4 <= 40) {
+        if (state === 'b') {
+          x_65 = 60; y_65 = 40; choice = "d"; 
+        } else {
+          x_65 = 40; y_65 = 60; choice = "k"; 
+        }
+      } else if (trial_numbers4 > 40 && trial_numbers4 <= 60) {
+        if (state === 'a') {
+          x_65 = 55; y_65 = 45; choice = "d"; 
+        } else {
+          x_65 = 45; y_65 = 55; choice = "k"; 
+        }
+      };
+      console.log("number_of_dots_65:", [x_65, y_65]);
+      jsPsych.data.addProperties({ number_of_dots_65: [x_65, y_65] });
+      return {
+        x_65,
+        y_65,
+        choice,
+        dot_color_after
+      };
+    }
+  };
+
+  //重新设置一个反馈
+
+  var feedbackBlock_RDK_color = {
+    type: jsPsychHtmlKeyboardResponse,
+    trial_duration: 3000,
+    stimulus: function () {
+      var trials = jsPsych.data.get().filter({ task: 'response' }).last(20)
+      var correct_trials = trials.filter({ correct: true });
+      var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+      console.log("ACC:", accuracy);
+      return `<p style='font-size: 35px; color: white'>这一组测试中，您的正确率为： ${accuracy}% </p>`;
+    }
+  };
+
+      
+  
+  //测试阶段的任务--------颜色判断
+  
+  var formal_block_RDK_selfRed = {
+    timeline: [
+      {
+        timeline: [fixation, color_85],
+        timeline_variables: conditions_RDK_selfRed,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK_color,
+      {
+        timeline: [fixation, color_85],
+        timeline_variables: conditions_RDK_selfRed,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK_color,
+      {
+        timeline: [fixation, color_85],
+        timeline_variables: conditions_RDK_selfRed,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK_color,
+      {
+        timeline: [fixation, color_65],
+        timeline_variables: conditions_RDK_selfRed,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK_color,
+      {
+        timeline: [fixation, color_65],
+        timeline_variables: conditions_RDK_selfRed,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK_color,
+      {
+        timeline: [fixation, color_65],
+        timeline_variables: conditions_RDK_selfRed,
+        repetitions: 5,
+        randomize_order: true
+      },
+      feedbackBlock_RDK_color,
+    ]
+  };
+  
+  var formal_block_RDK_selfBlue = {
+    timeline: [
+      {
+        timeline: [fixation, color_65],
+        timeline_variables: conditions_RDK_selfBlue,
+        repetitions: 10,
+        randomize_order: true
+      },
+      feedbackBlock_RDK_color,
+      {
+        timeline: [fixation, color_65],
+        timeline_variables: conditions_RDK_selfBlue,
+        repetitions: 10,
+        randomize_order: true
+      },
+      feedbackBlock_RDK_color,
+      {
+        timeline: [fixation, color_65],
+        timeline_variables: conditions_RDK_selfBlue,
+        repetitions: 10,
+        randomize_order: true
+      },
+    ]
+  };
+  
+  var formal_RDK_selfRed = {
+    timeline: [formal_block_RDK_selfRed],
+    conditional_function: function () {
+      if (userId % 2 === 0) {
+        console.log("formal_selfRed");
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+  
+  var formal_RDK_selfBlue = {
+    timeline: [formal_block_RDK_selfBlue],
+    conditional_function: function () {
+      if (userId % 2 !== 0) {
+        console.log("formal_selfBlue");
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+  
+  
+  var formal_block_RDK = {
+    timeline: [formal_RDK_selfRed, formal_RDK_selfBlue
+    ]
+  };
+  
+  color.timeline.push(formal_block_RDK);
+
+  //分配不同的组别
+
+  var group_move = {
+    timeline: [move, color],
+    conditional_function: function () {
+      if (userId <= 10) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+
+  var group_color = {
+    timeline: [color],
+    conditional_function: function () {
+      if (userId > 10) {
+        console.log("color");
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+
+  var assign_group = {
+    timeline: [group_move, group_color
+    ],
+  };
+
+
+
+  //---------整个实验的时间线---------
+
+  main_timeline = [fullScreen, 
+  //information, 
+  assign_group, end]
+
+  jsPsych.run(main_timeline);
+
+</script>
+
+</html>

@@ -918,7 +918,7 @@ var jsPsychRdk = (function (jspsych) {
                     ctx.beginPath();
                     if (frameCounter < dotColorDelay) {
                         for (let t = 0; t < 2; t++) {
-                            if (i < nDots / 2) {
+                            if (i %2 ===0 ) {
                                 ctx.fillStyle = dotColorBeforeOne;
                             }
                             else {
