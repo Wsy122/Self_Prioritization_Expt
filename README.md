@@ -3,8 +3,8 @@
 ```
 └── 1_Protocol
 └── 2_Experiments
-│    └── 2_2Formal_Experiment
-│    └── 2_1 pilot_Experiment    
+│    └── 2_2_Formal_Experiment
+│    └── 2_1_pilot_Experiment    
 │        └── 2_1_1_Procedure
 │        |   └── Color_code
 │        |   └── Expt_1a
