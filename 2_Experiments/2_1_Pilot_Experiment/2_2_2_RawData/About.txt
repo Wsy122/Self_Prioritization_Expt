@@ -1,1 +1,6 @@
-1.以 `subj${userId}_matching-task1.csv` 命名的是 wk 的数据，以 `Exp1A_${userId}.csv` 命名的是 sy 的数据
+1.有两个命名文件： `subj${userId}_matching-task1.csv` 和 `Exp1A_${userId}.csv` ；
+
+2.在 Exp1A_${userId}.csv 数据文件中
+2.1 如何区分练习试次和正式试次：每个任务中（match_RDK 和 RDK），最后 120 次即正式试次
+2.2 自变量：match(yes/no), association(self/other), difficulty(easy/difficult)
+2.3 userId <= 10 为运动方向组，userId > 11 为颜色判断组

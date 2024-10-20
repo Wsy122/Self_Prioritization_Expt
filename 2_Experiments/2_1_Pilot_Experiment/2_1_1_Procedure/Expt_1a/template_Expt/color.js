@@ -139,8 +139,8 @@ var example = {
     leftTextDiv.style.position = "absolute";
     leftTextDiv.style.fontSize = "45px";
     leftTextDiv.style.height = "10px";
-    leftTextDiv.style.bottom = "13%";
-    leftTextDiv.style.left = "22%";
+    leftTextDiv.style.bottom = "16%";
+    leftTextDiv.style.left = "31%";
     leftTextDiv.style.color = "white";
     displayElement.appendChild(leftTextDiv);
 
@@ -150,8 +150,8 @@ var example = {
     rightTextDiv.style.position = "absolute";
     rightTextDiv.style.fontSize = "45px";
     rightTextDiv.style.height = "10px";
-    rightTextDiv.style.bottom = "13%";
-    rightTextDiv.style.left = "69%";
+    rightTextDiv.style.bottom = "16%";
+    rightTextDiv.style.left = "65%";
     rightTextDiv.style.color = "white";
     displayElement.appendChild(rightTextDiv);
 
@@ -273,8 +273,8 @@ var match_RDK = {
     textDiv.style.position = "absolute";
     textDiv.style.fontSize = "45px";
     textDiv.style.height = "10px";
-    textDiv.style.bottom = "16%";
-    textDiv.style.left = "46%";
+    textDiv.style.bottom = "20%";
+    textDiv.style.left = "48%";
     textDiv.style.margintop = "15px";
     textDiv.style.color = "white";
     displayElement.appendChild(textDiv);
@@ -641,7 +641,7 @@ var instruction_RDK_beginning = {
   }
 };
 
-color.timeline.push(instruction_RDK_beginning);
+//color.timeline.push(instruction_RDK_beginning);
 
 //下面这些指导语会在后面 push
 
@@ -770,6 +770,7 @@ var RDK = {
 
 var practice_block_RDK_selfRed = {
   timeline: [
+    instruction_RDK_beginning,
     instruction_RDK_practice,
     {
       timeline: [fixation, RDK, feedbackTrial],
@@ -791,6 +792,7 @@ var practice_block_RDK_selfRed = {
 
 var practice_block_RDK_selfBlue = {
   timeline: [
+    instruction_RDK_beginning,
     instruction_RDK_practice,
     {
       timeline: [fixation, RDK, feedbackTrial],

@@ -11,6 +11,7 @@
   <!-- <script src="https://www.naodao.com/public/experiment/libs/plugin/plugin-categorize-html.js"></script> -->
   <!-- <script src="https://unpkg.com/@jspsych/plugin-virtual-chinrest@2.0.3"></script> -->
   <script src="jspsych-7.0//plugins/plugin-html-button-response.js"></script>
+  <script src="jspsych-7.0//plugins/plugin-virtual-chinrest.js"></script>
   <script src="jspsych-7.0//plugins/plugin-survey-text.js"></script>
   <script src="jspsych-7.0//plugins/index_browser_rdkmin.js"></script>
   <script src="jspsych-7.0//plugins/plugin-preload.js"></script>
@@ -22,7 +23,6 @@
   <style>
     .jspsych-display-element {
       font-size: 22px;
-      color: black;
     }
 
     ;
@@ -84,6 +84,7 @@
     },
   };
 
+
   //---------Create instructions---------
 
   var beginning = {
@@ -116,6 +117,7 @@
       </div>
       `,
     trial_duration: 5000,
+    fullscreen_mode: false,
     response_ends_trial: true,
     choices: " ",
     data: {
@@ -125,7 +127,7 @@
 
   //---------Create VirtualChinrest---------
 
-  /*var card = {
+  var card = {
     type: jsPsychVirtualChinrest,
     blindspot_reps: 3,
     resize_units: "cm",
@@ -174,7 +176,7 @@
     data: {
       part: "jsPsychVirtualChinrest"
     }
-  };*/
+  };
 
   //---------collecte perticipent's information---------
 
