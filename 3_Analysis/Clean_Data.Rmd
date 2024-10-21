@@ -1,0 +1,105 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# 读取目录下数据 Expt_1a
+```{r}
+# 设置目标文件夹相对路径
+folder_path <- "../2_Experiments/2_1_Pilot_Experiment/2_2_2_RawData/RawData"
+
+# 列出所有含有"Exp1A_"的csv文件
+file_list <- list.files(path = folder_path, pattern = "*Exp1A_.*\\.csv$", full.names = TRUE)
+
+# 创建一个空列表来存储数据
+df_list_1 <- list()
+
+# 逐个读取文件并存储
+for (file in file_list) {
+  file_name <- tools::file_path_sans_ext(basename(file))  # 获取文件名（不带扩展名）
+  df_list_1[[file_name]] <- read.csv(file)  # 将数据存储在列表中
+}
+rm(file,file_list,file_name,folder_path)
+```
+
+# 数据清洗 Expt_1a
+```{r}
+# 创建输出文件夹（如果不存在）
+output_path <- "../2_Experiments/2_1_Pilot_Experiment/2_3_3_ClenaData/Expt_1a"
+if (!dir.exists(output_path)) {
+  dir.create(output_path, recursive = TRUE)
+}
+
+# 逐篇处理每个数据框
+for (file_name in names(df_list_1)) {
+  data <- df_list_1[[file_name]]
+  
+  # 提取被试信息
+  participant_info <- data[data$part == "survey", "response"]
+  participant_info <- gsub("[{}\"]", "", participant_info)  # 去掉多余的字符
+  info_list <- strsplit(participant_info, ",")[[1]]
+  
+  # 创建新的变量
+  participant_data <- data.frame(
+    Participant_ID = file_name,
+    Sex = as.character(NA),
+    Age = as.numeric(NA),
+    Handedness = as.character(NA),
+    Color_blindness = as.character(NA),
+    stringsAsFactors = FALSE
+  )
+  
+  for (info in info_list) {
+    key_value <- strsplit(info, ":")[[1]]
+    key <- trimws(key_value[1])
+    value <- trimws(key_value[2])
+    if (key == "sex") participant_data$Sex <- value
+    if (key == "age") participant_data$Age <- as.numeric(value)
+    if (key == "hands") participant_data$Handedness <- value
+    if (key == "color_blindness") participant_data$Color_blindness <- value
+  }
+  
+  # 提取行为数据
+  behavior_data <- data[data$part %in% c("match_RDK", "RDK"), c("part", "rt", "response", "correct", "match", "association", "difficulty")]
+  
+  # 分别提取正式试次
+  official_trials <- do.call(rbind, lapply(unique(behavior_data$part), function(part) {
+    part_data <- behavior_data[behavior_data$part == part, ]
+    tail(part_data, 120)  # 取最后120个试次
+  }))
+  
+
+  
+  # 合并被试信息和行为数据
+  final_data <- cbind(participant_data, official_trials)
+  
+  # 输出到新的CSV文件
+  output_file <- file.path(output_path, paste0(file_name, "_Clean.csv"))
+  write.csv(final_data, output_file, row.names = FALSE)
+}
+rm(file_name,info,info_list,key,key_value,output_file,output_path,participant_data,participant_info,value,final_data,behavior_data,official_trials)
+```
+
+# 读取目录下数据 jspsych-matching-tasks
+```{r}
+# 设置目标文件夹相对路径
+folder_path <- "../2_Experiments/2_1_Pilot_Experiment/2_2_2_RawData/RawData"
+
+# 列出所有含有"Exp1A_"的csv文件
+file_list <- list.files(path = folder_path, pattern = "*_matching-task1.*\\.csv$", full.names = TRUE)
+
+# 创建一个空列表来存储数据
+df_list_2 <- list()
+
+# 逐个读取文件并存储
+for (file in file_list) {
+  file_name <- tools::file_path_sans_ext(basename(file))  # 获取文件名（不带扩展名）
+  df_list_2[[file_name]] <- read.csv(file)  # 将数据存储在列表中
+}
+rm(file,file_list,file_name,folder_path)
+```
+
+# 数据清洗 jspsych-matching-tasks
+```{r}
+
+```
