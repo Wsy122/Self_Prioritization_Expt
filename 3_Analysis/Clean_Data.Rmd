@@ -87,6 +87,71 @@ rm(file_name,info,info_list,key,key_value,output_file,output_path,participant_da
 
 # 画图
 ```{r}
+library(ggplot2)
+library(dplyr)
+library(ggokabeito)
+library(cowplot)
+
+# 假设 df_list_1 是您提供的列表
+data <- do.call(rbind, df_list_1)
+
+# 确保 rt 和 correct 列是数值型
+data <- data %>%
+  mutate(rt = as.numeric(rt), 
+         correct = as.numeric(correct)) %>%
+  filter(!is.na(rt), !is.na(correct))
+
+# 计算 match_RDK 的平均 RT 和标准差
+summary_data_match <- data %>%
+  filter(part == "match_RDK") %>%
+  group_by(association) %>%
+  summarise(mean_rt = mean(rt, na.rm = TRUE),
+            sd_rt = sd(rt, na.rm = TRUE),
+            .groups = 'drop')
+
+# 计算 RDK 的正确率
+summary_data_RDK <- data %>%
+  filter(part == "RDK") %>%
+  group_by(association) %>%
+  summarise(mean_correct = mean(correct, na.rm = TRUE),
+            sd_correct = sd(correct, na.rm = TRUE),
+            .groups = 'drop')
+
+# 设置颜色主题
+cbp <- ggokabeito::scale_okabe_ito(aesthetics = c("color", "fill", "edge_colour"),
+                                    order = c(1, 2, 7, 3:6))
+
+# 绘制 match_RDK 的条形图
+p1 <- ggplot(summary_data_match, aes(x = association, y = mean_rt, fill = association)) +
+  geom_col(color = "black", width = 0.35, position = position_dodge(width = 0.4)) +
+  geom_errorbar(aes(ymin = mean_rt - sd_rt, ymax = mean_rt + sd_rt), 
+                width = 0.2, position = position_dodge(width = 0.4)) +
+  labs(x = "Identity", y = "Reaction Times (ms)") +
+  coord_cartesian(ylim = c(0, max(summary_data_match$mean_rt + summary_data_match$sd_rt, na.rm = TRUE))) +
+  cbp +
+  theme_minimal() +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = 0.5),
+        axis.title.y = element_text(size = 12, face = "bold"),
+        axis.title.x = element_text(size = 12, face = "bold"))
+
+# 绘制 RDK 的条形图
+p2 <- ggplot(summary_data_RDK, aes(x = association, y = mean_correct, fill = association)) +
+  geom_col(color = "black", width = 0.35, position = position_dodge(width = 0.4)) +
+  geom_errorbar(aes(ymin = mean_correct - sd_correct, ymax = mean_correct + sd_correct), 
+                width = 0.2, position = position_dodge(width = 0.4)) +
+  labs(x = "Identity", y = "Accuracy") +
+  coord_cartesian(ylim = c(0, 1)) +
+  cbp +
+  theme_minimal() +
+  theme(legend.position = "top",
+        plot.title = element_text(hjust = 0.5),
+        axis.title.y = element_text(size = 12, face = "bold"),
+        axis.title.x = element_text(size = 12, face = "bold"))
+
+# 合并两个图形
+combined_plot <- plot_grid(p1, p2, align = "hv", ncol = 2)
+print(combined_plot)
 
 ```
 
