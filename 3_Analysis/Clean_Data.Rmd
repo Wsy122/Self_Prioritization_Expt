@@ -61,7 +61,12 @@ for (file_name in names(df_list_1)) {
   
   # 提取行为数据
   behavior_data <- data[data$part %in% c("match_RDK", "RDK"), c("part", "rt", "response", "correct", "match", "association", "difficulty")]
-  
+  # 将 correct 列转换为逻辑型
+  behavior_data$correct <- as.logical(behavior_data$correct)
+
+  # 然后再转换为 0 和 1
+  behavior_data$correct <- as.integer(behavior_data$correct)
+
   # 分别提取正式试次
   official_trials <- do.call(rbind, lapply(unique(behavior_data$part), function(part) {
     part_data <- behavior_data[behavior_data$part == part, ]
@@ -80,6 +85,64 @@ for (file_name in names(df_list_1)) {
 rm(file_name,info,info_list,key,key_value,output_file,output_path,participant_data,participant_info,value,final_data,behavior_data,official_trials)
 ```
 
+# 画图
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Pass
 # 读取目录下数据 jspsych-matching-tasks
 ```{r}
 # 设置目标文件夹相对路径
@@ -103,3 +166,4 @@ rm(file,file_list,file_name,folder_path)
 ```{r}
 
 ```
+
