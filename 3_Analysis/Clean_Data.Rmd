@@ -120,7 +120,7 @@ data <- do.call(rbind, df_list_1)
 
 #Motion
 data <- data %>%
-  filter(Participant_ID %in% c("Exp1A_3", "Exp1A_4", "Exp1A_5"))
+  filter(Participant_ID %in% c(paste0("Exp1A_", seq(1, 10))))
 
 # #Color
 # data <- data %>%
@@ -186,6 +186,7 @@ p2 <- ggplot(summary_data_match_acc, aes(x = association, match, y = mean_correc
   coord_cartesian(ylim = c(0, 1)) +
   cbp +
   theme_minimal() +
+  coord_cartesian(ylim = c(0.8, 1)) + 
   theme(legend.position = "top",
         plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
         axis.title.y = element_text(size = 12, face = "bold"),
@@ -214,6 +215,7 @@ p4 <- ggplot(summary_data_RDK_acc, aes(x = association, y = mean_correct, fill =
   coord_cartesian(ylim = c(0, 1)) +
   cbp +
   theme_minimal() +
+  coord_cartesian(ylim = c(0.6, 1)) + 
   theme(legend.position = "top",
         plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
         axis.title.y = element_text(size = 12, face = "bold"),
@@ -246,7 +248,7 @@ data <- do.call(rbind, df_list_1)
 
 # #Color
 data <- data %>%
-  filter(Participant_ID %in% c("Exp1A_11", "Exp1A_12", "Exp1A_13"))
+  filter(Participant_ID %in% c(paste0("Exp1A_", seq(11, 20))))
 
 # 计算 match_RDK 的平均 RT 和标准误，按 match 分类
 summary_data_match_rt <- data %>%
@@ -308,6 +310,7 @@ p2 <- ggplot(summary_data_match_acc, aes(x = association, match, y = mean_correc
   coord_cartesian(ylim = c(0, 1)) +
   cbp +
   theme_minimal() +
+  coord_cartesian(ylim = c(0.8, 1)) + 
   theme(legend.position = "top",
         plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
         axis.title.y = element_text(size = 12, face = "bold"),
@@ -336,6 +339,7 @@ p4 <- ggplot(summary_data_RDK_acc, aes(x = association, y = mean_correct, fill =
   coord_cartesian(ylim = c(0, 1)) +
   cbp +
   theme_minimal() +
+  coord_cartesian(ylim = c(0.8, 1)) +  
   theme(legend.position = "top",
         plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
         axis.title.y = element_text(size = 12, face = "bold"),
