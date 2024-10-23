@@ -90,14 +90,14 @@ var example = {
   post_trial_gap: 500,
   number_of_dots: [80, 20, 80, 20],
   RDK_type: 3,
-  dot_color_beforeOne: "hsl(225, 50%, 50%)",
-  dot_color_beforeTwo: "hsl(0, 50%, 50%)",
+  dot_color_beforeOne: "hsla(0, 50%, 50%, 70%)",
+  dot_color_beforeTwo: "hsla(225, 50%, 50%, 70%)",
   dot_color_after: function () {
     if (!color_after) {
       if (userId % 2 === 0) {
-        color_after = ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)", "hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"];
+        color_after = ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"];
       } else {
-        color_after = ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)", "hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"];
+        color_after = ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"];
       }
     }
     return color_after;
@@ -156,9 +156,9 @@ var example = {
     displayElement.appendChild(rightTextDiv);
 
     if (userId % 2 === 0) {
-      color_after = ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)", "hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"];
+      color_after = ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"];
     } else {
-      color_after = ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)", "hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"];
+      color_after = ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"];
     };
     return color_after;
   },
@@ -217,17 +217,17 @@ var fixation = {
 //匹配判断任务的不同条件(subjectId 为偶数，则红色代表自己；subjectId 为奇数，则蓝色代表自己)
 
 var conditions_match_selfRed = [
-  { number_of_dots: [80, 20], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "自己", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "self" },
-  { number_of_dots: [20, 80], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "自己", correct_choice: ["j"], correct_responce: "j", match: "no", association: "self" },
-  { number_of_dots: [80, 20], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "生人", correct_choice: ["j"], correct_responce: "j", match: "no", association: "other" },
-  { number_of_dots: [80, 20], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "生人", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "other" },
+  { number_of_dots: [80, 20], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "自己", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "self" },
+  { number_of_dots: [20, 80], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "自己", correct_choice: ["j"], correct_responce: "j", match: "no", association: "self" },
+  { number_of_dots: [80, 20], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "生人", correct_choice: ["j"], correct_responce: "j", match: "no", association: "other" },
+  { number_of_dots: [80, 20], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], label: "生人", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "other" },
 ];
 
 var conditions_match_selfBlue = [
-  { number_of_dots: [80, 20], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "自己", correct_choice: ["j"], correct_responce: "j", match: "no", association: "self" },
-  { number_of_dots: [20, 80], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "自己", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "self" },
-  { number_of_dots: [80, 20], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "生人", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "other" },
-  { number_of_dots: [80, 20], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "生人", correct_choice: ["j"], correct_responce: "j", match: "no", association: "other" },
+  { number_of_dots: [80, 20], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "自己", correct_choice: ["j"], correct_responce: "j", match: "no", association: "self" },
+  { number_of_dots: [20, 80], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "自己", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "self" },
+  { number_of_dots: [80, 20], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "生人", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "other" },
+  { number_of_dots: [80, 20], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], label: "生人", correct_choice: ["j"], correct_responce: "j", match: "no", association: "other" },
 ];
 
 // 设置匹配任务的主要刺激
@@ -241,8 +241,8 @@ var match_RDK = {
   dot_color_after: "grey",
   choices: ["f", "j"],
   correct_choice: function () { return jsPsych.timelineVariable("correct_choice") },
-  dot_color_beforeOne: "hsl(225, 50%, 50%)",
-  dot_color_beforeTwo: "hsl(0, 50%, 50%)",
+  dot_color_beforeOne: "hsla(225, 50%, 50%, 70%)",
+  dot_color_beforeTwo: "hsla(0, 50%, 50%, 70%)",
   dot_color_after: function () { return jsPsych.timelineVariable("dot_color_after") },
   coherent_direction: 0,
   coherence: 0,
@@ -706,17 +706,17 @@ var instruction_RDK_formal_beginning = {
 //整体颜色判断任务的不同条件
 
 var conditions_RDK_selfRed = [
-  { number_of_dots: [75, 25], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "easy", association: "self" },
-  { number_of_dots: [65, 35], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "difficult", association: "self" },
-  { number_of_dots: [75, 25], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "easy", association: "other" },
-  { number_of_dots: [65, 35], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "difficult", association: "other" },
+  { number_of_dots: [60, 40], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "easy", association: "self" },
+  { number_of_dots: [58, 42], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "difficult", association: "self" },
+  { number_of_dots: [60, 40], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "easy", association: "other" },
+  { number_of_dots: [58, 42], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "difficult", association: "other" },
 ];
 
 var conditions_RDK_selfBlue = [
-  { number_of_dots: [75, 25], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "easy", association: "other" },
-  { number_of_dots: [65, 35], dot_color_after: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "difficult", association: "other" },
-  { number_of_dots: [75, 25], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "easy", association: "self" },
-  { number_of_dots: [65, 35], dot_color_after: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "difficult", association: "self" },
+  { number_of_dots: [60, 40], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "easy", association: "other" },
+  { number_of_dots: [58, 42], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "difficult", association: "other" },
+  { number_of_dots: [60, 40], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "easy", association: "self" },
+  { number_of_dots: [58, 42], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "difficult", association: "self" },
 ];
 
 //主要呈现的刺激
