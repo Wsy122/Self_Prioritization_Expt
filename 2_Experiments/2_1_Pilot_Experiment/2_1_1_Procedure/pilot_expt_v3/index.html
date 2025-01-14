@@ -55,20 +55,28 @@ var trialLength;
 var reversalsNum;
 var pract_cycle;
 var formal_cycle;
-var formal_stair_cycle;
+var formal_stair_cycle_motion;
+var formal_stair_cycle_color;
+var foraml_split_part_number;
+var currentCycleMunMotion = 0;
+var currentCycleMunColor = 0;
 
 if (testMode) {
   trialLength = 10;
   reversalsNum = 2;
   pract_cycle = 1;
   formal_cycle = 1; //block 里面的循环
-  formal_stair_cycle = 2; //condition 里面的循环
+  formal_stair_cycle_motion = 2; //condition 里面的循环
+  formal_stair_cycle_color = 2;
+  foraml_split_part_number = 2
 } else {
   trialLength = 40;
   reversalsNum = 10;
   pract_cycle = 10; // 40个练习 trial
   formal_cycle = 5; //正式：一个 block 20 个 trial
-  formal_stair_cycle = 10; // 正式循环 10 次
+  formal_stair_cycle_motion = 10; // 正式循环 10 次
+  formal_stair_cycle_color = 10;
+  foraml_split_part_number = 10
 }
 
 
@@ -213,6 +221,38 @@ var rest = {
   }
 };
 
+// 阶段完成提示
+var stepOneEnd = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+    <div style="text-align: center; color: white; padding: 35px; font-size: 35px">
+      <p>恭喜您已完成第一阶段的任务</p >
+      <p>请休息两分钟，之后进入第二阶段</p >
+    </div>
+    `,
+  trial_duration: 120000,
+  response_ends_trial: false,
+  choices: " ",
+  data: {
+    part: "stepOneEnd",
+  }
+};
+
+// 休息结束
+var restEnd = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: `
+    <div style="text-align: center; color: white; padding: 35px; font-size: 35px">
+      <p>休息结束，请按空格键继续</p >
+    </div>
+    `,
+  response_ends_trial: true,
+  choices: " ",
+  data: {
+    part: "restEnd",
+  }
+};
+
 // 任务结束
 var end = {
   type: jsPsychHtmlKeyboardResponse,
@@ -254,8 +294,10 @@ var fixation = {
 
 // -------------------------首先是练习阶段--------------------
 
-var practBlockNum = 0;
-var parctTrialNum = 0;
+var practBlockNumMotion = 0;
+var practBlockNumColor = 0;
+var parctTrialNumMotion = 0;
+var parctTrialNumColor = 0;
 
 // 设置调整参数
 // Set starting proportion for practice to 1 (easiest)
@@ -280,29 +322,45 @@ var downStep
 //var reversals = 0;
 var correct_choice;
 var coherent_direction;
-var endTrialColor = false;
-var endTrialMotion = false;
 //var streak = 'correct';
 var pract_final_proportion;
 
 const hardFirst = Math.random() < 0.5;
 // 定义函数设置练习阶段不同难度的随机顺序
-function currentDownStep() {
+function currentDownStepMotion() {
   if (hardFirst) {
-    if (practBlockNum == 0)
+    if (practBlockNumMotion == 0)
       downStep = 2;
     else {
       downStep = 4;
     }
   } else {
-    if (practBlockNum == 0)
+    if (practBlockNumMotion == 0)
       downStep = 4;
     else {
       downStep = 2;
     }
   }
   return downStep
-}
+};
+
+function currentDownStepColor() {
+  if (hardFirst) {
+    if (practBlockNumColor == 0)
+      downStep = 2;
+    else {
+      downStep = 4;
+    }
+  } else {
+    if (practBlockNumColor == 0)
+      downStep = 4;
+    else {
+      downStep = 2;
+    }
+  }
+  return downStep
+};
+
 // 定义一个类来管理 trial 的状态
 class TrialManager {
   // 初始化
@@ -321,12 +379,12 @@ class TrialManager {
   updateTrialStatus(lastAcc, isColorTrial) {
     // 判断当前试次是否为颜色判断 
     if (isColorTrial) {
-      parctTrialNum += 1;
+      parctTrialNumColor += 1;
       this.totalTrialsColor += 1;
       // 处理颜色相关的更新逻辑
       if (lastAcc) { 
         this.correctNumColor += 1;
-        if (this.correctNumColor == currentDownStep()) {
+        if (this.correctNumColor == currentDownStepColor()) {
           proportionColor -= proportionChange;
           this.correctNumColor = 0;
         }
@@ -343,34 +401,26 @@ class TrialManager {
           this.reversalsColor += 1;
         }
       }
-      // 颜色相关的其他逻辑，如反转次数达到一定数量后的处理、proportion值矫正等
-      if (this.reversalsColor == 5) {
-          proportionChange -= 0.01;
-      }
-      if (proportionColor > 1) {
-          proportionColor = 1;
+      //设置 proportion 的上下阈限
+      if (proportionColor > 0.8) {
+          proportionColor = 0.8;
       } else if (proportionColor < 0.5) {
           proportionColor = 0.51;
       }
-      if (this.reversalsColor >= reversalsNum) {
-          endTrialColor = true;
-      }
       // 输出相关信息，用于检查和调试
       console.log({
-        "totalTrialsColor": parctTrialNum, 
+        "totalTrialsColor": parctTrialNumColor, 
         "currentDownStepColor": downStep,
         "proportionColor": proportionColor,
         "streakColor": this.streakMotion,
-        "reversalsColor": this.reversalsColor,
-        "endTrialColor": endTrialColor
       })
     // 处理运动相关的更新逻辑，与颜色类似，只是对应的属性变成运动相关的
     } else { 
-      parctTrialNum += 1;
+      parctTrialNumMotion += 1;
       this.totalTrialsMotion += 1;
       if (lastAcc) {
         this.correctNumMotion += 1;
-        if (this.correctNumMotion == currentDownStep()) {
+        if (this.correctNumMotion == currentDownStepMotion()) {
           proportionMotion -= proportionChange;
           this.correctNumMotion = 0;
         }
@@ -385,28 +435,19 @@ class TrialManager {
           this.streakMotion = 'incorrect';
           this.reversalsMotion += 1;
         }
-        // 当反转为5的倍数时，降低变化幅度
-        if (this.reversalsMotion  == 5) {
-          proportionChange -= 0.01;
-        }
-        if (proportionMotion > 1) {
-          proportionMotion = 1;
+        //设置 proportion 的上下阈限
+        if (proportionMotion > 0.26) {
+          proportionMotion = 0.26;
         } else if (proportionMotion < 0.03) {
           proportionMotion = 0.03;
-        }
-        // 反转达到规定次数，结束练习
-        if (this.reversalsMotion >= reversalsNum) {
-          endTrialMotion = true;
         }
       }
       // 输出信息
       console.log({
-        "totalTrialsMotion": parctTrialNum, 
+        "totalTrialsMotion": parctTrialNumMotion, 
         "currentDownStepMotion": downStep,
         "proportionMotion": proportionMotion,
         "streakMotion": this.streakMotion,
-        "reversalsMotion": this.reversalsMotion,
-        "endTrialMotion": endTrialMotion
       })
     }
   }
@@ -415,14 +456,14 @@ class TrialManager {
   shouldEndTrial(isColorTrial) {
     if (isColorTrial) {
       // 判断颜色部分是否满足结束条件
-      if ((this.totalTrialsColor >= trialLength) || (endTrialColor == true)) {
+      if (parctTrialNumColor >= trialLength) {
         return true;
       } else {
         return false;
       }
     } else {
       // 判断运动部分是否满足结束条件
-      if ((parctTrialNum >= trialLength) || (endTrialMotion == true)) {
+      if (parctTrialNumMotion >= trialLength) {
         return true;
       } else {
         return false;
@@ -462,7 +503,6 @@ var single_trial_color = {
     revs: function() { return this.reversalsColor},
     correctNum: function() { return this.correctNumColor},
     totalTrials: function() {return this.totalTrialsColor},
-    endTrial: function() {return this.endTrialColor},
     proportionColor: function(){return proportionColor},
     proportionMotion: function(){return proportionMotion} // 这里不要删，这是为了获取运动对应的 proportion 值 
   },
@@ -508,7 +548,6 @@ var single_trial_motion = {
     revs: function() { return this.reversalsMotion},
     correctNum: function() { return this.correctNumMotion},
     totalTrials: function() {return this.totalTrialsMotion},
-    endTrial: function() {return this.endTrialMotion},
     proportionColor: function(){return proportionColor}, // 这里不要删，这是为了获取颜色对应的 proportion 值
     proportionMotion: function(){return proportionMotion}
   },
@@ -565,14 +604,23 @@ var feedback_prect_block = {
     var rt = Math.round(trials.select('rt').mean());
     // get final tiral of each practice block (获取传递给测试阶段的值)
     difficulty_motion = trials.last(1).values()[0].proportionMotion;
-    if (currentDownStep() == 2) {
+    difficulty_color = trials.last(1).values()[0].proportionColor;
+    if (currentDownStepMotion() == 2) {
       difficulty_motion_hard = difficulty_motion;
-      difficulty_motion_easy
-    } else if (currentDownStep() == 4) {
+      difficulty_motion_easy;
+    } else if (currentDownStepMotion() == 4) {
       difficulty_motion_easy = difficulty_motion;
       difficulty_motion_hard
-    }
-    console.log({"difficulty_motion_hard": difficulty_motion_hard, "difficulty_motion_easy": difficulty_motion_easy});
+    };
+    if (currentDownStepColor() == 2) {
+      difficulty_color_hard = difficulty_color;
+      difficulty_color_easy;
+    } else if (currentDownStepColor() == 4) {
+      difficulty_color_easy = difficulty_color;
+      difficulty_color_hard
+    };
+    console.log({"difficulty_motion_hard": difficulty_motion_hard, "difficulty_motion_easy": difficulty_motion_easy, 
+      "difficulty_color_hard": difficulty_color_hard, "difficulty_color_easy": difficulty_color_easy});
     console.log({ accuracy: accuracy, rt: rt });
     return `<p style='font-size: 35px; color: white'>您的正确率为： ${accuracy}% 。平均反应时为：${rt}毫秒。</p>`; 
   }
@@ -638,9 +686,9 @@ var loop_block_color = {
   timeline: [loop_node_color, //get_proportion, 
   feedback_prect_block],
   loop_function: function(){
-    if(practBlockNum == 0 ){
-      practBlockNum += 1;
-      parctTrialNum = 0;
+    if(practBlockNumColor == 0 ){
+      practBlockNumColor += 1;
+      parctTrialNumColor = 0;
       return true;
     } else {
       return false;
@@ -652,9 +700,9 @@ var loop_block_motion = {
   timeline: [loop_node_motion, //get_proportion, 
   feedback_prect_block],
   loop_function: function(){
-    if(practBlockNum == 0 ){
-      practBlockNum += 1;
-      parctTrialNum = 0;
+    if(practBlockNumMotion == 0 ){
+      practBlockNumMotion += 1;
+      parctTrialNumMotion = 0;
       return true;
     } else {
       return false;
@@ -669,9 +717,10 @@ var loop_block_motion = {
 
 //---------------------------------下面是正式测试阶段----------------------
 
-var formalBlockNum = 0;
+var formalPartMotion = 0;
+var formalPartColor = 0;
+var currentDifficulty
 let difficulty;
-var cueerntDifficulty;
 var difficulty_motion
 var difficulty_motion_hard
 var difficulty_motion_easy
@@ -681,16 +730,29 @@ var difficulty_color_easy
 
 
 // 获取初始难度值（然后传递给单个试次），并规定难度范围
-const difficultyStaircaseColor = {
+const easyStaircaseColor = {
   // 这里的 max 和 min 是指难度的最大值和最小值，对应的是信号水平，颜色的难度范围为 0.61 - 0.51 = 0.1
   max: 0.51,
   min: 0.61,
   get: () => {
-    console.log("difficulty_formal_color:" + difficulty_color);
-    return difficulty_color;
+    console.log("difficulty_formal_color_easy:" + difficulty_color_easy);
+    return difficulty_color_easy;
   },
   set: (value) => {
-    difficulty_color = value;
+    difficulty_color_easy = value;
+  },
+};
+
+const hardStaircaseColor = {
+  // 这里的 max 和 min 是指难度的最大值和最小值，对应的是信号水平，颜色的难度范围为 0.61 - 0.51 = 0.1
+  max: 0.51,
+  min: 0.61,
+  get: () => {
+    console.log("difficulty_formal_color_hard:" + difficulty_color_hard);
+    return difficulty_color_hard;
+  },
+  set: (value) => {
+    difficulty_color_hard = value;
   },
 };
 
@@ -722,13 +784,25 @@ const hardStaircaseMotion = {
 };
 
 // 定义函数来获取并传递对应的难度水平（传给单个 trial）
-function setCurrentDifficulty(formalBlockNum) {
-  const difficultyArrayMotion = [easyStaircaseMotion.get(), hardStaircaseMotion.get()];
-  if (formalBlockNum == 0) {
+function setCurrentDifficultyMotion(formalPartMotion) {
+  var difficultyArrayMotion = [easyStaircaseMotion.get(), hardStaircaseMotion.get()];
+  if (formalPartMotion == 0) {
       currentDifficulty = difficultyArrayMotion[0];
   } else {
       currentDifficulty = difficultyArrayMotion[1];
   }
+  console.log("currentDifficultyMotion:" + currentDifficulty);
+  return currentDifficulty;
+};
+
+function setCurrentDifficultyColor(formalPartColor) {
+  var difficultyArrayColor = [easyStaircaseColor.get(), hardStaircaseColor.get()];
+  if (formalPartColor == 0) {
+      currentDifficulty = difficultyArrayColor[0];
+  } else {
+      currentDifficulty = difficultyArrayColor[1];
+  }
+  console.log("currentDifficultyColor:" + currentDifficulty);
   return currentDifficulty;
 }
 
@@ -741,7 +815,7 @@ var formal_single_trial_color = {
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
   color_change_delay: 10,
   dot_color_final: jsPsych.timelineVariable("dot_color_final"),
-  target_color_proportion: difficultyStaircaseColor.get,
+  target_color_proportion: function() { return setCurrentDifficultyColor(formalPartColor)},
   choices: ["d", "k"],
   correct_choice: jsPsych.timelineVariable("correct_choice"),
   dot_radius: 5.7,
@@ -781,7 +855,7 @@ var formal_single_trial_motion = {
   RDK_type: 3,
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
   coherent_direction: jsPsych.timelineVariable("coherent_direction"),
-  coherence: setCurrentDifficulty(formalBlockNum),
+  coherence: function() {return setCurrentDifficultyMotion(formalPartMotion)},
   choices: ["ArrowLeft", "ArrowRight"],
   correct_choice: jsPsych.timelineVariable("correct_choice"),
   dot_radius: 5.7,
@@ -843,6 +917,7 @@ var cycle_color = {
   timeline: [cycle_rdk_color, rest],
   on_timeline_finish: function() {
     var block_data = jsPsych.data.get();
+    currentCycleMunMotion += 1
   }
 };
 
@@ -850,20 +925,21 @@ var cycle_motion = {
   timeline: [cycle_rdk_motion, rest],
   on_timeline_finish: function() {
     var block_data = jsPsych.data.get();
+    currentCycleMunColor += 1
   }
 };
 
 
 // generateStaircaseTimeline 为外部调用的函数，用于生成测试（正式任务）阶段的 staircase
-var formal_color = generateStaircaseTimeline({
+var formal_color_easy = generateStaircaseTimeline({
   // Your jsPsych instance (required to fetch data)
   jsPsychInstance: jsPsych,
   // The target accurcy (between 0 and 1)
-  targetAccuracy: 0.65,
+  targetAccuracy: 0.85,
   // The number of cycles to be carried out
-  numberOfCycles: formal_stair_cycle,
+  numberOfCycles: formal_stair_cycle_color,
   // The difficulty object
-  difficulty: difficultyStaircaseColor,
+  difficulty: easyStaircaseColor,
   // The data label. Must be the same string that you added to the response
   // trials.
   dataLabel: 'staircase_color',
@@ -871,10 +947,19 @@ var formal_color = generateStaircaseTimeline({
   cycle: cycle_color,
 });
 
+var formal_color_hard = generateStaircaseTimeline({
+  jsPsychInstance: jsPsych,
+  targetAccuracy: 0.65,
+  numberOfCycles: formal_stair_cycle_color,
+  difficulty: hardStaircaseColor,
+  dataLabel: 'staircase_color',
+  cycle: cycle_color,
+});
+
 var formal_motion_easy = generateStaircaseTimeline({
   jsPsychInstance: jsPsych,
   targetAccuracy: 0.85,
-  numberOfCycles: formal_stair_cycle,
+  numberOfCycles: formal_stair_cycle_motion,
   difficulty: easyStaircaseMotion,
   dataLabel: 'staircase_motion',
   cycle: cycle_motion,
@@ -883,21 +968,33 @@ var formal_motion_easy = generateStaircaseTimeline({
 var formal_motion_hard = generateStaircaseTimeline({
   jsPsychInstance: jsPsych,
   targetAccuracy: 0.65,
-  numberOfCycles: formal_stair_cycle,
+  numberOfCycles: formal_stair_cycle_motion,
   difficulty: hardStaircaseMotion,
   dataLabel: 'staircase_motion',
   cycle: cycle_motion,
 });
 
 var formal_block_motion = {
-  timeline: [formal_motion_easy, formal_motion_hard],
+  timeline: [formal_motion_easy, stepOneEnd, restEnd, formal_motion_hard],
   on_timeline_finish: function() {
-    if(formal_stair_cycle > 10 ){
-      formalBlockNum = 1;
+    if(currentCycleMunMotion > foraml_split_part_number ){
+      formalPartMotion = 1;
     } else {
-      formalBlockNum = 0
+      formalPartMotion = 0
     }
-    console.log('current condition number ', formalBlockNum)
+    console.log('current condition number ', formalPartMotion)
+  }
+};
+
+var formal_block_color = {
+  timeline: [formal_color_easy, stepOneEnd, restEnd, formal_color_hard],
+  on_timeline_finish: function() {
+    if(currentCycleMunColor > foraml_split_part_number ){
+      formalPartColor = 1;
+    } else {
+      formalPartColor = 0
+    }
+    console.log('current condition number ', formalPartColor)
   }
 };
 
@@ -907,7 +1004,7 @@ var formal_block_motion = {
 
 // 颜色条件
 var color_total = {
-  timeline: [intro_practice_color, loop_block_color, intro_practiceEnd, intro_formal_color, formal_color] 
+  timeline: [intro_practice_color, loop_block_color, intro_practiceEnd, intro_formal_color, formal_block_color] 
 };
 //运动条件
 var motion_total = {
