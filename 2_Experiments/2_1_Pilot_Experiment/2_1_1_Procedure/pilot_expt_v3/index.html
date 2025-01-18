@@ -51,40 +51,88 @@ const testMode = urlParams.get('test')=="true"?true:false
 userId = parseInt(urlParams.get('id'));
 console.log("userId: ", userId)
 
+var practOutput = [];
+var formalOutput = [];
+function sequence() {
+  if (userId % 2 === 0) {
+    var sequence = "color first";
+  } else {
+    var sequence = "motion first";
+  }
+  return sequence
+};
+var outPutAll = {
+  task_sequence: sequence(),
+  practice_task: practOutput,
+  formal_task: formalOutput
+};
 var trialLength;
 var reversalsNum;
 var pract_cycle;
 var formal_cycle;
 var formal_stair_cycle_motion;
 var formal_stair_cycle_color;
+var rest_time;
 var foraml_split_part_number;
+var formalTrialBlockMun;
 var currentCycleMunMotion = 0;
 var currentCycleMunColor = 0;
 
 if (testMode) {
-  trialLength = 10;
+  trialLength = 4;
   reversalsNum = 2;
   pract_cycle = 1;
   formal_cycle = 1; //block 里面的循环
+  formalTrialBlockMun = 4;
   formal_stair_cycle_motion = 2; //condition 里面的循环
   formal_stair_cycle_color = 2;
-  foraml_split_part_number = 2
+  rest_time = 2000;
+  foraml_split_part_number = 2;
 } else {
   trialLength = 40;
   reversalsNum = 10;
   pract_cycle = 10; // 40个练习 trial
   formal_cycle = 5; //正式：一个 block 20 个 trial
+  formalTrialBlockMun = 20;
   formal_stair_cycle_motion = 10; // 正式循环 10 次
   formal_stair_cycle_color = 10;
+  rest_time = 120000;
   foraml_split_part_number = 10
 }
 
 
 // -------------------- 初始化 --------------------
 
+function saveJsonToFile(jsonData, filename) {
+  // 将JSON对象转换为字符串
+  const jsonString = JSON.stringify(jsonData);
+
+  // 创建Blob对象，类型为application/json
+  const blob = new Blob([jsonString], { type: "application/json" });
+
+  // 创建一个链接元素用于下载
+  const link = document.createElement("a");
+  link.href = window.URL.createObjectURL(blob);
+  link.download = filename.endsWith('.json') ? filename : `${filename}.json`;
+
+  // 模拟点击下载
+  document.body.appendChild(link);
+  link.click();
+
+  // 清理：移除链接并释放创建的URL对象
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(link.href);
+}
+
+
 var jsPsych = initJsPsych({
   on_finish: function() {
     jsPsych.data.displayData();
+    // 保存 outPut 为 json 文件
+    saveJsonToFile(outPutAll, `pilot_expt_v3_${userId}.json`);
+    jsPsych.data.get().localSave('csv', `pilot_expt_v3_${userId}.csv`);
+    //jsPsych.data.addProperties(outPut)
+    //jsPsych.data.get().filterColumns(['outPut']).localSave("json", `pilot_expt_v3_${userId}.json`);
   }
 });
 
@@ -110,7 +158,7 @@ var intro_practice_color = {
       <h3 style="text-align: center; font-size: 30px; margin: 10px">颜色判断任务</h3> 
       <p>接下来，屏幕上会呈现一些运动的圆点，其中一半为 <span style="color: hsl(0, 50%, 50%)">红色</span> ，一半为 <span style="color: hsl(225, 50%, 50%)">蓝色</span>，</p>
         <p><span style="font-weight: bold">大约0.2秒后,</span>  一部分点会随机变为另一种颜色（例如从红色变为蓝色），变化后某种颜色的数量会超过另一种。</p >
-        <p>您需要在3秒内判断 <span style="font-weight: bold">变化后，散点图的整体颜色（即大多数点的颜色）是红色还是蓝色 </span>：</p >
+        <p>您需要又快又准地判断判断 <span style="font-weight: bold">变化后，散点图的整体颜色（即大多数点的颜色）是红色还是蓝色 </span>：</p >
         <ul>
           <li>整体为 <span style="color: hsl(0, 50%, 50%)">红色</span>，请按键盘 <span style="color: hsl(0, 50%, 50%)">"D" 键</span></li>
           <li>整体为 <span style="color: hsl(225, 50%, 50%)">蓝色</span>，请按键盘 <span style="color: hsl(225, 50%, 50%)">"k" 键</span> </li>
@@ -135,7 +183,7 @@ var intro_practice_motion = {
       <h3 style="text-align: center; font-size: 30px; margin: 10px">运动方向判断任务</h3>
       <p>接下来，屏幕上会呈现一些运动的彩色圆点，</p>
       <p>大约 <span style="font-weight: bold">0.2秒</span> 后会有一定比例的点 <span style="font-weight: bold">一致地向左或向右运动</span> ，其余点随机运动</p >
-      <p>您需要忽略点的颜色并在3秒内判断 <span style="font-weight: bold">一致的运动方向是向左还是向右</span>:</p >
+      <p>您需要忽略点的颜色并又快又准地判断 <span style="font-weight: bold">一致的运动方向是向左还是向右</span>:</p >
       <ul>
         <li><span style="font-weight: bold">向左</span>，请按键盘 <span style="font-weight: bold">左键</span></li>
         <li><span style="font-weight: bold">向右</span>，请按键盘 <span style="font-weight: bold">右键</span> </li>
@@ -158,7 +206,7 @@ var intro_practiceEnd = {
   stimulus: `
     <div style="text-align: center; color: white; padding: 30px; font-size: 30px">
       <p>恭喜您完成练习，请按空格键进入正式任务。</p >
-      <p> 正式任务将不再提供反馈</p>
+      <p> 正式任务只在每组测试结束后反馈</p>
     </div>
     `,
   response_ends_trial: true,
@@ -197,7 +245,7 @@ var intro_formal_motion = {
         <li><span style="font-weight: bold">向左</span>，请按键盘 <span style="font-weight: bold">左键</span></li>
         <li><span style="font-weight: bold">向右</span>，请按键盘 <span style="font-weight: bold">右键</span> </li>
       </ul>
-      <p>请按下空格键进入正式阶段</p>
+      <p>  请按下空格键进入正式阶段</p>
     </div>`,
   response_ends_trial: true,
   choices: " ",
@@ -230,7 +278,7 @@ var stepOneEnd = {
       <p>请休息两分钟，之后进入第二阶段</p >
     </div>
     `,
-  trial_duration: 120000,
+  trial_duration: rest_time,
   response_ends_trial: false,
   choices: " ",
   data: {
@@ -258,7 +306,8 @@ var end = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: `
     <div style="text-align: center; color: white; padding: 20px; font-size: 35px">
-      <p>您已完成实验，按下空格或 5 秒后自动退出</p >
+      <p>您已完成实验，按下空格或 5 秒后自动退出全屏</p >
+      <p>退出全屏后请允许下载多份文件，并等待文件下载</p >
     </div>
     `,
   trial_duration: 5000,
@@ -285,6 +334,14 @@ var fixation = {
      part: "fixation"
   }
 };
+
+//-------------------------设置目标刺激出现的随机延迟时间-------------
+
+function getRandomNumber(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+var randomNumber = getRandomNumber(6, 12);
 
 /*
 ------------------------- 下面开始整个任务 -------------
@@ -325,41 +382,28 @@ var coherent_direction;
 //var streak = 'correct';
 var pract_final_proportion;
 
-const hardFirst = Math.random() < 0.5;
-// 定义函数设置练习阶段不同难度的随机顺序
-function currentDownStepMotion() {
-  if (hardFirst) {
-    if (practBlockNumMotion == 0)
-      downStep = 2;
-    else {
+// 定义函数设置练习阶段不同难度的顺序(先易后难)
+function currentDownStepMotion(easyFirst) {
+  if (easyFirst) {
+    if (practBlockNumMotion == 0) {
       downStep = 4;
-    }
-  } else {
-    if (practBlockNumMotion == 0)
-      downStep = 4;
-    else {
+    } else {
       downStep = 2;
     }
   }
   return downStep
 };
 
-function currentDownStepColor() {
-  if (hardFirst) {
-    if (practBlockNumColor == 0)
-      downStep = 2;
-    else {
+function currentDownStepColor(easyFirst) {
+  if (easyFirst) {
+    if (practBlockNumColor == 0) {
       downStep = 4;
-    }
-  } else {
-    if (practBlockNumColor == 0)
-      downStep = 4;
-    else {
+    } else {
       downStep = 2;
     }
+    return downStep
   }
-  return downStep
-};
+}
 
 // 定义一个类来管理 trial 的状态
 class TrialManager {
@@ -384,7 +428,7 @@ class TrialManager {
       // 处理颜色相关的更新逻辑
       if (lastAcc) { 
         this.correctNumColor += 1;
-        if (this.correctNumColor == currentDownStepColor()) {
+        if (this.correctNumColor == currentDownStepColor(true)) {
           proportionColor -= proportionChange;
           this.correctNumColor = 0;
         }
@@ -420,7 +464,7 @@ class TrialManager {
       this.totalTrialsMotion += 1;
       if (lastAcc) {
         this.correctNumMotion += 1;
-        if (this.correctNumMotion == currentDownStepMotion()) {
+        if (this.correctNumMotion == currentDownStepMotion(true)) {
           proportionMotion -= proportionChange;
           this.correctNumMotion = 0;
         }
@@ -441,7 +485,7 @@ class TrialManager {
         } else if (proportionMotion < 0.03) {
           proportionMotion = 0.03;
         }
-      }
+      };
       // 输出信息
       console.log({
         "totalTrialsMotion": parctTrialNumMotion, 
@@ -483,7 +527,7 @@ var single_trial_color = {
   target_color_proportion: function(){return proportionColor},
   correct_choice: jsPsych.timelineVariable("correct_choice"),
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
-  color_change_delay: 10,
+  color_change_delay: randomNumber,
   dot_color_final: jsPsych.timelineVariable("dot_color_final"),
   move_distance: 3,
   coherence:0,
@@ -504,7 +548,7 @@ var single_trial_color = {
     correctNum: function() { return this.correctNumColor},
     totalTrials: function() {return this.totalTrialsColor},
     proportionColor: function(){return proportionColor},
-    proportionMotion: function(){return proportionMotion} // 这里不要删，这是为了获取运动对应的 proportion 值 
+    proportionMotion: function(){return proportionMotion}, // 这里不要删，这是为了获取运动对应的 proportion 值 
   },
   on_start: function() {
     var displayElement = jsPsych.getDisplayElement();
@@ -521,6 +565,12 @@ var single_trial_color = {
     // 根据上个试次的反应更新下一个试次的 proportion 值
     var lastAcc = jsPsych.data.get().last(1).values()[0].correct;
     trialManager.updateTrialStatus(lastAcc, isColorTrial = true);
+    // 重新显示元素
+    var displayElement = jsPsych.getDisplayElement();
+    var elements = displayElement.querySelectorAll("*");
+    elements.forEach(function(el) {
+      el.style.display = 'inline';
+    });
   }
 };
 
@@ -530,6 +580,7 @@ var single_trial_motion = {
   correct_choice: jsPsych.timelineVariable("correct_choice"),
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
   move_distance: 3,
+  motion_change_delay: randomNumber,
   coherent_direction: jsPsych.timelineVariable("coherent_direction"),
   coherence: function(){return proportionMotion},
   //aperture_center_x: 400,
@@ -566,6 +617,12 @@ var single_trial_motion = {
     // 根据上个试次的反应更新下一个试次的 proportion 值
     var lastAcc = jsPsych.data.get().last(1).values()[0].correct;
     trialManager.updateTrialStatus(lastAcc, isColorTrial = false);
+    // 重新显示元素
+    var displayElement = jsPsych.getDisplayElement();
+    var elements = displayElement.querySelectorAll("*");
+    elements.forEach(function(el) {
+      el.style.display = 'inline';
+    });
   }
 };
 
@@ -598,32 +655,45 @@ var feedback_prect_block = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 2000,
   stimulus: function () {
-    var trials = jsPsych.data.get().filter({ task: 'rdk' }).last(40)
+    var trials = jsPsych.data.get().filter({ task: 'rdk' }).last(trialLength)
     var correct_trials = trials.filter({ correct: true });
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     var rt = Math.round(trials.select('rt').mean());
+    var rt_sd = Math.round(trials.select('rt').sd());
     // get final tiral of each practice block (获取传递给测试阶段的值)
     difficulty_motion = trials.last(1).values()[0].proportionMotion;
     difficulty_color = trials.last(1).values()[0].proportionColor;
-    if (currentDownStepMotion() == 2) {
+    if (downStep == 2) {
       difficulty_motion_hard = difficulty_motion;
-      difficulty_motion_easy;
-    } else if (currentDownStepMotion() == 4) {
-      difficulty_motion_easy = difficulty_motion;
-      difficulty_motion_hard
-    };
-    if (currentDownStepColor() == 2) {
+      //difficulty_motion_easy;
       difficulty_color_hard = difficulty_color;
-      difficulty_color_easy;
-    } else if (currentDownStepColor() == 4) {
+      //difficulty_color_easy;
+    } else if (downStep == 4) {
+      difficulty_motion_easy = difficulty_motion;
+      //difficulty_motion_hard
       difficulty_color_easy = difficulty_color;
-      difficulty_color_hard
+      //difficulty_color_hard
     };
-    console.log({"difficulty_motion_hard": difficulty_motion_hard, "difficulty_motion_easy": difficulty_motion_easy, 
+    outPut = { //将练习阶段的结果变成一个列表保存下来
+      condition: {
+        "difficulty_motion_hard": difficulty_motion_hard,
+        "difficulty_motion_easy": difficulty_motion_easy,
+        "difficulty_color_hard": difficulty_color_hard,
+        "difficulty_color_easy": difficulty_color_easy
+      },
+      result: {
+        "accuracy": accuracy,
+        "rt": rt,
+        "rt_sd": rt_sd
+      }
+    };
+    practOutput.push(outPut);
+    console.log(practOutput)
+    /*console.log({"difficulty_motion_hard": difficulty_motion_hard, "difficulty_motion_easy": difficulty_motion_easy, 
       "difficulty_color_hard": difficulty_color_hard, "difficulty_color_easy": difficulty_color_easy});
-    console.log({ accuracy: accuracy, rt: rt });
+    console.log({ accuracy: accuracy, rt: rt });*/
     return `<p style='font-size: 35px; color: white'>您的正确率为： ${accuracy}% 。平均反应时为：${rt}毫秒。</p>`; 
-  }
+  },
 };
 
 
@@ -683,8 +753,7 @@ var loop_node_motion = {
 
 // 定义练习的 block 时间线 （执行两个不同难度的 block）
 var loop_block_color = {
-  timeline: [loop_node_color, //get_proportion, 
-  feedback_prect_block],
+  timeline: [loop_node_color, feedback_prect_block],
   loop_function: function(){
     if(practBlockNumColor == 0 ){
       practBlockNumColor += 1;
@@ -697,8 +766,7 @@ var loop_block_color = {
 };
 
 var loop_block_motion = {
-  timeline: [loop_node_motion, //get_proportion, 
-  feedback_prect_block],
+  timeline: [loop_node_motion, feedback_prect_block],
   loop_function: function(){
     if(practBlockNumMotion == 0 ){
       practBlockNumMotion += 1;
@@ -720,7 +788,6 @@ var loop_block_motion = {
 var formalPartMotion = 0;
 var formalPartColor = 0;
 var currentDifficulty
-let difficulty;
 var difficulty_motion
 var difficulty_motion_hard
 var difficulty_motion_easy
@@ -813,7 +880,7 @@ var formal_single_trial_color = {
   number_of_dots: 100,
   RDK_type: 3,
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
-  color_change_delay: 10,
+  color_change_delay: randomNumber,
   dot_color_final: jsPsych.timelineVariable("dot_color_final"),
   target_color_proportion: function() { return setCurrentDifficultyColor(formalPartColor)},
   choices: ["d", "k"],
@@ -834,9 +901,10 @@ var formal_single_trial_color = {
   },
   on_start: function() {
     var displayElement = jsPsych.getDisplayElement();
+    var elements = displayElement.querySelectorAll("*");
     // 1000毫秒后隐藏刺激
     setTimeout(function() {
-      var elements = displayElement.querySelectorAll("*");
+      //var elements = displayElement.querySelectorAll("*");
       elements.forEach(function(el) {
         el.style.display = 'none';
       });
@@ -845,6 +913,12 @@ var formal_single_trial_color = {
   on_finish: function(data){
     data.data_label = 'staircase_color';
     data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_responce);
+    // 重新显示元素
+    var displayElement = jsPsych.getDisplayElement();
+    var elements = displayElement.querySelectorAll("*");
+    elements.forEach(function(el) {
+      el.style.display = 'inline';
+    });
   }
 };
 
@@ -854,6 +928,7 @@ var formal_single_trial_motion = {
   number_of_dots: 100,
   RDK_type: 3,
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
+  motion_change_delay: randomNumber,
   coherent_direction: jsPsych.timelineVariable("coherent_direction"),
   coherence: function() {return setCurrentDifficultyMotion(formalPartMotion)},
   choices: ["ArrowLeft", "ArrowRight"],
@@ -873,9 +948,10 @@ var formal_single_trial_motion = {
   },
   on_start: function() {
     var displayElement = jsPsych.getDisplayElement();
+    var elements = displayElement.querySelectorAll("*");
     // 1000毫秒后隐藏刺激
     setTimeout(function() {
-      var elements = displayElement.querySelectorAll("*");
+      //var elements = displayElement.querySelectorAll("*");
       elements.forEach(function(el) {
         el.style.display = 'none';
       });
@@ -884,7 +960,73 @@ var formal_single_trial_motion = {
   on_finish: function(data){
     data.data_label = 'staircase_motion';
     data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_responce);
+    // 重新显示元素
+    var displayElement = jsPsych.getDisplayElement();
+    var elements = displayElement.querySelectorAll("*");
+    elements.forEach(function(el) {
+      el.style.display = 'inline';
+    });
   }
+};
+
+var feedback_formal_block_motion = {
+  type: jsPsychHtmlKeyboardResponse,
+  trial_duration: 2000,
+  stimulus: function () {
+    var trials = jsPsych.data.get().filter({data_label:'staircase_motion'}).last(formalTrialBlockMun);
+    var task = trials.select("part").values[0];
+    var correct_trials = trials.filter({correct: true });
+    var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+    var rt = Math.round(trials.select('rt').mean());
+    var rt_sd = Math.round(trials.select('rt').sd());
+    var coherence = trials.select('coherence').mean();
+    // 创建一个包含条件和结果的对象
+    outPut = {
+      condition: {
+        "firstTask": task,
+        "motionCoherence": coherence,
+      },
+      result: {
+        "accuracy": accuracy,
+        "rt": rt,
+        "rt_sd": rt_sd
+      }
+    };
+    formalOutput.push(outPut);
+    console.log(formalOutput)
+    //console.log({ accuracy: accuracy, rt: rt });
+    return `<p style='font-size: 35px; color: white'>您的正确率为： ${accuracy}% 。平均反应时为：${rt}毫秒。</p>`; 
+  },
+};
+
+var feedback_formal_block_color = {
+  type: jsPsychHtmlKeyboardResponse,
+  trial_duration: 2000,
+  stimulus: function () {
+    var trials = jsPsych.data.get().filter({data_label:'staircase_color'}).last(20);
+    var task = trials.select("part").values[0];
+    var correct_trials = trials.filter({correct: true });
+    var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+    var rt = Math.round(trials.select('rt').mean());
+    var rt_sd = Math.round(trials.select('rt').sd());
+    var proportion = trials.select('target_color_proportion').mean()
+    // 创建一个包含条件和结果的对象
+    outPut = {
+      condition: {
+        "task": task,
+        "colorProportion": proportion
+      },
+      result: {
+        "accuracy": accuracy,
+        "rt": rt,
+        "rt_sd": rt_sd
+      }
+    };
+    formalOutput.push(outPut);
+    console.log(formalOutput)
+    //console.log({ accuracy: accuracy, rt: rt });
+    return `<p style='font-size: 35px; color: white'>您的正确率为： ${accuracy}% 。平均反应时为：${rt}毫秒。</p>`; 
+  },
 };
 
 //设置正式阶段任务的循环的时间线
@@ -914,17 +1056,17 @@ var cycle_rdk_motion = {
 
 // 加上休息的时间线
 var cycle_color = {
-  timeline: [cycle_rdk_color, rest],
+  timeline: [cycle_rdk_color, feedback_formal_block_color],
   on_timeline_finish: function() {
-    var block_data = jsPsych.data.get();
+    //var block_data = jsPsych.data.get();
     currentCycleMunMotion += 1
   }
 };
 
 var cycle_motion = {
-  timeline: [cycle_rdk_motion, rest],
+  timeline: [cycle_rdk_motion, feedback_formal_block_motion],
   on_timeline_finish: function() {
-    var block_data = jsPsych.data.get();
+    //var block_data = jsPsych.data.get();
     currentCycleMunColor += 1
   }
 };
@@ -935,7 +1077,7 @@ var formal_color_easy = generateStaircaseTimeline({
   // Your jsPsych instance (required to fetch data)
   jsPsychInstance: jsPsych,
   // The target accurcy (between 0 and 1)
-  targetAccuracy: 0.85,
+  targetAccuracy: 0.80,
   // The number of cycles to be carried out
   numberOfCycles: formal_stair_cycle_color,
   // The difficulty object
@@ -958,7 +1100,7 @@ var formal_color_hard = generateStaircaseTimeline({
 
 var formal_motion_easy = generateStaircaseTimeline({
   jsPsychInstance: jsPsych,
-  targetAccuracy: 0.85,
+  targetAccuracy: 0.80,
   numberOfCycles: formal_stair_cycle_motion,
   difficulty: easyStaircaseMotion,
   dataLabel: 'staircase_motion',
@@ -1016,7 +1158,8 @@ var color_first = {
   timeline: [color_total, motion_total],
   conditional_function: function(){
     if (userId % 2 === 0) {
-      console.log("color first");
+      sequence = "color first";
+      console.log(sequence);
       return true;
     } else {
       return false;
@@ -1028,7 +1171,8 @@ var motion_first = {
   timeline: [motion_total, color_total],
   conditional_function: function(){
     if (userId % 2 !== 0) {
-      console.log("motion first");
+      sequence = "motion first";
+      console.log(sequence);
       return true;
     } else {
       return false;
