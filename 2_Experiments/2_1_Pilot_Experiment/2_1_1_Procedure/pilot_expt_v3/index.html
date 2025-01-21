@@ -42,6 +42,7 @@
 
 
 let userId;
+
 // 使用 window.location.search 获取查询字符串
 const queryString = window.location.search;
 // 使用 new URLSearchParams 解析查询字符串
@@ -50,6 +51,8 @@ const urlParams = new URLSearchParams(queryString);
 const testMode = urlParams.get('test')=="true"?true:false
 userId = parseInt(urlParams.get('id'));
 console.log("userId: ", userId)
+
+
 
 var practOutput = [];
 var formalOutput = [];
@@ -126,8 +129,13 @@ function saveJsonToFile(jsonData, filename) {
 
 
 var jsPsych = initJsPsych({
+  /*on_start: function() {
+    var urlvar = jsPsych.data.urlVariables();
+    var testMode = urlvar.test=="true"?true:false
+    userId = urlvar.id
+  },*/
   on_finish: function() {
-    jsPsych.data.displayData();
+    //jsPsych.data.displayData();
     // 保存 outPut 为 json 文件
     saveJsonToFile(outPutAll, `pilot_expt_v3_${userId}.json`);
     jsPsych.data.get().localSave('csv', `pilot_expt_v3_${userId}.csv`);
@@ -1108,7 +1116,7 @@ var cycle_rdk_motion = {
   randomize_order: true
 };
 
-// 加上休息的时间线
+// 加上 block 反馈的时间线
 var cycle_color = {
   timeline: [cycle_rdk_color, feedback_formal_block_color],
   on_timeline_finish: function() {
@@ -1145,7 +1153,7 @@ var formal_color_easy = generateStaircaseTimeline({
 
 var formal_color_hard = generateStaircaseTimeline({
   jsPsychInstance: jsPsych,
-  targetAccuracy: 0.65,
+  targetAccuracy: 0.60,
   numberOfCycles: formal_stair_cycle_color,
   difficulty: hardStaircaseColor,
   dataLabel: 'staircase_color',
@@ -1163,17 +1171,17 @@ var formal_motion_easy = generateStaircaseTimeline({
 
 var formal_motion_hard = generateStaircaseTimeline({
   jsPsychInstance: jsPsych,
-  targetAccuracy: 0.65,
+  targetAccuracy: 0.60,
   numberOfCycles: formal_stair_cycle_motion,
   difficulty: hardStaircaseMotion,
   dataLabel: 'staircase_motion',
   cycle: cycle_motion,
 });
 
-var formal_block_motion = {
-  timeline: [formal_motion_easy, stepOneEnd, restEnd, formal_motion_hard],
+var formal_block_motion_easy = {
+  timeline: [formal_motion_easy, stepOneEnd, restEnd],
   on_timeline_finish: function() {
-    if(currentCycleMunMotion > foraml_split_part_number ){
+    if(currentCycleMunMotion >= foraml_split_part_number ){
       formalPartMotion = 1;
     } else {
       formalPartMotion = 0
@@ -1182,10 +1190,14 @@ var formal_block_motion = {
   }
 };
 
-var formal_block_color = {
-  timeline: [formal_color_easy, stepOneEnd, restEnd, formal_color_hard],
+var formal_block_motion = {
+  timeline: [formal_block_motion_easy, formal_motion_hard]
+};
+
+var formal_block_color_easy = {
+  timeline: [formal_color_easy, stepOneEnd, restEnd],
   on_timeline_finish: function() {
-    if(currentCycleMunColor > foraml_split_part_number ){
+    if(currentCycleMunColor >= foraml_split_part_number ){
       formalPartColor = 1;
     } else {
       formalPartColor = 0
@@ -1193,6 +1205,10 @@ var formal_block_color = {
     console.log('current condition number ', formalPartColor)
   }
 };
+
+var formal_block_color = {
+  timeline: [formal_block_color_easy, formal_color_hard]
+}
 
 /*---------------------------------------------------------------------
 将不同的条件组合，根据被试编号分配，奇数被试先运动后颜色，偶数被试先颜色后运动
