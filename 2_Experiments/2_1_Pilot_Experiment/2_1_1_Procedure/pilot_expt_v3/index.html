@@ -74,7 +74,7 @@ var formal_stair_cycle_motion;
 var formal_stair_cycle_color;
 var rest_time;
 var foraml_split_part_number;
-var formalTrialBlockMun;
+//var formalTrialBlockMun;
 var currentCycleMunMotion = 0;
 var currentCycleMunColor = 0;
 
@@ -83,7 +83,7 @@ if (testMode) {
   reversalsNum = 2;
   pract_cycle = 1;
   formal_cycle = 1; //block 里面的循环
-  formalTrialBlockMun = 4;
+  //formalTrialBlockMun = 4;
   formal_stair_cycle_motion = 2; //condition 里面的循环
   formal_stair_cycle_color = 2;
   rest_time = 2000;
@@ -93,7 +93,7 @@ if (testMode) {
   reversalsNum = 10;
   pract_cycle = 10; // 40个练习 trial
   formal_cycle = 5; //正式：一个 block 20 个 trial
-  formalTrialBlockMun = 20;
+  //formalTrialBlockMun = 20;
   formal_stair_cycle_motion = 10; // 正式循环 10 次
   formal_stair_cycle_color = 10;
   rest_time = 120000;
@@ -145,6 +145,62 @@ var fullScreen = {
   data: {
     part: "fullScreen"
   },
+};
+
+//-------------------------收集被试信息----------------------
+
+const subj_information = {
+  type: jsPsychSurvey,
+  survey_json: {
+    showQuestionNumbers: true, title: "请填写基本信息", completeText: "提交",
+    elements: [
+      {
+        type: "radiogroup",
+        title: "性别",
+        choices: ["男", "女"],
+        isRequired: true,
+        showNoneItem: false,
+        showOtherItem: false,
+        colCount: 0,
+        name: "sex"
+      },
+      {
+        type: 'text',
+        title: "年龄",
+        name: "age",
+        isRequired: true,
+        inputType: "number",
+        min: 0,
+        max: 100
+      },
+      {
+        type: "radiogroup",
+        title: "利手或惯用手",
+        choices: ["左", "右"],
+        isRequired: true,
+        showNoneItem: false,
+        showOtherItem: false,
+        colCount: 0,
+        name: "hands"
+      },
+      {
+        type: "radiogroup",
+        title: "是否为色盲或色弱",
+        choices: ["色盲", "色弱", "都不是", "不确定"],
+        isRequired: true,
+        showNoneItem: false,
+        showOtherItem: false,
+        colCount: 0,
+        name: "color_blindness"
+      }
+    ]
+  },
+  data: {
+    part: "survey"
+  },
+  on_finish: function (data) {
+    // window.subjectIdGlobal = data.response.subjectID;  //在这里获得被试id，把它存储为一个全局变量，用作之后的条件分配
+  }
 };
 
 //------------------------- 任务所需要的指导语 --------------
@@ -341,8 +397,6 @@ function getRandomNumber(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-var randomNumber = getRandomNumber(6, 12);
-
 /*
 ------------------------- 下面开始整个任务 -------------
 ------------------------- 习阶段设置为 n-down 1-up -----
@@ -527,7 +581,7 @@ var single_trial_color = {
   target_color_proportion: function(){return proportionColor},
   correct_choice: jsPsych.timelineVariable("correct_choice"),
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
-  color_change_delay: randomNumber,
+  color_change_delay: getRandomNumber(6, 12),
   dot_color_final: jsPsych.timelineVariable("dot_color_final"),
   move_distance: 3,
   coherence:0,
@@ -580,7 +634,7 @@ var single_trial_motion = {
   correct_choice: jsPsych.timelineVariable("correct_choice"),
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
   move_distance: 3,
-  motion_change_delay: randomNumber,
+  motion_change_delay: getRandomNumber(6, 12),
   coherent_direction: jsPsych.timelineVariable("coherent_direction"),
   coherence: function(){return proportionMotion},
   //aperture_center_x: 400,
@@ -798,9 +852,9 @@ var difficulty_color_easy
 
 // 获取初始难度值（然后传递给单个试次），并规定难度范围
 const easyStaircaseColor = {
-  // 这里的 max 和 min 是指难度的最大值和最小值，对应的是信号水平，颜色的难度范围为 0.61 - 0.51 = 0.1
+  // 这里的 max 和 min 是指难度的最大值和最小值，对应的是信号水平，颜色的难度范围为 0.66 - 0.51 = 0.15
   max: 0.51,
-  min: 0.61,
+  min: 0.66,
   get: () => {
     console.log("difficulty_formal_color_easy:" + difficulty_color_easy);
     return difficulty_color_easy;
@@ -811,9 +865,9 @@ const easyStaircaseColor = {
 };
 
 const hardStaircaseColor = {
-  // 这里的 max 和 min 是指难度的最大值和最小值，对应的是信号水平，颜色的难度范围为 0.61 - 0.51 = 0.1
+  // 这里的 max 和 min 是指难度的最大值和最小值，对应的是信号水平，颜色的难度范围为 0.66 - 0.51 = 0.15
   max: 0.51,
-  min: 0.61,
+  min: 0.66,
   get: () => {
     console.log("difficulty_formal_color_hard:" + difficulty_color_hard);
     return difficulty_color_hard;
@@ -880,7 +934,7 @@ var formal_single_trial_color = {
   number_of_dots: 100,
   RDK_type: 3,
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
-  color_change_delay: randomNumber,
+  color_change_delay: getRandomNumber(6, 12),
   dot_color_final: jsPsych.timelineVariable("dot_color_final"),
   target_color_proportion: function() { return setCurrentDifficultyColor(formalPartColor)},
   choices: ["d", "k"],
@@ -928,7 +982,7 @@ var formal_single_trial_motion = {
   number_of_dots: 100,
   RDK_type: 3,
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
-  motion_change_delay: randomNumber,
+  motion_change_delay: function() {return getRandomNumber(6, 12)},
   coherent_direction: jsPsych.timelineVariable("coherent_direction"),
   coherence: function() {return setCurrentDifficultyMotion(formalPartMotion)},
   choices: ["ArrowLeft", "ArrowRight"],
@@ -973,7 +1027,7 @@ var feedback_formal_block_motion = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 2000,
   stimulus: function () {
-    var trials = jsPsych.data.get().filter({data_label:'staircase_motion'}).last(formalTrialBlockMun);
+    var trials = jsPsych.data.get().filter({data_label:'staircase_motion'}).last(20); // 这里必须要写成数字才能变化难度，好奇怪
     var task = trials.select("part").values[0];
     var correct_trials = trials.filter({correct: true });
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
@@ -1059,7 +1113,7 @@ var cycle_color = {
   timeline: [cycle_rdk_color, feedback_formal_block_color],
   on_timeline_finish: function() {
     //var block_data = jsPsych.data.get();
-    currentCycleMunMotion += 1
+    currentCycleMunColor += 1
   }
 };
 
@@ -1067,7 +1121,7 @@ var cycle_motion = {
   timeline: [cycle_rdk_motion, feedback_formal_block_motion],
   on_timeline_finish: function() {
     //var block_data = jsPsych.data.get();
-    currentCycleMunColor += 1
+    currentCycleMunMotion += 1
   }
 };
 
@@ -1184,7 +1238,7 @@ var motion_first = {
 //---------- 整个任务的时间线 ----------
 
 var timeline = {
-  timeline: [fullScreen, color_first, motion_first, end]
+  timeline: [fullScreen, subj_information, color_first, motion_first, end]
 }
 
 // 运行实验
