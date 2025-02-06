@@ -1,0 +1,1281 @@
+"Participant_ID","Sex","Age","Handedness","part","rt","response","correct","coherent_direction","coherence","target_color_proportion","dot_color_final","coherent_direction.1"
+4,"女",21,"右","motion_pract","2299","arrowright",0,180,0.24,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1467","arrowright",1,0,0.26,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1251","arrowleft",1,180,0.26,0,"[""white""]",180
+4,"女",21,"右","motion_pract","746","arrowright",1,0,0.26,0,"[""white""]",0
+4,"女",21,"右","motion_pract","908","arrowright",1,0,0.26,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1066","arrowleft",1,180,0.24,0,"[""white""]",180
+4,"女",21,"右","motion_pract","987","arrowleft",1,180,0.24,0,"[""white""]",180
+4,"女",21,"右","motion_pract","793","arrowright",1,0,0.24,0,"[""white""]",0
+4,"女",21,"右","motion_pract","638","arrowleft",1,180,0.24,0,"[""white""]",180
+4,"女",21,"右","motion_pract","460","arrowright",1,0,0.22,0,"[""white""]",0
+4,"女",21,"右","motion_pract","2172","arrowleft",0,0,0.22,0,"[""white""]",0
+4,"女",21,"右","motion_pract","712","arrowleft",1,180,0.24,0,"[""white""]",180
+4,"女",21,"右","motion_pract","724","arrowleft",1,180,0.24,0,"[""white""]",180
+4,"女",21,"右","motion_pract","850","arrowright",1,0,0.24,0,"[""white""]",0
+4,"女",21,"右","motion_pract","735","arrowright",1,0,0.24,0,"[""white""]",0
+4,"女",21,"右","motion_pract","582","arrowleft",1,180,0.22,0,"[""white""]",180
+4,"女",21,"右","motion_pract","679","arrowleft",1,180,0.22,0,"[""white""]",180
+4,"女",21,"右","motion_pract","691","arrowright",1,0,0.22,0,"[""white""]",0
+4,"女",21,"右","motion_pract","795","arrowright",1,0,0.22,0,"[""white""]",0
+4,"女",21,"右","motion_pract","630","arrowleft",1,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","507","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","644","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","673","arrowleft",1,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","587","arrowright",0,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","790","arrowleft",1,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1183","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","838","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","851","arrowright",0,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","577","arrowright",1,0,0.22,0,"[""white""]",0
+4,"女",21,"右","motion_pract","623","arrowleft",1,180,0.22,0,"[""white""]",180
+4,"女",21,"右","motion_pract","741","arrowright",1,0,0.22,0,"[""white""]",0
+4,"女",21,"右","motion_pract","532","arrowleft",1,180,0.22,0,"[""white""]",180
+4,"女",21,"右","motion_pract","602","arrowleft",1,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","907","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","586","arrowleft",1,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","624","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","731","arrowleft",1,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","602","arrowleft",1,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","526","arrowright",1,0,0.18,0,"[""white""]",0
+4,"女",21,"右","motion_pract","723","arrowright",1,0,0.18,0,"[""white""]",0
+4,"女",21,"右","motion_pract","726","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","653","arrowleft",1,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","656","arrowleft",1,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","628","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","673","arrowleft",0,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","739","arrowright",0,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1789","arrowleft",0,0,0.18,0,"[""white""]",0
+4,"女",21,"右","motion_pract","636","arrowleft",1,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","855","arrowleft",1,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1291","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","784","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","795","arrowleft",1,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","646","arrowleft",1,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","642","arrowright",1,0,0.18,0,"[""white""]",0
+4,"女",21,"右","motion_pract","708","arrowleft",1,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","796","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","578","arrowleft",1,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","689","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","728","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","735","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_pract","550","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1108","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_pract","429","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1074","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","590","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","922","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","602","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","705","arrowleft",1,180,0.1,0,"[""white""]",180
+4,"女",21,"右","motion_pract","559","arrowright",0,180,0.1,0,"[""white""]",180
+4,"女",21,"右","motion_pract","508","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","659","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","649","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","552","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1999","arrowleft",1,180,0.1,0,"[""white""]",180
+4,"女",21,"右","motion_pract","712","arrowright",1,0,0.1,0,"[""white""]",0
+4,"女",21,"右","motion_pract","832","arrowleft",0,0,0.1,0,"[""white""]",0
+4,"女",21,"右","motion_pract","572","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","564","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1155","arrowleft",0,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","817","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_pract","798","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1321","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1637","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","556","arrowright",1,0,0.1,0,"[""white""]",0
+4,"女",21,"右","motion_pract","771","arrowleft",0,0,0.1,0,"[""white""]",0
+4,"女",21,"右","motion_pract","609","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","642","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","700","arrowleft",1,180,0.1,0,"[""white""]",180
+4,"女",21,"右","motion_pract","709","arrowleft",0,0,0.1,0,"[""white""]",0
+4,"女",21,"右","motion_pract","622","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","719","arrowright",0,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","723","arrowleft",0,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","667","arrowleft",0,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","996","arrowleft",1,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","2061","arrowleft",1,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1348","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","792","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","653","arrowright",0,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1174","arrowleft",0,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1424","arrowleft",1,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","676","arrowright",1,0,0.18,0,"[""white""]",0
+4,"女",21,"右","motion_pract","679","arrowleft",1,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","713","arrowleft",1,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1015","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","692","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_pract","648","arrowright",0,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","645","arrowleft",0,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","566","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","819","arrowleft",1,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","634","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","693","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","562","arrowright",0,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","554","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_pract","506","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","875","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","869","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","715","arrowright",1,0,0.1,0,"[""white""]",0
+4,"女",21,"右","motion_pract","712","arrowright",1,0,0.1,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1107","arrowleft",1,180,0.0800000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_pract","722","arrowright",0,180,0.0800000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_pract","714","arrowright",1,0,0.1,0,"[""white""]",0
+4,"女",21,"右","motion_pract","509","arrowleft",1,180,0.1,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1064","arrowleft",1,180,0.0800000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1291","arrowright",1,0,0.0800000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_pract","805","arrowright",1,0,0.0600000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1661","arrowright",1,0,0.0600000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_pract","989","arrowright",0,180,0.04,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1806","arrowleft",1,180,0.0600000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1624","arrowleft",0,0,0.0600000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_pract","872","arrowleft",0,0,0.0800000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_pract","795","arrowright",0,180,0.1,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1264","arrowleft",1,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","641","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","985","arrowleft",1,180,0.1,0,"[""white""]",180
+4,"女",21,"右","motion_pract","710","arrowright",0,180,0.1,0,"[""white""]",180
+4,"女",21,"右","motion_pract","933","arrowright",1,0,0.12,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1055","arrowright",0,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1342","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","609","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1395","arrowright",0,180,0.12,0,"[""white""]",180
+4,"女",21,"右","motion_pract","965","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_pract","817","arrowleft",0,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","950","arrowleft",1,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1165","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","788","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_pract","798","arrowleft",0,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1487","arrowright",1,0,0.16,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1107","arrowright",0,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","858","arrowleft",1,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1614","arrowleft",0,0,0.18,0,"[""white""]",0
+4,"女",21,"右","motion_pract","811","arrowleft",1,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","917","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1610","arrowright",0,180,0.18,0,"[""white""]",180
+4,"女",21,"右","motion_pract","786","arrowleft",1,180,0.2,0,"[""white""]",180
+4,"女",21,"右","motion_pract","974","arrowright",1,0,0.2,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1087","arrowright",1,0,0.18,0,"[""white""]",0
+4,"女",21,"右","motion_pract","990","arrowright",1,0,0.18,0,"[""white""]",0
+4,"女",21,"右","motion_pract","1516","arrowleft",1,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1031","arrowleft",1,180,0.16,0,"[""white""]",180
+4,"女",21,"右","motion_pract","1135","arrowleft",0,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","918","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","790","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","926","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1496","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1374","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1247","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1149","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","966","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1325","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","855","arrowleft",0,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1395","arrowright",0,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1422","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1823","arrowleft",0,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","913","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","856","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1822","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1378","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","2160","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1501","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1373","arrowright",0,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1382","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1365","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1384","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1404","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1019","arrowright",0,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1304","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1135","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1319","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1041","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","925","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","914","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","926","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1297","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","849","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1319","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1025","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1095","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1391","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2214","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1833","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","2143","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1508","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1295","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","2318","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1354","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1614","arrowleft",0,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1537","arrowright",1,0,0.137,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1369","arrowleft",1,180,0.137,0,"[""white""]",180
+4,"女",21,"右","motion_formal","904","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2394","arrowright",0,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","744","arrowleft",1,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","872","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1564","arrowleft",1,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1276","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2309","arrowleft",1,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1331","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1113","arrowleft",1,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1272","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1219","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","775","arrowleft",1,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1775","arrowright",0,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1281","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","739","arrowleft",1,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1616","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1468","arrowleft",1,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","815","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1336","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1194","arrowleft",1,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1319","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1478","arrowright",0,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","943","arrowright",1,0,0.1265,0,"[""white""]",0
+4,"女",21,"右","motion_formal","942","arrowleft",1,180,0.1265,0,"[""white""]",180
+4,"女",21,"右","motion_formal","737","arrowright",1,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","968","arrowleft",1,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","712","arrowright",1,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1268","arrowleft",1,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1521","arrowleft",1,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","594","arrowright",1,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1537","arrowleft",1,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","862","arrowright",1,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1377","arrowleft",0,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","674","arrowright",1,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1684","arrowright",0,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1471","arrowleft",1,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","998","arrowleft",1,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1061","arrowleft",0,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1077","arrowleft",1,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","745","arrowright",1,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1453","arrowleft",0,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1804","arrowleft",1,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1828","arrowright",0,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1445","arrowright",1,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1875","arrowright",0,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1966","arrowleft",0,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1609","arrowright",1,0,0.11975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1554","arrowleft",1,180,0.11975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","736","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","738","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","678","arrowright",1,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2012","arrowright",1,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1652","arrowleft",0,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1862","arrowright",1,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","757","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","709","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1279","arrowleft",0,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1153","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1653","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","687","arrowleft",0,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1026","arrowright",0,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","991","arrowright",1,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1119","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","621","arrowright",1,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","772","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1567","arrowright",1,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","726","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1322","arrowright",1,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1645","arrowleft",0,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","869","arrowright",1,0,0.128,0,"[""white""]",0
+4,"女",21,"右","motion_formal","797","arrowleft",1,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","634","arrowright",0,180,0.128,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1078","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","719","arrowright",1,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","676","arrowleft",0,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1110","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","933","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1076","arrowright",1,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","807","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","834","arrowright",1,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","782","arrowleft",0,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1211","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","786","arrowright",1,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","652","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","767","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","894","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","855","arrowleft",0,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","929","arrowleft",0,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","637","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1064","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1456","arrowright",1,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","680","arrowleft",0,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1026","arrowright",1,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1357","arrowleft",0,0,0.1325,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1238","arrowright",0,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","720","arrowleft",1,180,0.1325,0,"[""white""]",180
+4,"女",21,"右","motion_formal","902","arrowright",1,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1399","arrowleft",0,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1583","arrowleft",1,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1278","arrowright",0,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1350","arrowright",0,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1015","arrowleft",1,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1108","arrowright",1,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1410","arrowright",1,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","712","arrowright",1,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","798","arrowright",1,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1070","arrowright",0,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1451","arrowright",0,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","937","arrowleft",1,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1064","arrowright",1,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","852","arrowright",1,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1366","arrowleft",1,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1476","arrowleft",1,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1866","arrowleft",0,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","685","arrowright",1,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1195","arrowleft",1,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","959","arrowleft",1,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1418","arrowright",1,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","911","arrowleft",1,180,0.14075,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1388","arrowleft",0,0,0.14075,0,"[""white""]",0
+4,"女",21,"右","motion_formal","770","arrowright",1,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","806","arrowleft",0,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","857","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1472","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1214","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","727","arrowright",1,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1296","arrowright",1,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1748","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1354","arrowright",1,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1120","arrowright",1,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1471","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","680","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","729","arrowleft",0,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","732","arrowright",1,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1174","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","681","arrowright",0,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1313","arrowleft",0,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","718","arrowleft",0,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1177","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1052","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1209","arrowright",1,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","924","arrowright",1,0,0.149,0,"[""white""]",0
+4,"女",21,"右","motion_formal","721","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1111","arrowleft",1,180,0.149,0,"[""white""]",180
+4,"女",21,"右","motion_formal","726","arrowright",1,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","946","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","602","arrowright",1,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1211","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","838","arrowleft",0,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","644","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1160","arrowright",1,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","757","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","975","arrowleft",0,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","678","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","761","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","917","arrowleft",0,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","639","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","818","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","749","arrowright",1,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1432","arrowright",1,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","742","arrowright",1,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","903","arrowright",1,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1057","arrowright",0,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","700","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","929","arrowright",0,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1169","arrowright",1,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1056","arrowleft",1,180,0.14975,0,"[""white""]",180
+4,"女",21,"右","motion_formal","766","arrowright",1,0,0.14975,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1360","arrowleft",0,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1239","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","771","arrowright",0,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","782","arrowleft",1,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1209","arrowleft",1,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","673","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1304","arrowleft",1,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","598","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","731","arrowleft",1,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","846","arrowright",0,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","814","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","859","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1249","arrowleft",1,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","735","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","678","arrowright",0,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1421","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1350","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","987","arrowleft",1,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1303","arrowright",0,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1515","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1606","arrowright",1,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1942","arrowleft",0,0,0.1505,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1639","arrowleft",1,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1192","arrowleft",1,180,0.1505,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1327","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1159","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","794","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","710","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1549","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1116","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","861","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2362","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1049","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","2119","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2070","arrowleft",0,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1919","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1266","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1166","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1280","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","818","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1057","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1306","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","983","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1200","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1382","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1396","arrowleft",1,180,0.14,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1648","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1159","arrowright",1,0,0.14,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1749","arrowright",1,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","879","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1262","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","833","arrowright",1,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","785","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","933","arrowright",1,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1071","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","782","arrowleft",0,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1285","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","909","arrowright",1,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1036","arrowleft",0,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","703","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","819","arrowright",1,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1139","arrowright",1,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1175","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","834","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1336","arrowright",0,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1085","arrowleft",0,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1147","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","925","arrowright",1,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1578","arrowleft",0,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1122","arrowright",1,0,0.10775,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1336","arrowleft",1,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","947","arrowright",0,180,0.10775,0,"[""white""]",180
+4,"女",21,"右","motion_formal","964","arrowright",1,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","991","arrowleft",1,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","910","arrowright",1,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","927","arrowleft",1,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1075","arrowleft",1,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1027","arrowright",1,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","730","arrowleft",1,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1361","arrowleft",0,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","911","arrowright",1,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1346","arrowleft",1,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1291","arrowleft",1,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1344","arrowleft",0,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1514","arrowleft",0,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1739","arrowright",0,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1814","arrowleft",1,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","926","arrowright",1,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","975","arrowleft",1,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1110","arrowright",0,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","732","arrowleft",0,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1175","arrowleft",0,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1150","arrowright",1,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","939","arrowleft",1,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1621","arrowright",0,180,0.0942500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1587","arrowright",1,0,0.0942500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","944","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1349","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","798","arrowright",1,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1330","arrowleft",0,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1188","arrowright",0,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","674","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","741","arrowright",1,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1415","arrowright",1,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","842","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1014","arrowright",0,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","766","arrowleft",0,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1511","arrowright",1,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1292","arrowright",1,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1132","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1476","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1041","arrowright",1,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","961","arrowleft",0,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","827","arrowright",1,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","774","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","865","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1125","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1328","arrowleft",1,180,0.0882500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","670","arrowright",1,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","787","arrowright",1,0,0.0882500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1070","arrowright",1,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1109","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1237","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","864","arrowright",1,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1403","arrowright",1,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1480","arrowleft",0,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","801","arrowright",0,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1113","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","944","arrowright",1,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","894","arrowright",1,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","916","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","759","arrowright",0,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","856","arrowleft",0,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","860","arrowright",1,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","793","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","892","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1532","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1503","arrowleft",0,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1256","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1338","arrowright",1,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1397","arrowright",1,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1136","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","854","arrowleft",1,180,0.0710000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1661","arrowleft",0,0,0.0710000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1011","arrowright",0,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1310","arrowright",1,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1636","arrowright",1,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","643","arrowleft",1,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","697","arrowleft",0,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","566","arrowright",0,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","608","arrowleft",0,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","611","arrowright",0,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","947","arrowright",1,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","801","arrowleft",1,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","736","arrowright",0,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","664","arrowright",1,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1363","arrowleft",1,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1167","arrowleft",0,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1851","arrowleft",1,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1529","arrowright",1,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1214","arrowleft",0,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1384","arrowright",1,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","730","arrowleft",1,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1305","arrowleft",1,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1610","arrowleft",0,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1498","arrowleft",0,0,0.0575000000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2071","arrowleft",1,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1443","arrowright",0,180,0.0575000000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1259","arrowleft",0,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","859","arrowleft",1,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1381","arrowleft",0,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","991","arrowright",0,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1158","arrowright",0,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1341","arrowleft",0,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2010","arrowright",0,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1643","arrowright",1,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","984","arrowright",1,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1420","arrowright",0,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1611","arrowright",0,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1304","arrowleft",0,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1099","arrowleft",1,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1469","arrowleft",0,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1218","arrowleft",1,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1213","arrowleft",0,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1060","arrowright",1,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","989","arrowleft",1,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1485","arrowleft",1,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","853","arrowright",1,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1273","arrowleft",1,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1319","arrowright",1,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1307","arrowleft",1,180,0.0627500000000001,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1341","arrowleft",0,0,0.0627500000000001,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1580","arrowright",1,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","663","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","744","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","719","arrowright",1,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","647","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1092","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1253","arrowright",1,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","897","arrowleft",0,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1595","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","946","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","943","arrowright",1,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1172","arrowleft",0,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","900","arrowright",1,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1013","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1985","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","2090","arrowright",1,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1158","arrowright",1,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1188","arrowright",1,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2878","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","866","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","943","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","804","arrowright",1,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","698","arrowleft",0,0,0.07175,0,"[""white""]",0
+4,"女",21,"右","motion_formal","693","arrowleft",1,180,0.07175,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1337","arrowleft",0,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","635","arrowright",0,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","931","arrowleft",0,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1575","arrowright",0,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1415","arrowleft",1,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","934","arrowleft",0,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","787","arrowright",0,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","678","arrowleft",0,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","648","arrowright",1,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","609","arrowleft",0,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1136","arrowright",0,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1304","arrowright",0,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1357","arrowright",0,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1469","arrowleft",0,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1629","arrowright",0,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","898","arrowright",1,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","663","arrowleft",1,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1256","arrowright",1,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1740","arrowleft",1,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1111","arrowleft",0,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1050","arrowright",0,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1362","arrowright",1,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","694","arrowright",0,180,0.047,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1329","arrowright",1,0,0.047,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1489","arrowleft",0,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1304","arrowleft",0,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1240","arrowleft",1,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1274","arrowright",0,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1423","arrowright",1,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1460","arrowright",1,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","788","arrowleft",1,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1642","arrowright",0,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1374","arrowright",1,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1539","arrowright",1,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1040","arrowleft",1,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1092","arrowleft",1,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","927","arrowright",0,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","928","arrowright",1,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","832","arrowleft",0,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1090","arrowleft",1,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1002","arrowright",1,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","932","arrowleft",0,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","1101","arrowright",0,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","904","arrowleft",1,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","831","arrowleft",1,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1401","arrowleft",1,180,0.071,0,"[""white""]",180
+4,"女",21,"右","motion_formal","1114","arrowright",1,0,0.071,0,"[""white""]",0
+4,"女",21,"右","motion_formal","2464","arrowleft",0,0,0.071,0,"[""white""]",0
+4,"女",21,"右","color_pract","1864","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1410","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1703","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1361","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1005","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1314","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1580","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1240","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1035","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","848","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","925","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1056","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","905","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1490","d",0,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1448","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1276","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","975","k",1,0,0,0.62,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","829","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","799","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1064","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","698","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1255","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1218","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1453","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1186","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","837","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","902","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1340","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1241","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1135","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","952","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1162","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1039","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","950","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","870","d",0,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1049","k",1,0,0,0.62,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1453","k",1,0,0,0.62,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","872","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","978","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1003","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1700","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","810","d",0,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1058","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","981","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1263","k",1,0,0,0.62,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","913","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","989","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","883","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1047","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","690","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","699","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","818","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","812","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1207","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1369","d",0,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1042","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","884","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1699","k",1,0,0,0.62,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1250","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1560","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","938","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1383","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1332","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1548","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1124","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1445","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1422","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1746","d",0,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","2323","k",1,0,0,0.62,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1372","k",1,0,0,0.62,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1218","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","2712","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1527","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","925","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","891","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1083","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","650","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1247","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","989","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1149","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1362","d",1,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","709","d",1,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1363","k",1,0,0,0.54,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1113","k",1,0,0,0.54,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1444","k",0,0,0,0.52,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1351","d",1,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","842","k",1,0,0,0.54,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1427","k",1,0,0,0.52,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1126","d",0,0,0,0.52,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","680","k",0,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1189","d",1,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1292","k",1,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1342","d",1,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1327","k",1,0,0,0.54,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1292","d",0,0,0,0.52,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1078","d",1,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","954","k",1,0,0,0.54,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1528","d",0,0,0,0.52,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1647","k",0,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1057","d",1,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1108","k",1,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1469","d",1,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","-1","",0,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","16","d",0,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1774","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","900","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1340","k",1,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1607","d",1,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1128","k",1,0,0,0.54,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1088","k",0,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1348","d",1,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1518","k",1,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","966","k",1,0,0,0.54,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1599","k",0,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","959","k",0,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1386","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1089","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1155","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1297","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1659","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1546","k",0,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1654","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","2080","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","2030","k",0,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","-1","",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1626","k",0,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","796","k",1,0,0,0.62,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","749","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1011","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","889","d",0,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","927","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1254","d",1,0,0,0.62,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","764","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","927","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","976","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","879","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1618","k",1,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","968","d",1,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1385","k",0,0,0,0.54,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","898","k",1,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","992","d",0,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1031","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","686","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1035","d",0,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1314","k",0,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","971","k",1,0,0,0.6,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1009","d",1,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","941","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1010","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1069","k",1,0,0,0.56,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1293","d",1,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","932","d",0,0,0,0.54,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1060","k",0,0,0,0.56,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","981","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1078","k",0,0,0,0.6,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1233","d",0,0,0,0.62,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","964","k",1,0,0,0.64,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1387","d",0,0,0,0.64,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1338","k",0,0,0,0.66,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_pract","1398","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1282","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","991","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1051","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1929","k",0,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","836","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","832","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1301","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1127","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1018","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1143","k",0,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","893","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1087","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1164","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1458","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1476","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1092","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1032","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","947","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","931","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1551","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1588","d",0,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","876","k",1,0,0,0.58,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1364","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1524","d",1,0,0,0.58,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1263","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","786","k",1,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1088","k",1,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","905","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","815","d",0,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","873","d",0,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1140","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1077","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1552","k",1,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1069","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1228","d",0,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1417","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1362","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1328","k",1,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1378","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1564","d",0,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1602","d",0,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1363","d",0,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1153","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1204","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1515","d",1,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","-1","",0,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1195","d",0,0,0,0.58375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","714","k",0,0,0,0.58375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","711","d",0,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","967","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1177","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1444","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1412","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1391","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1474","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","2141","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1311","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","2660","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1221","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","2250","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1340","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1068","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","976","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1353","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","-1","",0,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1302","d",0,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","866","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1439","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1261","k",0,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1657","d",0,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1271","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1570","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","952","d",1,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1194","k",1,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1380","d",1,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1314","k",1,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1019","d",1,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","2559","d",0,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","935","k",1,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1154","d",1,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1092","d",0,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","860","k",1,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","857","k",0,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1286","d",1,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","875","k",0,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1092","k",1,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1069","d",1,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1246","k",1,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1017","d",1,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","950","d",1,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","715","k",1,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1148","d",0,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1002","k",1,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1124","k",0,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1045","d",1,0,0,0.5975,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1978","k",1,0,0,0.5975,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","818","d",0,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","775","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","927","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1072","k",1,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1126","k",1,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","2158","k",0,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1032","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1031","k",1,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1293","d",0,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","-1","",0,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","860","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","726","d",0,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","891","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1071","k",1,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","921","k",1,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","783","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1009","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1287","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1069","k",1,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1070","k",1,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1549","k",1,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1216","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1299","d",1,0,0,0.60125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","845","k",1,0,0,0.60125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1607","k",1,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1406","d",0,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1218","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1137","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1140","k",1,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1039","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1554","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1197","k",1,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1995","d",0,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","991","k",1,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1197","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1363","k",0,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1881","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1062","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1701","d",0,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1295","k",1,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1057","k",1,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1612","k",0,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1323","k",1,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1498","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1598","k",1,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1444","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1284","k",1,0,0,0.601875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1057","d",1,0,0,0.601875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","929","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1236","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1069","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","827","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","883","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1184","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","860","k",0,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1143","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1119","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","888","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1215","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","989","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1096","d",0,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","984","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1336","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1354","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1181","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1090","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","868","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1164","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1143","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","755","k",1,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1307","d",0,0,0,0.6025,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1105","d",1,0,0,0.6025,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","860","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","827","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","975","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1089","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","998","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1439","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1358","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1375","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1023","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1280","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1300","k",0,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1179","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1431","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","854","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1087","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1329","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1413","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1417","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1520","d",0,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","750","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1263","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","953","d",1,0,0,0.596875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","964","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1274","k",1,0,0,0.596875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1504","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1054","k",1,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1019","k",1,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1446","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","695","k",0,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1051","d",0,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1165","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1126","d",0,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","854","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","917","k",1,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1218","k",1,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","856","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","710","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1032","d",0,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","851","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","841","k",1,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","831","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","911","k",1,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1133","k",1,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","950","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","836","k",0,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1063","k",1,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1527","k",1,0,0,0.588125,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","789","d",1,0,0,0.588125,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1013","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","829","k",1,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","914","k",1,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1008","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1234","k",1,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","955","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1342","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","955","k",1,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1302","k",1,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","852","d",0,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","788","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1012","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1191","k",1,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","825","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","811","d",0,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1154","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1046","d",0,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1324","k",1,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1238","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1648","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1415","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1325","k",1,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1791","d",0,0,0,0.58875,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1207","d",1,0,0,0.58875,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","909","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1056","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","920","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1300","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","832","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1146","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1568","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","839","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1094","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","744","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","911","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","915","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","926","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1205","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1197","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","866","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","805","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","872","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1161","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","945","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","889","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","996","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1148","d",1,0,0,0.68,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1090","k",1,0,0,0.68,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","956","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","797","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1140","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1130","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","878","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1261","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","920","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","829","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","918","k",0,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","940","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","769","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1068","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","728","d",0,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","799","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1069","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","840","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","704","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1101","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","792","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","873","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","903","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","787","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","863","d",1,0,0,0.65,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","995","k",1,0,0,0.65,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","937","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1185","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","789","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","922","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1156","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1553","d",0,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","939","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","888","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","893","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1040","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","866","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","842","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1055","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1090","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1296","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","959","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1118","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1372","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1230","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1050","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","862","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","801","k",1,0,0,0.62625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1054","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","907","d",1,0,0,0.62625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1039","d",0,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","734","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1003","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","715","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1267","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","880","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","785","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","909","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1113","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1023","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1606","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1071","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1504","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1149","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1232","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1307","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1098","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","932","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1342","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1079","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1095","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","914","d",0,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","933","k",1,0,0,0.599375,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","876","d",1,0,0,0.599375,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1371","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","963","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1093","d",0,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","908","d",0,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","766","k",1,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","889","k",1,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1016","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","838","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","995","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","781","d",0,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","763","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1113","k",1,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","748","d",0,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","824","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","763","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","642","d",0,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","583","d",0,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","701","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","603","d",0,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","748","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","621","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","941","k",1,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","954","d",0,0,0,0.575625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","990","d",1,0,0,0.575625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1043","k",1,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","891","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","846","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","823","k",1,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","977","k",1,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","765","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1266","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1175","d",0,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1025","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","963","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1073","d",0,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1295","d",0,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1083","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","944","k",1,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","862","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1517","d",0,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","888","d",0,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1339","d",0,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","874","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","893","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1000","k",1,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1092","d",0,0,0,0.570625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1104","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","834","d",1,0,0,0.570625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1357","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","903","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1102","d",0,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","891","k",1,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1733","d",0,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","821","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","842","d",0,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1152","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1136","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","910","k",1,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","923","d",0,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1252","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1621","k",1,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1292","d",0,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","904","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1233","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1485","d",0,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","858","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","966","d",0,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","888","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1304","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","857","k",1,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","733","d",0,0,0,0.5625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","986","d",1,0,0,0.5625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1033","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","898","k",1,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1247","d",0,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1473","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","907","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","724","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1245","k",1,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1048","d",0,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1100","k",1,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1024","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1421","d",0,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","784","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1550","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1596","k",1,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","835","d",0,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","940","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","877","d",0,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1579","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","929","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1353","k",1,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","979","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1240","k",1,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1349","d",1,0,0,0.5575,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","986","d",0,0,0,0.5575,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1428","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1023","d",0,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1095","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","991","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1079","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","912","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1770","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1053","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","780","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","847","d",0,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1108","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1006","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1114","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1087","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1503","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1387","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1177","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1250","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1422","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","891","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1110","d",1,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1384","k",0,0,0,0.54625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1415","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1056","k",1,0,0,0.54625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1206","k",1,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1106","d",1,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","852","k",0,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1467","k",1,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1102","k",0,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1105","k",1,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1332","d",1,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1336","d",0,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","936","d",0,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","726","d",1,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1224","k",0,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1336","d",0,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1030","k",0,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1097","d",1,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","971","k",1,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1534","d",0,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","975","d",0,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1343","k",0,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","1265","d",1,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","833","d",0,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","992","d",1,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","745","d",1,0,0,0.525625,"[""hsl(0, 50%, 50%)"",""hsl(225, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","975","k",1,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0
+4,"女",21,"右","color_formal","861","d",0,0,0,0.525625,"[""hsl(225, 50%, 50%)"",""hsl(0, 50%, 50%)""]",0

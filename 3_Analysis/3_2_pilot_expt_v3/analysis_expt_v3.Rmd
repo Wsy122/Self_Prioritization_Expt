@@ -161,7 +161,6 @@ library(palmerpenguins)
 library(tidyverse)
 library(patchwork)
 library(RColorBrewer)
-library(ggpubr)
 ```
 
 # 准备数据
@@ -185,10 +184,10 @@ data_all <- data %>%
     group_by(Participant_ID, judge_type, step) %>%
     mutate(
       difficulty = case_when(
-        step == "pract" & row_number() <= 40 ~ "easy_pract",
-        step == "pract" & row_number() > 40  ~ "hard_pract",
-        step == "formal" & row_number() <= 200 ~ "easy_formal",
-        step == "formal" & row_number() > 200 ~ "hard_formal",
+        step == "pract" & row_number() <= 50 ~ "easy_pract",
+        step == "pract" & row_number() > 50  ~ "hard_pract",
+        step == "formal" & row_number() <= 240 ~ "easy_formal",
+        step == "formal" & row_number() > 240 ~ "hard_formal",
         TRUE ~ "other"
       )
     ) %>%
@@ -210,8 +209,16 @@ df_motion <- data_all %>% #运动
       all_count = n(),#每个被试在每个条件的总trial数量
       row_count = sum(rt >= 200 & rt <= 3000, na.rm = TRUE), #舍弃按键太快和按键太慢的反应时
       correct_count = sum(correct == 1 & rt >= 200 & rt <= 3000, na.rm = TRUE),
-      acc = correct_count /all_count,
+      acc = correct_count /row_count,
       .groups = "drop")
+
+# 剔除 df_motion 中正确率的极值
+mean_acc_motion <- mean(df_motion$acc, na.rm = TRUE)
+sd_acc_motion <- sd(df_motion$acc, na.rm = TRUE)
+lower_bound_motion <- mean_acc_motion - 3 * sd_acc_motion
+upper_bound_motion <- mean_acc_motion + 3 * sd_acc_motion
+# [ , ] 逗号前为行，后为列
+df_motion <- df_motion[df_motion$acc >= lower_bound_motion & df_motion$acc <= upper_bound_motion, ]
 
 df_color <- data_all %>% #颜色
   filter(step == "formal" & judge_type == "color") %>%
@@ -222,10 +229,29 @@ df_color <- data_all %>% #颜色
       min_rt = min(rt, na.rm = TRUE),#每个被试所有trial的最小反应时
       sd_rt = sd(rt, na.rm = TRUE), #每个被试所有trial的反应时的方差
       all_count = n(),#每个被试在每个条件的总trial数量
-      row_count = sum(rt >= 200 & rt <= 3000, na.rm = TRUE), #舍弃按键太快和按键太慢的反应时
-      correct_count = sum(correct == 1 & rt >= 200 & rt <= 3000, na.rm = TRUE),
-      acc = correct_count /all_count,
+      row_count = sum(rt >= 200 & rt <= 3000&target_color_proportion < 0.8,
+                      na.rm = TRUE), #舍弃按键太快和按键太慢的反应时
+      correct_count = sum(correct == 1 & rt >= 200 & rt <= 3000 & target_color_proportion < 0.8,
+                          na.rm = TRUE),
+      acc = correct_count /row_count,
       .groups = "drop")
+
+
+# 剔除 df_color 中正确率的极值
+mean_acc_color <- mean(df_color$acc, na.rm = TRUE)
+sd_acc_color <- sd(df_color$acc, na.rm = TRUE)
+lower_bound_color <- mean_acc_color - 3 * sd_acc_color
+upper_bound_color <- mean_acc_color + 3 * sd_acc_color
+df_color <- df_color[df_color$acc >= lower_bound_color & df_color$acc <= upper_bound_color, ]
+
+# 去除 df_color 中的缺失值
+df_color <- na.omit(df_color)
+# 去除 df_motion 中的缺失值
+df_motion <- na.omit(df_motion)
+
+# 将被试 ID 列转换为因子类型
+df_color$subject_id <- factor(df_color$Participant_ID)
+df_motion$subject_id <- factor(df_motion$Participant_ID)
 
 df_all <- bind_rows(df_motion, df_color)
 
@@ -243,47 +269,46 @@ plot( acc ~ target_color_proportion, data = df_color, main="color")
 #plot(acc ~ log(coherence), data = df_motion, main="Logarithmic Scale")
 ```
 
+## 查看数据分布
 
-# 所有数据一起
 ```{r}
-color<-brewer.pal(7,"Set2")[c(1,2,4,5)]
+# 导入所需要的包
+library(ggpubr)
 
-ggscatterhist(
-  df_motion, x ='coherence', y = 'acc', shape=21,fill="#00AFBB",color = "black",size = 3, alpha = 1,
-  #palette = c("#00AFBB", "#E7B800", "#FC4E07"),
-  margin.params = list( fill="#00AFBB",color = "black", size = 0.2,alpha=1),
+# 创建四个图形对象
+p1 <- ggscatterhist(
+  df_motion, x = "coherence", y = "acc", color = "subject_id", size = 2, alpha = 0.7,
+  margin.params = list(fill = "subject_id", color = "black", size = 0.2),
   margin.plot =  "histogram",
-  legend = c(0.8,0.8),
-  ggtheme = theme_minimal())
+  legend = "top",
+  ggtheme = theme_pubr()
+) 
+
+p2 <- ggscatterhist(
+  df_motion, x = "coherence", y = "avg_rt", color = "subject_id", size = 2, alpha = 0.7,
+  margin.params = list(fill = "subject_id", color = "black", size = 0.2, alpha = 1),
+  margin.plot =  "histogram",
+  legend = "top",
+  ggtheme = theme_pubr()
+) 
+
+p3 <- ggscatterhist(
+  df_color, x = "target_color_proportion", y = "acc", color = "subject_id", size = 2, alpha = 0.7,
+  margin.params = list(fill = "subject_id", color = "black", size = 0.2, alpha = 1),
+  margin.plot =  "histogram",
+  legend = "top",
+  ggtheme = theme_pubr()
+)
+
+p4 <- ggscatterhist(
+  df_color, x = "target_color_proportion", y = "avg_rt", color = "subject_id", size = 2, alpha = 0.7,
+  margin.params = list(fill = "subject_id", color = "black", size = 0.2, alpha = 1),
+  margin.plot =  "histogram",
+  legend = "top",
+  ggtheme = theme_pubr()
+)
 
 ```
-
-
-# 绘制分层曲线图
-```{r}
-library(mgcv) ##GAMM
-library(ggplot2)#画图
-library(ggthemes)##ggplot主题
-```
-```{r}
-xname='coherence'  ##指明X轴的变量
-##构建模型
-fml <- "acc~s(coherence,bs='cr')"
-fit<-gamm(formula(fml),random=list(Participant_ID=~1),data=df_motion,family=gaussian)
-temp_ <- gamm_data(fit=fit,xname='coherence',group=NA,dt=dt)
-```
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
