@@ -195,6 +195,20 @@ data_all <- data %>%
 ```
 
 ```{r}
+# 新数据，需要包含被试编号、试次编号和相干性比例
+
+df_new <- data_all %>% 
+  filter(step == "formal")  %>%
+  group_by(Participant_ID, judge_type, difficulty) %>%
+  mutate(trial_num = row_number()) 
+
+df_new <- df_new[, c("Participant_ID", "judge_type", "difficulty", "coherence",
+                     "target_color_proportion", "trial_num")]
+# 保存为CSV文件到目标文件夹
+write.table(df_new, file = "../3_2_pilot_expt_v3/output/df_new.csv", row.names = FALSE)
+```
+
+```{r}
 #计算平均正确率和反应时
 #运动和颜色分开计算
 
@@ -236,6 +250,29 @@ df_color <- data_all %>% #颜色
       acc = correct_count /row_count,
       .groups = "drop")
 
+df_color2 <- data_all %>% #颜色
+  filter(step == "formal" & judge_type == "color") %>%
+    mutate(
+      dot_color_final = case_when(
+      dot_color_final == '["hsl(0, 50%, 50%)","hsl(225, 50%, 50%)"]' ~ "red",
+      dot_color_final == '["hsl(225, 50%, 50%)","hsl(0, 50%, 50%)"]' ~ "blue",
+      TRUE ~ "other"
+    )
+  ) %>% #进行分组
+    group_by(Participant_ID, part, difficulty, target_color_proportion, dot_color_final) %>%
+    summarise(
+      avg_rt = mean(rt, na.rm = TRUE),#每个被试所有trial的平均反应时
+      max_rt = max(rt, na.rm = TRUE),#每个被试所有trial的最大反应时
+      min_rt = min(rt, na.rm = TRUE),#每个被试所有trial的最小反应时
+      sd_rt = sd(rt, na.rm = TRUE), #每个被试所有trial的反应时的方差
+      all_count = n(),#每个被试在每个条件的总trial数量
+      row_count = sum(rt >= 200 & rt <= 3000&target_color_proportion < 0.8,
+                      na.rm = TRUE), #舍弃按键太快和按键太慢的反应时
+      correct_count = sum(correct == 1 & rt >= 200 & rt <= 3000 & target_color_proportion < 0.8,
+                          na.rm = TRUE),
+      acc = correct_count /row_count,
+      .groups = "drop") 
+
 
 # 剔除 df_color 中正确率的极值
 mean_acc_color <- mean(df_color$acc, na.rm = TRUE)
@@ -244,8 +281,15 @@ lower_bound_color <- mean_acc_color - 3 * sd_acc_color
 upper_bound_color <- mean_acc_color + 3 * sd_acc_color
 df_color <- df_color[df_color$acc >= lower_bound_color & df_color$acc <= upper_bound_color, ]
 
+mean_acc_color2 <- mean(df_color2$acc, na.rm = TRUE)
+sd_acc_color2 <- sd(df_color2$acc, na.rm = TRUE)
+lower_bound_color2 <- mean_acc_color2 - 3 * sd_acc_color2
+upper_bound_color2 <- mean_acc_color2 + 3 * sd_acc_color2
+df_color2 <- df_color2[df_color2$acc >= lower_bound_color2 & df_color2$acc <= upper_bound_color2, ]
+
 # 去除 df_color 中的缺失值
 df_color <- na.omit(df_color)
+df_color2 <- na.omit(df_color2)
 # 去除 df_motion 中的缺失值
 df_motion <- na.omit(df_motion)
 
@@ -259,6 +303,7 @@ df_all <- bind_rows(df_motion, df_color)
 write.table(df_all, file = "../3_2_pilot_expt_v3/output/df_all.csv", row.names = FALSE)
 write.table(df_motion, file = "../3_2_pilot_expt_v3/output/df_motion.csv", row.names = FALSE)
 write.table(df_color, file = "../3_2_pilot_expt_v3/output/df_color.csv", row.names = FALSE)
+write.table(df_color2, file = "../3_2_pilot_expt_v3/output/df_color2.csv", row.names = FALSE)
 ```
 
 
