@@ -1,7 +1,8 @@
 // labelVar 未被定义，可能的原因在定义时间线变量的时候，subjSex 还未被定义，去查查时间线变量在什么时候被调用；借鉴之前难度获取的代码
 // 这段代码主要用于执行运动条件下的实验任务，即人物标签与运动方向匹配，之后进行散点群方向判断
 // 在当前的版本中，人物改为 “我”，“他/她”
-// 并且，标签会分别于 5 种不同难度水平的散点图进行匹配
+// 并且，标签会分别于 4 种不同难度水平的散点图进行匹配
+// 匹配任务：2 * 16 = 32 个练习 trial，3 * 16 * 3 = 144 个正式 trial
 
 var randomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
@@ -11,7 +12,7 @@ var move = {
   timeline: []
 };
 
-var is_number_small;
+var textMun;
 
 var labelVar = "";
 
@@ -76,29 +77,29 @@ var instruction_match = {
   on_finish: function() {
     console.log("subjSexTest:", window.subjSex, "lable:", labelVar)
     if (testMode) {
-      is_number_small = true
+      textMun = true
     } else {
-      is_number_small = false
+      textMun = false
     }
-    return is_number_small
+    return textMun
   }
 };
 
-function getRepetitionsPract() {
-  if (is_number_small) {
+/*function getRepetitionsPract() {
+  if (textMun) {
     return 1;
   } else {
-    return 6;
+    return 2;
   }
 };
 
 function getRepetitionsFormal() {
-  if (is_number_small) {
+  if (textMun) {
     return 1;
   } else {
-    return 10;
+    return 3;
   }
-};
+};*/
 
 move.timeline.push(instruction_match);
 
@@ -236,19 +237,44 @@ var fixation = {
 };
 
 //匹配判断任务的不同条件(subjectId 为偶数，则向左代表自己；subjectId 为奇数，则向右代表自己)
+// 4 种不同的难度 * 2 种关联类型 * 2 种匹配类型 = 16种条件
 
 var conditions_match_selfLeft = [
-  { coherence:0.5 , coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherent_direction: 0, label: labelVar, correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
-  { coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
-  { coherent_direction: 180, label: labelVar, correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"}
+  { coherence:0.05, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { coherence:0.05, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
+  { coherence:0.05, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
+  { coherence:0.05, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"},
+  { coherence:0.10, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { coherence:0.10, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
+  { coherence:0.10, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
+  { coherence:0.10, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"},
+  { coherence:0.16, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { coherence:0.16, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
+  { coherence:0.16, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
+  { coherence:0.16, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"},
+  { coherence:0.20, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { coherence:0.20, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
+  { coherence:0.20, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
+  { coherence:0.20, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"}
 ];
 
 var conditions_match_selfRight = [
-  { coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self"},
-  { coherent_direction: 180, label: labelVar, correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
-  { coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
-  { coherent_direction: 0, label: labelVar, correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"}
+  { coherence:0.05, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self"},
+  { coherence:0.05, coherent_direction: 180, label: labelVar, correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
+  { coherence:0.05, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
+  { coherence:0.05, coherent_direction: 0, label: labelVar, correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"},
+  { coherence:0.10, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self"},
+  { coherence:0.10, coherent_direction: 180, label: labelVar, correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
+  { coherence:0.10, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
+  { coherence:0.10, coherent_direction: 0, label: labelVar, correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"},
+  { coherence:0.16, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self"},
+  { coherence:0.16, coherent_direction: 180, label: labelVar, correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
+  { coherence:0.16, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
+  { coherence:0.15, coherent_direction: 0, label: labelVar, correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"},
+  { coherence:0.20, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self"},
+  { coherence:0.20, coherent_direction: 180, label: labelVar, correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other"},
+  { coherence:0.20, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other"},
+  { coherence:0.20, coherent_direction: 0, label: labelVar, correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self"}
 ];
 
 // 设置匹配任务的主要刺激
@@ -263,7 +289,7 @@ var match_RDK = {
   choices: ["f", "j"],
   correct_choice: function () {return jsPsych.timelineVariable("correct_choice")}, 
   coherent_direction: function () { return jsPsych.timelineVariable("coherent_direction") },
-  coherence: 0.6,
+  coherence: function () {return jsPsych.timelineVariable("coherence")},
   dot_radius: 5,
   move_distance: 3,
   //aperture_type: 1,
@@ -340,8 +366,8 @@ var feedbackTrial = {
 };
 
 //计算整个练习阶段的总体正确率
-//计算24个试次的反应数，挑出正确的试次数，计算准确率 
-//如果整体正确率未达到70%以及上，则让被试继续练习
+//计算 32 个试次的反应数，挑出正确的试次数，计算准确率 
+//如果整体正确率未达到 70% 以及上，则让被试继续练习
 
 var instruction_continuePractice = {
   type: jsPsychHtmlKeyboardResponse,
@@ -351,7 +377,7 @@ var instruction_continuePractice = {
       this.stimulus =  `
       <div style="text-align: left; color: white; padding: 10px">  
         <p>您的正确率未达 70% ，不能进入下一阶段</p >
-        <p >您的任务是：判断散点图的运动方向与文字标签是否匹配 。向左运动代表 你自己；向右运动代表 生人。</p>
+        <p >您的任务是：判断散点图的运动方向与文字标签是否匹配 。向左运动代表你自己；向右运动代表他人。</p>
         <p >如果二者<span style="color: hsl(135, 50%, 50%)">匹配</span>，请按 <span style="color: hsl(135, 50%, 50%)">"F" 键</span></p>
         <p >如果二者<span style="color: red">不匹配</span>，请按 <span style="color: red">"J" 键</span></p>
         <p>请按 "Q" 键继续练习</p >
@@ -360,7 +386,7 @@ var instruction_continuePractice = {
       this.stimulus =  `
       <div style="text-align: left; color: white; padding: 10px">  
         <p>您的正确率未达 70% ，不能进入下一阶段</p >
-        <p >您的任务是：判断散点图的运动方向与文字标签是否匹配 。向右运动代表 你自己；向左运动代表 生人。</p>
+        <p >您的任务是：判断散点图的运动方向与文字标签是否匹配 。向右运动代表你自己；向左运动代表他人。</p>
         <p >如果二者<span style="color: hsl(135, 50%, 50%)">匹配</span>，请按 <span style="color: hsl(135, 50%, 50%)">"F" 键</span></p>
         <p >如果二者<span style="color: red">不匹配</span>，请按 <span style="color: red">"J" 键</span></p>
         <p>请按 "Q" 键继续练习</p >
@@ -399,7 +425,7 @@ var instruction_practiceEnd = {
 var if_practiceAgain = {
   timeline: [instruction_continuePractice],
   conditional_function: function () { 
-    var trials = jsPsych.data.get().filter({task: 'response'}).last(24)
+    var trials = jsPsych.data.get().filter({task: 'response'}).last(32)
     var correct_trials = trials.filter({correct: true});
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     if (accuracy >= 70) {
@@ -415,7 +441,7 @@ var if_practiceAgain = {
 var if_endPractice = {
   timeline: [instruction_practiceEnd],
   conditional_function: function () {
-    var trials = jsPsych.data.get().filter({task: 'response'}).last(24)
+    var trials = jsPsych.data.get().filter({task: 'response'}).last(32) //这里的数量视具体情况而定
     var correct_trials = trials.filter({correct: true});
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     if (accuracy >= 70) {
@@ -434,7 +460,7 @@ var practice_block_selfLeft = {
     {
       timeline: [fixation, match_RDK, feedbackTrial],
       timeline_variables: conditions_match_selfLeft,
-      repetitions: getRepetitionsPract(), 
+      repetitions: window.match_pract_mun, 
       randomize_order: true
     },
     if_practiceAgain,
@@ -456,7 +482,7 @@ var practice_block_selfRight = {
     {
       timeline: [fixation, match_RDK, feedbackTrial],
       timeline_variables: conditions_match_selfRight,
-      repetitions: getRepetitionsPract(),
+      repetitions: window.match_pract_mun,
       randomize_order: true
     },
     if_practiceAgain,
@@ -544,7 +570,7 @@ var feedbackBlock_match = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 3000,
   stimulus: function() {
-    var trials = jsPsych.data.get().filter({task: 'response'}).last(40)
+    var trials = jsPsych.data.get().filter({task: 'response'}).last(48) //这里的数量视具体情况而定
     var correct_trials = trials.filter({correct: true});
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     var rt = Math.round(trials.select('rt').mean());
@@ -559,7 +585,7 @@ var formal_block_selfLeft = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfLeft,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -567,7 +593,7 @@ var formal_block_selfLeft = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfLeft,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -575,13 +601,13 @@ var formal_block_selfLeft = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfLeft,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
   ],
   on_start: function() {
-    console.log('testMode: ',testMode, "pract_repe:", getRepetitionsFormal()) 
+    console.log('testMode: ',testMode, "trial_mun:", window.match_formal_mun) 
   },
 };
 
@@ -591,7 +617,7 @@ var formal_block_selfRight = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRight,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -599,7 +625,7 @@ var formal_block_selfRight = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRight,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -607,7 +633,7 @@ var formal_block_selfRight = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRight,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -643,7 +669,7 @@ var formal_match = {
 
 move.timeline.push(formal_match);
 
-/*----------匹配任务结束！下面是RDK运动方向判断任务-----------*/
+/*----------匹配任务结束！下面是 RDK 运动方向判断任务-----------*/
 
 
 //指导语(包含开始，练习和结束)
@@ -732,19 +758,28 @@ var instruction_RDK_formal_beginning = {
 // 运动方向判断任务
 
 //运动方向判断任务的不同条件
+// 2 * 4 = 8 种条件
 
 var conditions_RDK_selfLeft = [
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.2, difficulty: "easy", association: "self"},
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.08, difficulty: "difficult", association: "self"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.2, difficulty: "easy", association: "other"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.08, difficulty: "difficult", association: "other"},
+  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.05, difficulty: 1, association: "self"},
+  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.10, difficulty: 2, association: "self"},
+  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.16, difficulty: 3, association: "self"},
+  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.20, difficulty: 4, association: "self"},
+  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.05, difficulty: 1, association: "other"},
+  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.10, difficulty: 2, association: "other"},
+  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.16, difficulty: 3, association: "other"},
+  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.20, difficulty: 4, association: "other"},
 ];
 
 var conditions_RDK_selfRight = [
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.2, difficulty: "easy", association: "other"},
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.08, difficulty: "difficult", association: "other"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.2, difficulty: "easy", association: "self"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.08, difficulty: "difficult", association: "self"},
+  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.05, difficulty: 1, association: "other"},
+  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.10, difficulty: 2, association: "other"},
+  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.16, difficulty: 3, association: "other"},
+  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.20, difficulty: 4, association: "other"},
+  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.05, difficulty: 1, association: "self"},
+  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.10, difficulty: 2, association: "self"},
+  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.16, difficulty: 3, association: "self"},
+  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.20, difficulty: 4, association: "self"},
 ];
 
 //主要呈现的刺激
@@ -804,7 +839,7 @@ var practice_block_RDK_selfLeft = {
     {
       timeline: [fixation, RDK, feedbackTrial],
       timeline_variables: conditions_RDK_selfLeft,
-      repetitions: getRepetitionsPract(),
+      repetitions: window.rdk_pract_mun,
       randomize_order: true
     },
     instruction_RDK_practice_end
@@ -826,7 +861,7 @@ var practice_block_RDK_selfRight = {
     {
       timeline: [fixation, RDK, feedbackTrial],
       timeline_variables: conditions_RDK_selfRight,
-      repetitions: getRepetitionsPract(),
+      repetitions: window.rdk_pract_mun,
       randomize_order: true
     },
     instruction_RDK_practice_end
@@ -880,7 +915,7 @@ var feedbackBlock_RDK = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 3000,
   stimulus: function() {
-    var trials = jsPsych.data.get().filter({task: 'response'}).last(40)
+    var trials = jsPsych.data.get().filter({task: 'response'}).last(24)
     var correct_trials = trials.filter({correct: true});
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     var rt = Math.round(trials.select('rt').mean());
@@ -895,7 +930,7 @@ var formal_block_RDK_selfLeft = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfLeft,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -903,7 +938,7 @@ var formal_block_RDK_selfLeft = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfLeft,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -911,7 +946,7 @@ var formal_block_RDK_selfLeft = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfLeft,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -924,7 +959,7 @@ var formal_block_RDK_selfRight = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfRight,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -932,7 +967,7 @@ var formal_block_RDK_selfRight = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfRight,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -940,7 +975,7 @@ var formal_block_RDK_selfRight = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfRight,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,

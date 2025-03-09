@@ -57,6 +57,19 @@
   //window.subjSex = subjSex
   console.log("userId: ", userId)
 
+  if (testMode) {
+    window.match_pract_mun = 1;
+    window.rdk_pract_mun = 1;
+    window.match_formal_mun = 1;
+    window.rdk_foraml_mun = 1
+  } else {
+    window.match_pract_mun = 2;
+    window.rdk_pract_mun = 3;
+    window.match_formal_mun = 3;
+    window.rdk_foraml_mun = 6
+  }
+  
+
   //---------initialize--------
 
   var jsPsych = initJsPsych({
