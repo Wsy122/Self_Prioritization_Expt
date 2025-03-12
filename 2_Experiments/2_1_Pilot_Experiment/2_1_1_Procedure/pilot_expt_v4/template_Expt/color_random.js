@@ -1,11 +1,14 @@
 
 // 这段代码主要用于执行颜色条件下的实验，即人物标签与颜色匹配，之后进行散点群整体颜色判断
+// 在当前的版本中，人物改为 “我”，“他/她”
+// 并且，标签会分别于 4 种不同难度水平的散点图进行匹配
+// 不同的难度条件随机呈现
+// 匹配任务：3 * 8 = 24 个练习 trial，2 * 16 * 4 = 128 个正式 trial
+// 随机动点任务：3 * 8 = 24 个练习 trial，4 * 8 * 4 = 128 个正式 trial
 
 var color = {
   timeline: []
 };
-
-
 
 //--------------------匹配判断------------------------
 //匹配判断包含：指导语，示例，练习和正式任务
@@ -15,15 +18,23 @@ var instruction_match = {
   type: jsPsychHtmlKeyboardResponse,
   stimuls: "",
   on_start: function () {
+    if (window.subjSex) { 
+      if (window.subjSex == "男") {
+        labelVar = "他";
+      } else if (window.subjSex == "女") {
+        labelVar = "她";
+      }
+    } else {
+      labelVar = "TA";
+    };
     document.body.style.backgroundColor = "black";
     if (userId % 2 === 0) {
       this.stimulus = `
         <div style="text-align: left; color: white; padding: 10px"> 
           <h3 style="text-align: center; font-size: 30px; margin: 10px">任务一：匹配判断</h3>
-          <p>接下来，屏幕上会呈现一些运动的圆点，其中一半为 <span style="color: hsl(0, 50%, 50%)">红色</span> ，一半为 <span style="color: hsl(225, 50%, 50%)">蓝色</span> 。</p>
-          <p>同时散点图的下方会出现 "自己" 或 "生人" 的文字标签。</p >
-          <p><span style="font-weight: bold">大约0.2秒后,</span>  一部分点会随机变为另一种颜色（例如从红色变为蓝色），变化后某种颜色的数量会超过另一种。</p >
-          <p>如果整体颜色为 <span style="color: hsl(0, 50%, 50%)">红色</span> 代表 <span style="color: hsl(0, 50%, 50%)">你自己</span> ，整体颜色为 <span style="color: hsl(225, 50%, 50%)">蓝色</span> 代表 <span style="color: hsl(225, 50%, 50%)">生人（即陌生人）</span>。</p >
+          <p>接下来，屏幕上会呈现一些运动的圆点，其中一定比例的点为 <span style="color: hsl(0, 50%, 50%)">红色</span> ，其余为<span style="color: hsl(225, 50%, 50%)">蓝色</span> 。</p>
+          <p>同时散点图的下方会出现 "我" 或 "${labelVar}" 的文字标签。</p >
+          <p>如果大多数点的颜色为<span style="color: hsl(0, 50%, 50%)">红色</span>代表<span style="color: hsl(0, 50%, 50%)">你自己</span> ，为<span style="color: hsl(225, 50%, 50%)">蓝色</span> 代表 <span style="color: hsl(225, 50%, 50%)">他人</span>。</p >
           <p>您需要在3秒内判断 <span style="font-weight: bold">散点图的整体颜色与文字是否匹配</span> 。</p >
           <ul>
             <li><span style="color: hsl(135, 50%, 50%)">匹配</span>，请按键盘 <span style="color: hsl(135, 50%, 50%)">"F" 键</span>；</li>
@@ -35,10 +46,9 @@ var instruction_match = {
       this.stimulus = `
         <div style="text-align: left; color: white; padding: 10px"> 
           <h3 style="text-align: center; font-size: 30px; margin: 10px">任务一：匹配判断</h3>
-          <p>接下来，屏幕上会呈现一些运动的圆点，其中一半为 <span style="color: hsl(0, 50%, 50%)">红色</span> ，一半为 <span style="color: hsl(225, 50%, 50%)">蓝色</span> 。</p>
-          <p>同时散点图的下方会出现 "自己" 或 "生人" 的文字标签。</p >
-          <p><span style="font-weight: bold">大约0.2秒后,</span>  一部分点会随机变为另一种颜色（例如从红色变为蓝色），变化后某种颜色的数量会超过另一种。</p >
-          <p>如果整体颜色为 <span style="color: hsl(225, 50%, 50%)">蓝色</span> 代表 <span style="color: hsl(225, 50%, 50%)">你自己</span> ，整体颜色为 <span style="color: hsl(0, 50%, 50%)">红色</span> 代表 <span style="color: hsl(0, 50%, 50%)">生人（即陌生人）</span>。</p >
+          <p>接下来，屏幕上会呈现一些运动的圆点，其中一定比例的点为<span style="color: hsl(0, 50%, 50%)">红色</span> ，其余为<span style="color: hsl(225, 50%, 50%)">蓝色</span> 。</p>
+          <p>同时散点图的下方会出现 "我" 或 "${labelVar}"  的文字标签。</p >
+          <p>如果大多数点的颜色为<span style="color: hsl(225, 50%, 50%)">蓝色</span>代表<span style="color: hsl(225, 50%, 50%)">你自己</span> ，为<span style="color: hsl(0, 50%, 50%)">红色</span>代表<span style="color: hsl(0, 50%, 50%)">他人</span>。</p >
           <p>您需要在3秒内判断 <span style="font-weight: bold">散点图的整体颜色与文字是否匹配</span> 。</p >
           <ul>
             <li><span style="color: hsl(135, 50%, 50%)">匹配</span>，请按键盘 <span style="color: hsl(135, 50%, 50%)">"F" 键</span>；</li>
@@ -54,28 +64,13 @@ var instruction_match = {
     part: "instruction_match",
   },
   on_finish: function() {
+    console.log("subjSexTest:", window.subjSex, "lable:", labelVar)
     if (testMode) {
-      is_number_small = true
+      textMun = true
     } else {
-      is_number_small = false
+      textMun = false
     }
-    return is_number_small
-  }
-};
-
-function getRepetitionsPract() {
-  if (is_number_small) {
-    return 1;
-  } else {
-    return 6;
-  }
-};
-
-function getRepetitionsFormal() {
-  if (is_number_small) {
-    return 1;
-  } else {
-    return 10;
+    return textMun
   }
 };
 
@@ -86,22 +81,23 @@ color.timeline.push(instruction_match);
 var color_after;
 var example = {
   type: jsPsychRdk,
-  number_of_apertures: 4,
-  post_trial_gap: 500,
-  number_of_dots: [80, 20, 80, 20],
+  number_of_apertures: 2,
+  //post_trial_gap: 500,
+  number_of_dots: 100,
   RDK_type: 3,
-  dot_color_beforeOne: "hsla(0, 50%, 50%, 70%)",
-  dot_color_beforeTwo: "hsla(225, 50%, 50%, 70%)",
-  dot_color_after: function () {
+  dot_color: [["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]],
+  dot_color_final: function () {
     if (!color_after) {
       if (userId % 2 === 0) {
-        color_after = ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"];
+        color_after = [["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]];
       } else {
-        color_after = ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"];
+        color_after = [["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]];
       }
     }
     return color_after;
   },
+  target_color_proportion: [0.59, 0.41],
+  color_change_delay: randomInteger(6, 12),
   choices: [" "],
   correct_choice: [" "],
   coherent_direction: 0,
@@ -111,11 +107,12 @@ var example = {
   aperture_type: 1,
   aperture_width: 400,
   aperture_height: 400,
-  aperture_center_x: [300, 300, 900, 900],
-  aperture_center_y: [280, 280, 280, 280],
+  //aperture_center_x: [300, 900],
+  //aperture_center_y: [280, 280],
+  aperture_center_y: [350, 350],
+  aperture_center_x: [420, 1000],
   background_color: "black",
   trial_duration: 300000,
-  color_delay: randomInteger(6, 12),
   data: {
     part: "example"
   },
@@ -124,42 +121,48 @@ var example = {
     // 创建第一个div元素显示最上面的说明文字
     var topTextDiv = document.createElement("p");
     topTextDiv.textContent = "【示例】 如果准备好请按下空格键进入练习阶段";//这里可能还需要调整一下文字的位置
-    topTextDiv.style.position = "relative";
+    topTextDiv.style.position = "absolute";
     topTextDiv.style.fontSize = "28px";
     topTextDiv.style.height = "8px";
-    topTextDiv.style.top = "-20px";
-    topTextDiv.style.left = "1%";
-    topTextDiv.style.marginBottom = "30px";
+    //topTextDiv.style.top = "-20px";
+    //topTextDiv.style.left = "1%";
+    topTextDiv.style.top = "6%";
+    topTextDiv.style.left = "30%";
+    //topTextDiv.style.marginBottom = "30px";
     topTextDiv.style.color = "hsl(135, 50%, 50%)";
     displayElement.appendChild(topTextDiv);
 
     // 创建第二个div元素显示左边的标签文字
     var leftTextDiv = document.createElement("div");
-    leftTextDiv.textContent = "自己";
+    leftTextDiv.textContent = "我";
     leftTextDiv.style.position = "absolute";
     leftTextDiv.style.fontSize = "45px";
     leftTextDiv.style.height = "10px";
     leftTextDiv.style.bottom = "16%";
-    leftTextDiv.style.left = "31%";
+    //leftTextDiv.style.left = "31%";
+    leftTextDiv.style.left = "28%";
     leftTextDiv.style.color = "white";
     displayElement.appendChild(leftTextDiv);
 
     // 创建第三个div元素显示右边的标签文字
     var rightTextDiv = document.createElement("div");
-    rightTextDiv.textContent = "生人";
+    rightTextDiv.textContent = `${labelVar}`;
     rightTextDiv.style.position = "absolute";
     rightTextDiv.style.fontSize = "45px";
     rightTextDiv.style.height = "10px";
     rightTextDiv.style.bottom = "16%";
-    rightTextDiv.style.left = "65%";
+    //rightTextDiv.style.left = "65%";
+    rightTextDiv.style.left = "70%";
     rightTextDiv.style.color = "white";
     displayElement.appendChild(rightTextDiv);
 
-    if (userId % 2 === 0) {
-      color_after = ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"];
-    } else {
-      color_after = ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"];
-    };
+    if (!color_after) {
+      if (userId % 2 === 0) {
+        color_after = [["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]];
+      } else {
+        color_after = [["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]];
+      }
+    }
     return color_after;
   },
 };
@@ -177,7 +180,7 @@ var instruction_match_practice = {
       this.stimulus = `
         <div style="text-align: left; color: white; padding: 10px">  
           <h3 style="text-align: center; font-size: 30px; margin: 10px;">练习阶段</h3>
-          <p>整体颜色为 <span style="color: hsl(0, 50%, 50%)">红色</span> 代表 <span style="color: hsl(0, 50%, 50%)">你自己</span> ，为 <span style="color: hsl(225, 50%, 50%)">蓝色</span> 代表 <span style="color: hsl(225, 50%, 50%)">生人（即陌生人）</span>。</p >
+          <p>整体颜色为<span style="color: hsl(0, 50%, 50%)">红色</span>代表<span style="color: hsl(0, 50%, 50%)">你自己</span> ，为<span style="color: hsl(225, 50%, 50%)">蓝色</span>代表<span style="color: hsl(225, 50%, 50%)">他人</span>。</p >
           <p>您需要在3秒内判断 <span style="font-weight: bold">散点图的整体颜色与文字是否匹配</span>，<span style="color: hsl(135, 50%, 50%);">匹配</span> 按 <span style="color: hsl(135, 50%, 50%);">"F" 键</span>；<span style="color: red;">不匹配</span> 按 <span style="color: red;">"J" 键</span> </p >
           <p>正确率达到 70% 及以上才能进入下一个阶段</p >
           <p>请把左手食指放在 "F" 键上，右手食指放在 "J" 键上</p >
@@ -187,8 +190,8 @@ var instruction_match_practice = {
       this.stimulus = `
         <div style="text-align: left; color: white; padding: 10px">  
           <h3 style="text-align: center; font-size: 30px; margin: 10px;">练习阶段</h3>
-          <p>整体颜色为 <span style="color: hsl(225, 50%, 50%)">蓝色</span> 代表 <span style="color: hsl(225, 50%, 50%)">你自己</span> ，为 <span style="color: hsl(0, 50%, 50%)">红色</span> 代表 <span style="color: hsl(0, 50%, 50%)">生人（即陌生人）</span>。</p >
-          <p>您需要在3秒内判断 <span style="font-weight: bold">散点图的运动方向与文字是否匹配</span>，<span style="color: hsl(135, 50%, 50%);">匹配</span> 按 <span style="color: hsl(135, 50%, 50%);">"F" 键</span>；<span style="color: red;">不匹配</span> 按 <span style="color: red;">"J" 键</span> </p >
+          <p>整体颜色为<span style="color: hsl(225, 50%, 50%)">蓝色</span>代表<span style="color: hsl(225, 50%, 50%)">你自己</span> ，为<span style="color: hsl(0, 50%, 50%)">红色</span>代表<span style="color: hsl(0, 50%, 50%)">他人</span>。</p >
+          <p>您需要在3秒内判断 <span style="font-weight: bold">散点图的整体颜色与文字是否匹配</span>，<span style="color: hsl(135, 50%, 50%);">匹配</span> 按 <span style="color: hsl(135, 50%, 50%);">"F" 键</span>；<span style="color: red;">不匹配</span> 按 <span style="color: red;">"J" 键</span> </p >
           <p>正确率达到 70% 及以上才能进入下一个阶段</p >
           <p>请把左手食指放在 "F" 键上，右手食指放在 "J" 键上</p >
           <p>请按下空格键开始练习</p >
@@ -216,34 +219,79 @@ var fixation = {
 
 //匹配判断任务的不同条件(subjectId 为偶数，则红色代表自己；subjectId 为奇数，则蓝色代表自己)
 
-var conditions_match_selfRed = [
-  { number_of_dots: [80, 20], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "自己", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "self" },
-  { number_of_dots: [20, 80], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "自己", correct_choice: ["j"], correct_responce: "j", match: "no", association: "other" },
-  { number_of_dots: [80, 20], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "生人", correct_choice: ["j"], correct_responce: "j", match: "no", association: "self" },
-  { number_of_dots: [80, 20], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], label: "生人", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "other" },
+var conditions_matchPract_selfRed = [
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
 ];
 
-var conditions_match_selfBlue = [
-  { number_of_dots: [80, 20], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "自己", correct_choice: ["j"], correct_responce: "j", match: "no", association: "other" },
-  { number_of_dots: [20, 80], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "自己", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "self" },
-  { number_of_dots: [80, 20], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], label: "生人", correct_choice: ["f"], correct_responce: "f", match: "yes", association: "other" },
-  { number_of_dots: [80, 20], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], label: "生人", correct_choice: ["j"], correct_responce: "j", match: "no", association: "self" },
+var conditions_match_selfRed = [
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
 ];
+
+var conditions_matchPract_selfBlue = [
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" }
+]
+
+var conditions_match_selfBlue = [
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" }
+]
 
 // 设置匹配任务的主要刺激
 
 var match_RDK = {
   type: jsPsychRdk,
-  number_of_apertures: 2,
-  post_trial_gap: 500,
-  number_of_dots: function () { return jsPsych.timelineVariable("number_of_dots") },
-  RDK_type: 3,
-  dot_color_after: "grey",
+  number_of_apertures: 1,
+  number_of_dots: 100,
+  //post_trial_gap: 500,
+  dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
+  dot_color_final: function () { return jsPsych.timelineVariable("dot_color_final") },
+  target_color_proportion: function () { return jsPsych.timelineVariable("target_color_proportion") },
+  color_change_delay: randomInteger(6, 12),
   choices: ["f", "j"],
   correct_choice: function () { return jsPsych.timelineVariable("correct_choice") },
-  dot_color_beforeOne: "hsla(225, 50%, 50%, 70%)",
-  dot_color_beforeTwo: "hsla(0, 50%, 50%, 70%)",
-  dot_color_after: function () { return jsPsych.timelineVariable("dot_color_after") },
   coherent_direction: 0,
   coherence: 0,
   dot_radius: 5,
@@ -251,19 +299,33 @@ var match_RDK = {
   //aperture_type: 1,
   aperture_width: 500,
   aperture_height: 500,
+  aperture_center_x: 700,
   aperture_center_y: 250,
-  aperture_center_x: 600,
+  //aperture_center_y: 250,
+  //aperture_center_x: 600,
   background_color: "black",
   trial_duration: 3000,
   move_delay: randomInteger(6, 12),
   data: {
     part: "match_RDK",
     task: "response",
-    correct_responce: function () { return jsPsych.timelineVariable("correct_responce") },
-    match: function () { return jsPsych.timelineVariable("match") },
+    correct_response: function () { return jsPsych.timelineVariable("correct_response") },
+    isMatch: function () { return jsPsych.timelineVariable("isMatch") },
     association: function () { return jsPsych.timelineVariable("association") },
   },
   on_start: function () {
+
+    // 练习阶段——替换最后 4 个元素的 label 属性 （索引从 4-7）
+    for (let i = 4; i < 8; i++) {
+      conditions_matchPract_selfRed[i].label = `${labelVar}`;
+      conditions_matchPract_selfBlue[i].label = `${labelVar}`;
+    };
+    // 正式阶段——替换最后 8 个元素的 label 属性 （索引从 8-15）
+    for (let i = 8; i < 16; i++) {
+      conditions_match_selfRed[i].label = `${labelVar}`;
+      conditions_match_selfBlue[i].label = `${labelVar}`;
+    };
+
     var displayElement = jsPsych.getDisplayElement();
 
     // 创建一个div元素显示标签文字--------(这个位置可能还需要改一下)
@@ -288,7 +350,7 @@ var match_RDK = {
     }, 100000);*/
   },
   on_finish: function (data) {
-    data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_responce);
+    data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
   },
 };
 
@@ -378,9 +440,9 @@ var if_practiceAgain = {
     var trials = jsPsych.data.get().filter({ task: 'response' }).last(24)
     var correct_trials = trials.filter({ correct: true });
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
-    if (accuracy >= 70) {
+    if (accuracy >= window.pract_pass_rate) {
       return false;//达标就skip掉instruction_continuePractice这一段
-    } else if (accuracy < 70) { //没达标呈现instruction_continuePractice
+    } else if (accuracy < window.pract_pass_rate) { //没达标呈现instruction_continuePractice
       return true;
     }
   }
@@ -394,9 +456,9 @@ var if_endPractice = {
     var trials = jsPsych.data.get().filter({ task: 'response' }).last(24)
     var correct_trials = trials.filter({ correct: true });
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
-    if (accuracy >= 70) {
+    if (accuracy >= window.pract_pass_rate) {
       return true;//达标呈现 instruction_practiceEnd
-    } else if (accuracy < 70) {
+    } else if (accuracy < window.pract_pass_rate) {
       return false;
     }
   }
@@ -409,8 +471,8 @@ var practice_block_selfRed = {
     instruction_match_practice,
     {
       timeline: [fixation, match_RDK, feedbackTrial],
-      timeline_variables: conditions_match_selfRed,
-      repetitions: getRepetitionsPract(),
+      timeline_variables: conditions_matchPract_selfRed,
+      repetitions: window.match_pract_mun,
       randomize_order: true
     },
     if_practiceAgain,
@@ -431,8 +493,8 @@ var practice_block_selfBlue = {
     instruction_match_practice,
     {
       timeline: [fixation, match_RDK, feedbackTrial],
-      timeline_variables: conditions_match_selfBlue,
-      repetitions: getRepetitionsPract(),
+      timeline_variables: conditions_matchPract_selfBlue,
+      repetitions: window.match_pract_mun,
       randomize_order: true
     },
     if_practiceAgain,
@@ -520,12 +582,12 @@ var feedbackBlock_match = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 3000,
   stimulus: function () {
-    var trials = jsPsych.data.get().filter({ task: 'response' }).last(40)
+    var trials = jsPsych.data.get().filter({ task: 'response' }).last(32)
     var correct_trials = trials.filter({ correct: true });
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     var rt = Math.round(trials.select('rt').mean());
     console.log({ accuracy: accuracy, rt: rt });
-    return `<p style='font-size: 35px; color: white'>这组测试中，您正确回答了： ${accuracy}% 的试次。平均反应时为：${rt}毫秒。</p>`; 
+    return `<p style='font-size: 35px; color: white'>本组测试中，您的正确率为： ${accuracy}% ，平均反应时为：${rt}毫秒。</p>`; 
   }
 };
 
@@ -535,7 +597,7 @@ var formal_block_selfRed = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRed,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -543,7 +605,7 @@ var formal_block_selfRed = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRed,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -551,7 +613,15 @@ var formal_block_selfRed = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRed,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfRed,
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -564,7 +634,7 @@ var formal_block_selfBlue = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfBlue,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -572,7 +642,7 @@ var formal_block_selfBlue = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfBlue,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -580,7 +650,15 @@ var formal_block_selfBlue = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfBlue,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.match_formal_mun,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfBlue,
+      repetitions: window.match_formal_mun,
       randomize_order: true
     },
     feedbackBlock_match,
@@ -706,52 +784,62 @@ var instruction_RDK_formal_beginning = {
 //整体颜色判断任务的不同条件
 
 var conditions_RDK_selfRed = [
-  { number_of_dots: [60, 40], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "easy", association: "self" },
-  { number_of_dots: [58, 42], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "difficult", association: "self" },
-  { number_of_dots: [60, 40], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "easy", association: "other" },
-  { number_of_dots: [58, 42], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "difficult", association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 1, association: "self" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 2, association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 3, association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 4, association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 5, association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 6, association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 7, association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 8, association: "other" },
 ];
 
 var conditions_RDK_selfBlue = [
-  { number_of_dots: [60, 40], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "easy", association: "other" },
-  { number_of_dots: [58, 42], dot_color_after: ["hsla(0, 50%, 50%, 70%)", "hsla(225, 50%, 50%, 70%)"], correct_choice: ["d"], correct_responce: "d", difficulty: "difficult", association: "other" },
-  { number_of_dots: [60, 40], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "easy", association: "self" },
-  { number_of_dots: [58, 42], dot_color_after: ["hsla(225, 50%, 50%, 70%)", "hsla(0, 50%, 50%, 70%)"], correct_choice: ["k"], correct_responce: "k", difficulty: "difficult", association: "self" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 1, association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 2, association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 3, association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 4, association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 5, association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 6, association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 7, association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 8, association: "self" },
 ];
 
 //主要呈现的刺激
 
 var RDK = {
   type: jsPsychRdk,
-  number_of_apertures: 2,
-  post_trial_gap: 500,
-  number_of_dots: function () { return jsPsych.timelineVariable("number_of_dots") },
-  RDK_type: 3,
+  number_of_apertures: 1,
+  number_of_dots: 100,
+  //post_trial_gap: 500,
+  dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
+  dot_color_final: function () { return jsPsych.timelineVariable("dot_color_final") },
+  target_color_proportion: function () { return jsPsych.timelineVariable("target_color_proportion") },
+  color_change_delay: randomInteger(6, 12),
   choices: ["d", "k"],
   correct_choice: function () { return jsPsych.timelineVariable("correct_choice") },
-  dot_color_beforeOne: "hsla(225, 50%, 50%, 70%)",
-  dot_color_beforeTwo: "hsla(0, 50%, 50%, 70%)",
-  dot_color_after: function () { return jsPsych.timelineVariable("dot_color_after") },
   coherent_direction: 0,
   coherence: 0,
   dot_radius: 5.7,
   move_distance: 3,
   //aperture_type: 1,
-  aperture_width: 600,
-  aperture_height: 600,
+  aperture_width: 550,
+  aperture_height: 550,
+  //aperture_center_y: 330,
+  //aperture_center_x: 600,
   aperture_center_y: 330,
-  aperture_center_x: 600,
+  aperture_center_x: 700,
   background_color: "black",
   trial_duration: 3000,
   move_delay: randomInteger(6, 12),
   data: {
     part: "RDK",
     task: "response",
-    correct_responce: function () { return jsPsych.timelineVariable("correct_responce") },
+    correct_response: function () { return jsPsych.timelineVariable("correct_response") },
     difficulty: function () { return jsPsych.timelineVariable("difficulty") },
     association: function () { return jsPsych.timelineVariable("association") },
   },
-  /*on_start: function() {
+  on_start: function() {
     var displayElement = jsPsych.getDisplayElement();
     // 1000毫秒后隐藏刺激
     setTimeout(function() {
@@ -760,9 +848,15 @@ var RDK = {
         el.style.display = 'none';
       });
     }, 100000);
-  },*/
+  },
   on_finish: function (data) {
-    data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_responce);
+    data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
+    // 重新显示元素
+    var displayElement = jsPsych.getDisplayElement();
+    var elements = displayElement.querySelectorAll("*");
+    elements.forEach(function(el) {
+      el.style.display = 'inline';
+    });
   },
 };
 
@@ -775,7 +869,7 @@ var practice_block_RDK_selfRed = {
     {
       timeline: [fixation, RDK, feedbackTrial],
       timeline_variables: conditions_RDK_selfRed,
-      repetitions: getRepetitionsPract(),
+      repetitions: window.rdk_pract_mun,
       randomize_order: true
     },
     instruction_RDK_practice_end
@@ -797,7 +891,7 @@ var practice_block_RDK_selfBlue = {
     {
       timeline: [fixation, RDK, feedbackTrial],
       timeline_variables: conditions_RDK_selfBlue,
-      repetitions: getRepetitionsPract(),
+      repetitions: window.rdk_pract_mun,
       randomize_order: true
     },
     instruction_RDK_practice_end
@@ -851,12 +945,12 @@ var feedbackBlock_RDK = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 3000,
   stimulus: function() {
-    var trials = jsPsych.data.get().filter({task: 'response'}).last(40)
+    var trials = jsPsych.data.get().filter({task: 'response'}).last(32)
     var correct_trials = trials.filter({correct: true});
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     var rt = Math.round(trials.select('rt').mean());
     console.log({ accuracy: accuracy, rt: rt });
-    return `<p style='font-size: 35px; color: white'>这组测试中，您正确回答了： ${accuracy}% 的试次。平均反应时为：${rt}毫秒。</p>`;   
+    return `<p style='font-size: 35px; color: white'>本组测试中，您的正确率为： ${accuracy}% ，平均反应时为：${rt}毫秒。</p>`;   
   }
 };
 
@@ -866,7 +960,7 @@ var formal_block_RDK_selfRed = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfRed,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -874,7 +968,7 @@ var formal_block_RDK_selfRed = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfRed,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -882,7 +976,15 @@ var formal_block_RDK_selfRed = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfRed,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
+      randomize_order: true
+    },
+    feedbackBlock_RDK,
+    rest,
+    {
+      timeline: [fixation, RDK],
+      timeline_variables: conditions_RDK_selfRed,
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -895,7 +997,7 @@ var formal_block_RDK_selfBlue = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfBlue,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -903,7 +1005,7 @@ var formal_block_RDK_selfBlue = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfBlue,
-      repetitions: getRepetitionsFormal(),
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -911,10 +1013,15 @@ var formal_block_RDK_selfBlue = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfBlue,
-      repetitions: getRepetitionsFormal(),on_start: function () {
-        document.body.style.backgroundColor = "black";
-        document.body.style.cursor = 'none';
-      },
+      repetitions: window.rdk_formal_mun,
+      randomize_order: true
+    },
+    feedbackBlock_RDK,
+    rest,
+    {
+      timeline: [fixation, RDK],
+      timeline_variables: conditions_RDK_selfBlue,
+      repetitions: window.rdk_formal_mun,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -952,7 +1059,4 @@ var formal_block_RDK = {
 
 color.timeline.push(formal_block_RDK);
 
-
-
-
-
+// over

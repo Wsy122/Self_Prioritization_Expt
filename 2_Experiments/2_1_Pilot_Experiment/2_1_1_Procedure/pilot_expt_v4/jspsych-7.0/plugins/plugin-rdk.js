@@ -403,7 +403,7 @@ var jsPsychRdk = (function (jspsych) {
             canvas.style.padding = "0";
             // use absolute positioning in top left corner to get rid of scroll bars
             canvas.style.position = "absolute";
-            canvas.style.top = "10%";
+            canvas.style.top = "13%";
             canvas.style.left = "0";
             //Get the context of the canvas so that it can be painted on.
             var ctx = canvas.getContext("2d");
@@ -411,7 +411,7 @@ var jsPsychRdk = (function (jspsych) {
             var canvasWidth = (canvas.width = window.innerWidth - 100);
             // var canvasHeight = (canvas.height = window.innerHeight);
             // var canvasWidth = (canvas.width = 800);
-            var canvasHeight = (canvas.height = 550);
+            var canvasHeight = (canvas.height = 630);
             //Set the canvas background color
             canvas.style.backgroundColor = backgroundColor;
             //--------Set up Canvas end-------
