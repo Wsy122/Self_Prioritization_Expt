@@ -220,63 +220,63 @@ var fixation = {
 //匹配判断任务的不同条件(subjectId 为偶数，则红色代表自己；subjectId 为奇数，则蓝色代表自己)
 
 var conditions_matchPract_selfRed = [
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var conditions_match_selfRed = [
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var conditions_matchPract_selfBlue = [
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" }
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" }
 ]
 
 var conditions_match_selfBlue = [
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" }
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" }
 ]
 
 // 设置匹配任务的主要刺激
@@ -309,7 +309,7 @@ var match_RDK = {
   data: {
     part: "match_RDK",
     task: "response",
-    correct_response: function () { return jsPsych.timelineVariable("correct_response") },
+    correct_response: function () { return jsPsych.timelineVariable("correct_choice") },
     isMatch: function () { return jsPsych.timelineVariable("isMatch") },
     association: function () { return jsPsych.timelineVariable("association") },
   },
@@ -784,25 +784,25 @@ var instruction_RDK_formal_beginning = {
 //整体颜色判断任务的不同条件
 
 var conditions_RDK_selfRed = [
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 1, association: "self" },
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 2, association: "other" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 3, association: "self" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 4, association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 5, association: "self" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 6, association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 7, association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 8, association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d", difficulty: 1, association: "self" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k", difficulty: 2, association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d", difficulty: 3, association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k", difficulty: 4, association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d", difficulty: 5, association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k", difficulty: 6, association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d", difficulty: 7, association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k", difficulty: 8, association: "other" },
 ];
 
 var conditions_RDK_selfBlue = [
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 1, association: "other" },
-  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 2, association: "self" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 3, association: "other" },
-  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 4, association: "self" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 5, association: "other" },
-  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 6, association: "self" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: ["d"], correct_response: "d", difficulty: 7, association: "other" },
-  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: ["k"], correct_response: "k", difficulty: 8, association: "self" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d", difficulty: 1, association: "other" },
+  { target_color_proportion: 0.51, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k", difficulty: 2, association: "self" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d", difficulty: 3, association: "other" },
+  { target_color_proportion: 0.54, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k", difficulty: 4, association: "self" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d", difficulty: 5, association: "other" },
+  { target_color_proportion: 0.59, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k", difficulty: 6, association: "self" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d", difficulty: 7, association: "other" },
+  { target_color_proportion: 0.64, dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k", difficulty: 8, association: "self" },
 ];
 
 //主要呈现的刺激
@@ -835,7 +835,7 @@ var RDK = {
   data: {
     part: "RDK",
     task: "response",
-    correct_response: function () { return jsPsych.timelineVariable("correct_response") },
+    correct_response: function () { return jsPsych.timelineVariable("correct_choice") },
     difficulty: function () { return jsPsych.timelineVariable("difficulty") },
     association: function () { return jsPsych.timelineVariable("association") },
   },

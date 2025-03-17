@@ -37,6 +37,7 @@
 <body>
 
   <!-- Load template experiment -->
+  <script src="template_Expt/getThreshold.js"></script>
   <script src="template_Expt/move_random.js"></script>
   <script src="template_Expt/color_random.js"></script>
 
@@ -53,8 +54,7 @@
   // 获取参数值
   const testMode = urlParams.get('test')=="true"?true:false
   userId = parseInt(urlParams.get('id'));
-  //subjSex = parseInt(urlParams.get('sex'));
-  //window.subjSex = subjSex
+  window.userId = userId
   console.log("userId: ", userId)
 
   if (testMode) {
@@ -381,7 +381,10 @@
   //---------整个实验的时间线---------
 
   main_timeline = [preload, fullScreen,  //card, resized_stimulus, 
-    information, color_test, beginning, assign_group, 
+    //information, color_test, 
+    // beginning, 
+    getThreshold, 
+    assign_group, 
     survey_isMatch, end]
 
   jsPsych.run(main_timeline);

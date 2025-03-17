@@ -1163,7 +1163,7 @@ var formal_color_hard = generateStaircaseTimeline({
 var formal_motion_easy = generateStaircaseTimeline({
   jsPsychInstance: jsPsych,
   targetAccuracy: 0.80,
-  numberOfCycles: formal_stair_cycle_motion,
+  numberOfCycles: 1,
   difficulty: easyStaircaseMotion,
   dataLabel: 'staircase_motion',
   cycle: cycle_motion,
@@ -1179,10 +1179,10 @@ var formal_motion_hard = generateStaircaseTimeline({
 });
 
 var formal_block_motion_easy = {
-  timeline: [formal_motion_easy, stepOneEnd, restEnd],
+  timeline: [motion_easy, stepOneEnd, restEnd],
   on_timeline_finish: function() {
     if(currentCycleMunMotion >= foraml_split_part_number ){
-      formalPartMotion = 1;
+      formalPartMotion = formal_stair_cycle_motion;
     } else {
       formalPartMotion = 0
     }

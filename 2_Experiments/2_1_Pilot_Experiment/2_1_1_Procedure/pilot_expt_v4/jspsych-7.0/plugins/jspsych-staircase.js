@@ -37,8 +37,9 @@ var calculateCyclePerformance = function (data, difficulty, dataLabel, targetAcc
         // Example: If the measured accuracy is 20% higher than the target accuracy,
         // increase difficulty by 10%.
         adjustedDifficulty =
-            //difficulty.get() + ((accuracy - targetAccuracy) / 2) * difficultyRange;
-            difficulty.get() + 0.01;
+            difficulty.get() + ((accuracy - targetAccuracy) / 2) * difficultyRange;
+            //difficulty.get() + (accuracy - targetAccuracy) * 0.5;
+            //difficulty.get() - 0.02;
     }
     // Make sure we remain in the bounds
     if (difficulty.max > difficulty.min) {

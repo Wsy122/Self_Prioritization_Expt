@@ -225,88 +225,88 @@ var fixation = {
 // 4 种不同的难度 * 2 种关联类型 * 2 种匹配类型 = 16种条件
 
 var condition1_matchPract_selfLeft = [
-  { coherence: 0.16, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.16, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.16, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.16, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.16, coherent_direction: 180, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.16, coherent_direction: 0, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.16, coherent_direction: 0, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.16, coherent_direction: 180, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ]
 
 var condition2_matchPract_selfLeft = [
-  { coherence: 0.20, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.20, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.20, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.20, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.20, coherent_direction: 180, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.20, coherent_direction: 0, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.20, coherent_direction: 0, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.20, coherent_direction: 180, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 
 var condition1_match_selfLeft = [
-  { coherence: 0.05, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.05, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.05, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.05, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.05, coherent_direction: 180, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.05, coherent_direction: 0, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.05, coherent_direction: 0, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.05, coherent_direction: 180, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var condition2_match_selfLeft = [
-  { coherence: 0.10, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.10, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.10, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.10, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.10, coherent_direction: 180, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.10, coherent_direction: 0, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.10, coherent_direction: 0, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.10, coherent_direction: 180, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var condition3_match_selfLeft = [
-  { coherence: 0.16, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.16, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.16, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.16, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.16, coherent_direction: 180, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.16, coherent_direction: 0, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.16, coherent_direction: 0, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.16, coherent_direction: 180, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var condition4_match_selfLeft = [
-  { coherence: 0.20, coherent_direction: 180, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.20, coherent_direction: 0, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.20, coherent_direction: 0, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.20, coherent_direction: 180, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.20, coherent_direction: 180, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.20, coherent_direction: 0, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.20, coherent_direction: 0, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.20, coherent_direction: 180, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var condition1_matchPract_selfRight = [
-  { coherence: 0.16, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.16, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.16, coherent_direction: 180, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.16, coherent_direction: 0, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.16, coherent_direction: 0, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.16, coherent_direction: 180, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.16, coherent_direction: 180, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.16, coherent_direction: 0, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var condition2_matchPract_selfRight = [
-  { coherence: 0.20, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.20, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.20, coherent_direction: 180, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.20, coherent_direction: 0, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.20, coherent_direction: 0, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.20, coherent_direction: 180, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.20, coherent_direction: 180, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.20, coherent_direction: 0, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var condition1_match_selfRight = [
-  { coherence: 0.05, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.05, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.05, coherent_direction: 180, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.05, coherent_direction: 0, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.05, coherent_direction: 0, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.05, coherent_direction: 180, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.05, coherent_direction: 180, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.05, coherent_direction: 0, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var condition2_match_selfRight = [
-  { coherence: 0.10, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.10, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.10, coherent_direction: 180, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.10, coherent_direction: 0, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.10, coherent_direction: 0, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.10, coherent_direction: 180, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.10, coherent_direction: 180, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.10, coherent_direction: 0, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var condition3_match_selfRight = [
-  { coherence: 0.16, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.16, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.16, coherent_direction: 180, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.16, coherent_direction: 0, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.16, coherent_direction: 0, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.16, coherent_direction: 180, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.16, coherent_direction: 180, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.16, coherent_direction: 0, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 var condition4_match_selfRight = [
-  { coherence: 0.20, coherent_direction: 0, label: "我", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "self" },
-  { coherence: 0.20, coherent_direction: 180, label: "我", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "other" },
-  { coherence: 0.20, coherent_direction: 180, label: "他", correct_choice: ["f"], correct_response: "f", isMatch: "match", association: "other" },
-  { coherence: 0.20, coherent_direction: 0, label: "他", correct_choice: ["j"], correct_response: "j", isMatch: "mismatch", association: "self" },
+  { coherence: 0.20, coherent_direction: 0, label: "我", correct_choice: "f", isMatch: "match", association: "self" },
+  { coherence: 0.20, coherent_direction: 180, label: "我", correct_choice: "j", isMatch: "mismatch", association: "other" },
+  { coherence: 0.20, coherent_direction: 180, label: "他", correct_choice: "f", isMatch: "match", association: "other" },
+  { coherence: 0.20, coherent_direction: 0, label: "他", correct_choice: "j", isMatch: "mismatch", association: "self" },
 ];
 
 // 设置匹配任务的主要刺激
@@ -374,7 +374,7 @@ var match_RDK = {
     }, 3000);*/
   },
   on_finish: function(data){
-    data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_response);
+    data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_choice);
   },
 };
 
@@ -816,25 +816,25 @@ var instruction_RDK_formal_beginning = {
 // 2 * 4 = 8 种条件
 
 var conditions_RDK_selfLeft = [
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.05, difficulty: 1, association: "self"},
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.10, difficulty: 2, association: "self"},
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.16, difficulty: 3, association: "self"},
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.20, difficulty: 4, association: "self"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.05, difficulty: 1, association: "other"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.10, difficulty: 2, association: "other"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.16, difficulty: 3, association: "other"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.20, difficulty: 4, association: "other"},
+  { coherent_direction: 180, correct_choice: "ArrowLeft", coherence: 0.05, difficulty: 1, association: "self"},
+  { coherent_direction: 180, correct_choice: "ArrowLeft", coherence: 0.10, difficulty: 2, association: "self"},
+  { coherent_direction: 180, correct_choice: "ArrowLeft", coherence: 0.16, difficulty: 3, association: "self"},
+  { coherent_direction: 180, correct_choice: "ArrowLeft", coherence: 0.20, difficulty: 4, association: "self"},
+  { coherent_direction: 0, correct_choice: "ArrowRight", coherence: 0.05, difficulty: 1, association: "other"},
+  { coherent_direction: 0, correct_choice: "ArrowRight", coherence: 0.10, difficulty: 2, association: "other"},
+  { coherent_direction: 0, correct_choice: "ArrowRight", coherence: 0.16, difficulty: 3, association: "other"},
+  { coherent_direction: 0, correct_choice: "ArrowRight", coherence: 0.20, difficulty: 4, association: "other"},
 ];
 
 var conditions_RDK_selfRight = [
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.05, difficulty: 1, association: "other"},
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.10, difficulty: 2, association: "other"},
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.16, difficulty: 3, association: "other"},
-  { coherent_direction: 180, correct_choice: ["ArrowLeft"], correct_responce: "ArrowLeft", coherence: 0.20, difficulty: 4, association: "other"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.05, difficulty: 1, association: "self"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.10, difficulty: 2, association: "self"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.16, difficulty: 3, association: "self"},
-  { coherent_direction: 0, correct_choice: ["ArrowRight"], correct_responce: "ArrowRight", coherence: 0.20, difficulty: 4, association: "self"},
+  { coherent_direction: 180, correct_choice: "ArrowLeft", coherence: 0.05, difficulty: 1, association: "other"},
+  { coherent_direction: 180, correct_choice: "ArrowLeft", coherence: 0.10, difficulty: 2, association: "other"},
+  { coherent_direction: 180, correct_choice: "ArrowLeft", coherence: 0.16, difficulty: 3, association: "other"},
+  { coherent_direction: 180, correct_choice: "ArrowLeft", coherence: 0.20, difficulty: 4, association: "other"},
+  { coherent_direction: 0, correct_choice: "ArrowRight", coherence: 0.05, difficulty: 1, association: "self"},
+  { coherent_direction: 0, correct_choice: "ArrowRight", coherence: 0.10, difficulty: 2, association: "self"},
+  { coherent_direction: 0, correct_choice: "ArrowRight", coherence: 0.16, difficulty: 3, association: "self"},
+  { coherent_direction: 0, correct_choice: "ArrowRight", coherence: 0.20, difficulty: 4, association: "self"},
 ];
 
 //主要呈现的刺激
@@ -874,7 +874,7 @@ var RDK = {
     }, 1000);
   },
   on_finish: function(data){
-    data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_responce);
+    data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_choice);
     // 重新显示元素
     var displayElement = jsPsych.getDisplayElement();
     var elements = displayElement.querySelectorAll("*");
