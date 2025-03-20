@@ -51,7 +51,8 @@ let instruction_getThreshold = {
     if (window.userId <= 10) {
       this.stimulus = `
       <div style="text-align: left; color: white; padding: 10px"> 
-        <h3 style="text-align: center; font-size: 30px; margin: 10px">练习：运动方向判断</h3>
+        <h3 style="text-align: center; font-size: 30px; margin: 10px">欢迎进入实验！</h3>
+        <p>在正式开始前，我们将通过一个快速测试为您打造专属的难度水平。<p>
         <p>接下来，屏幕上会呈现一些运动的彩色圆点，</p>
         <p>大约 <span style="font-weight: bold">0.2秒</span> 后会有一定比例的点 <span style="font-weight: bold">一致地向左或向右运动</span> ，其余点随机运动</p >
         <p>您需要忽略点的颜色并在3秒内判断 <span style="font-weight: bold">一致的运动方向是向左还是向右</span>:</p >
@@ -59,12 +60,13 @@ let instruction_getThreshold = {
           <li><span style="font-weight: bold">向左</span>，请按键盘 <span style="font-weight: bold">左键</span></li>
           <li><span style="font-weight: bold">向右</span>，请按键盘 <span style="font-weight: bold">右键</span> </li>
         </ul>
-        <p>请按下空格键进入练习阶段</p>
+        <p>如有疑问请向主试咨询，没有则按下空格键开始</p>
       </div>`
     } else {
       this.stimulus = `
         <div style="text-align: left; color: white; padding: 10px"> 
-          <h3 style="text-align: center; font-size: 30px; margin: 10px">练习：整体颜色判断</h3>
+          <h3 style="text-align: center; font-size: 30px; margin: 10px">欢迎进入实验！</h3>
+          <p>在正式开始前，我们将通过一个快速测试为您打造专属的难度水平。<p>
           <p>接下来，屏幕上会呈现一些运动的圆点，其中一半为 <span style="color: hsl(0, 50%, 50%)">红色</span> ，一半为 <span style="color: hsl(225, 50%, 50%)">蓝色</span>，</p>
           <p><span style="font-weight: bold">大约0.2秒后,</span>  一部分点会随机变为另一种颜色（例如从红色变为蓝色），变化后某种颜色的数量会超过另一种。</p >
           <p>您需要在3秒内判断 <span style="font-weight: bold">变化后，散点图的整体颜色（即大多数点的颜色）是红色还是蓝色 </span>：</p >
@@ -72,7 +74,7 @@ let instruction_getThreshold = {
             <li>整体为 <span style="color: hsl(0, 50%, 50%)">红色</span>，请按键盘 <span style="color: hsl(0, 50%, 50%)">"D" 键</span></li>
             <li>整体为 <span style="color: hsl(225, 50%, 50%)">蓝色</span>，请按键盘 <span style="color: hsl(225, 50%, 50%)">"k" 键</span> </li>
           </ul>
-          <p>请按下空格键进入练习阶段</p>
+          <p>如有疑问请向主试咨询，没有则按下空格键开始</p>
         </div>`
     }
   },
