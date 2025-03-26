@@ -20,6 +20,11 @@
 window.coherence = []; 
 window.proportion = [];
 
+var coherence_output ={
+  motion: window.coherence,
+  color: window.proportion
+}
+
 var getThreshold = {
   timeline: []
 };
@@ -319,8 +324,8 @@ let single_trial_motion = {
   move_distance: 3,
   aperture_width: 550,
   aperture_height: 550,
-  aperture_center_y: 330,
-  aperture_center_x: 700,
+  aperture_center_y: 360,
+  aperture_center_x: 965,
   background_color: "black",
   trial_duration: 3000,
   data: {
@@ -379,7 +384,7 @@ let feedback_block_motion = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 2000,
   stimulus: function () {
-    let trials = jsPsych.data.get().filter({data_label:'staircase_motion'}).last(8); // 这里必须要写成数字才能变化难度，好奇怪
+    let trials = jsPsych.data.get().filter({data_label:'staircase_motion'}).last(12); // 这里必须要写成数字才能变化难度，好奇怪
     let task = trials.select("part").values[0];
     let correct_trials = trials.filter({correct: true });
     let accuracy = Math.round(correct_trials.count() / trials.count() * 100);
@@ -408,7 +413,7 @@ let feedback_block_color = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 2000,
   stimulus: function () {
-    let trials = jsPsych.data.get().filter({data_label:'staircase_color'}).last(8);
+    let trials = jsPsych.data.get().filter({data_label:'staircase_color'}).last(12);
     let task = trials.select("part").values[0];
     let correct_trials = trials.filter({correct: true });
     let accuracy = Math.round(correct_trials.count() / trials.count() * 100);
@@ -441,7 +446,7 @@ let cycle_rdk_color = {
     { dot_color_final: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], correct_choice: "k" },
     { dot_color_final: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], correct_choice: "d" }
   ],
-  repetitions: 2,
+  repetitions: 3,
   randomize_order: true
 };
 
@@ -453,7 +458,7 @@ let cycle_rdk_motion = {
     { coherent_direction: 0, correct_choice: "ArrowRight" },
     { coherent_direction: 180, correct_choice: "ArrowLeft" }
   ],
-  repetitions: 2,
+  repetitions: 3,
   randomize_order: true
 };
 

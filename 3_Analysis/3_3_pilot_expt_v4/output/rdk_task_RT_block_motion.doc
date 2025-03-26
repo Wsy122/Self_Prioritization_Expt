@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p><b>ANOVA Table:</b></p>
+<p><pre>Dependent variable(s):&#9;avg_rt</pre></p>
+<p><pre>Between-subjects factor(s):&#9;–</pre></p>
+<p><pre>Within-subjects factor(s):&#9;difficulty, association</pre></p>
+<p><pre>Covariate(s):&#9;&#9;–</pre></p>
+<table>
+<thead>
+<tr> <th align='left'></th> <th align='right'><i>MS</i></th> <th align='right'><i>MSE</i></th> <th align='right'><i>df</i><sub>1</sub></th> <th align='right'><i>df</i><sub>2</sub></th> <th align='right'><i>F</i></th> <th align='right'><i>p</i></th> <th align='right'> </th> <th align='right'>η<sup>2</sup><sub>p</sub> [90% CI]</th> <th align='right'>η<sup>2</sup><sub>G</sub></th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>difficulty</td> <td align='right'>51878.979</td> <td align='right'>13824.891</td> <td align='right'>3.000</td> <td align='right'>3.000</td> <td align='right'>3.753</td> <td align='right'>.153</td> <td align='left'></td> <td align='right'>.790 [.000, .916]</td> <td align='right'>.315</td> </tr>
+<tr> <td align='left'>association</td> <td align='right'>3423.689</td> <td align='right'>22846.516</td> <td align='right'>1.000</td> <td align='right'>1.000</td> <td align='right'>0.150</td> <td align='right'>.765</td> <td align='left'></td> <td align='right'>.130 [.000, .773]</td> <td align='right'>.010</td> </tr>
+<tr> <td align='left'>difficulty * association</td> <td align='right'>2258.006</td> <td align='right'>2220.671</td> <td align='right'>3.000</td> <td align='right'>3.000</td> <td align='right'>1.017</td> <td align='right'>.495</td> <td align='left'></td> <td align='right'>.504 [.000, .778]</td> <td align='right'>.020</td> </tr>
+</tbody>
+</table>
+<p><i>Note</i>. MSE = Mean Square Error. Sphericity correction method: GG (Greenhouse-Geisser).</p><p><br/><br/></p><p><b>Descriptive Statistics:</b></p>
+<table>
+<thead>
+<tr> <th align='left'>"difficulty"</th> <th align='left'>"association"</th> <th align='right'><i>M</i></th> <th align='3'><i>SD</i></th> <th align='left'><i>n</i></th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>difficulty1</td> <td align='left'>other</td> <td align='right'>1526.671</td> <td align='3'>336.943</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>difficulty1</td> <td align='left'>self</td> <td align='right'>1443.901</td> <td align='3'>264.231</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>difficulty2</td> <td align='left'>other</td> <td align='right'>1617.475</td> <td align='3'>183.557</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>difficulty2</td> <td align='left'>self</td> <td align='right'>1567.781</td> <td align='3'>34.708</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>difficulty3</td> <td align='left'>other</td> <td align='right'>1662.169</td> <td align='3'>233.066</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>difficulty3</td> <td align='left'>self</td> <td align='right'>1689.359</td> <td align='3'>58.099</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>difficulty4</td> <td align='left'>other</td> <td align='right'>1756.449</td> <td align='3'>191.111</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>difficulty4</td> <td align='left'>self</td> <td align='right'>1744.699</td> <td align='3'>160.121</td> <td align='NA'>2</td> </tr>
+</tbody>
+</table>
+<p>Total sample size: <i>N</i> = 2</p>
+</body>
+
+</html>

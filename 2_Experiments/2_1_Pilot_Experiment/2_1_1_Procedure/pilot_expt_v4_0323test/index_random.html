@@ -66,17 +66,39 @@
   } else {
     window.match_pract_mun = 2;
     window.rdk_pract_mun = 2;
-    window.match_formal_mun = 2;
-    window.rdk_foraml_mun = 4;
+    window.match_formal_mun = 3;
+    window.rdk_foraml_mun = 6;
     window.pract_pass_rate = 70
   }
   
 
   //---------initialize--------
 
+  function saveJsonToFile(jsonData, filename) {
+    // 将JSON对象转换为字符串
+    const jsonString = JSON.stringify(jsonData);
+  
+    // 创建Blob对象，类型为application/json
+    const blob = new Blob([jsonString], { type: "application/json" });
+  
+    // 创建一个链接元素用于下载
+    const link = document.createElement("a");
+    link.href = window.URL.createObjectURL(blob);
+    link.download = filename.endsWith('.json') ? filename : `${filename}.json`;
+  
+    // 模拟点击下载
+    document.body.appendChild(link);
+    link.click();
+  
+    // 清理：移除链接并释放创建的URL对象
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(link.href);
+  }
+
   var jsPsych = initJsPsych({
     on_finish: function () {
       jsPsych.data.get().localSave('csv', `pilot_expt_v4_${userId}.csv`);
+      saveJsonToFile(coherence_output, `pilot_expt_v4_coherence_${userId}.json`);
     },
     default_iti: 500,
   });
@@ -284,7 +306,7 @@
     on_start: function () {
       document.body.style.backgroundColor = "white";
       document.body.style.cursor = 'default';
-      survey_isMatch.survey_json.elements[0].choices[1] = `${labelVar}`
+      //survey_isMatch.survey_json.elements[0].choices[1] = `${labelVar}`
     }
   };
 

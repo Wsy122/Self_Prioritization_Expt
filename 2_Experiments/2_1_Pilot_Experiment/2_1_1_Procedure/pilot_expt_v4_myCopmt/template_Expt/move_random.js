@@ -1,9 +1,14 @@
-// 这段代码主要用于执行运动条件下的实验任务，即人物标签与运动方向匹配，之后进行散点群方向判断
-// 在当前的版本中，人物改为 “我”，“他/她”
-// 并且，标签会分别于 4 种不同难度水平的散点图进行匹配
-// 不同的难度条件随机呈现
-// 匹配任务：2 * 16 = 32 个练习 trial，2 * 16 * 4 = 128 个正式 trial
-// 随机动点任务：2 * 8 = 16 个练习 trial，4 * 8 * 4 = 128 个正式 trial
+/*---------------------------------------------------------------------------------
+这段代码主要用于执行颜色条件下的实验，即人物标签与运动方向匹配，之后进行散点群整体方向判断
+在当前的版本中，人物改为 “我”，“他/她”
+并且，标签会分别于 4 种不同难度水平的散点图进行匹配
+不同的难度条件随机呈现
+匹配任务：2*16 个练习 trial，2 * 16 * 4 = 128 个正式 trial 
+随机动点任务：2*8 = 16 个练习 trial，4 * 8 * 4 = 128 个正式 trial 每种条件40个trial
+- 更新：每种条件24个trial
+- 匹配任务：2*16=32个练习，24*16=384个正式/8 block
+- 随机动点任务：2*8=16个练习，24*8=192个正式/6 block
+-----------------------------------------------------------------------------------*/
 
 var randomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
@@ -139,8 +144,6 @@ var example = {
   aperture_type: 1,
   aperture_width: 400,
   aperture_height: 400,
-  //aperture_center_x: [300,900], // 这是适合实验室设备的距离
-  //aperture_center_y: [280, 280],
   aperture_center_y: [350, 350],
   aperture_center_x: [420, 1000],
   background_color: "black",
@@ -302,8 +305,6 @@ var match_RDK = {
   aperture_height: 500,
   aperture_center_x: 700,
   aperture_center_y: 250,
-  //aperture_center_x: 900, //这是实验室的设备
-  //aperture_center_y: 250,
   background_color: "black",
   trial_duration: 3000,
   motion_change_delay: randomInteger(6, 12),
@@ -314,6 +315,7 @@ var match_RDK = {
     //correct_response: function () { return jsPsych.timelineVariable("correct_choice") },
     isMatch: function () { return jsPsych.timelineVariable("isMatch") },
     association: function () { return jsPsych.timelineVariable("association") },
+    label: function () { return jsPsych.timelineVariable("label") },
   },
   on_start: function() {
 
@@ -326,35 +328,10 @@ var match_RDK = {
     console.log('coherenceArray: ', window.coherence)
 
     // 替换 coherence 的值
-
     // 调用函数处理conditions_match_selfLeft和conditions_match_selfRight
     updateCoherence(conditions_match_selfLeft);
     updateCoherence(conditions_match_selfRight);
     
-    /*
-    for (let i = 0; i < 16; i++) {
-      if (conditions_match_selfLeft[i].coherence == 0.20) {
-        conditions_match_selfLeft[i].coherence = window.coherence[1]
-      } else if (conditions_match_selfLeft[i].coherence == 0.16) {
-        conditions_match_selfLeft[i].coherence = window.coherence[3]
-      } else if (conditions_match_selfLeft[i].coherence == 0.10) {
-        conditions_match_selfLeft[i].coherence = window.coherence[5]
-      } else if (conditions_match_selfLeft[i].coherence == 0.05) {
-        conditions_match_selfLeft[i].coherence = window.coherence[7]
-      };
-      if (conditions_match_selfRight[i].coherence == 0.20) {
-        conditions_match_selfRight[i].coherence = window.coherence[1]
-      } else if (conditions_match_selfRight[i].coherence == 0.16) {
-        conditions_match_selfRight[i].coherence = window.coherence[3]
-      } else if (conditions_match_selfRight[i].coherence == 0.10) {
-        conditions_match_selfRight[i].coherence = window.coherence[5]
-      } else {
-        conditions_match_selfRight[i].coherence = window.coherence[7]
-      }
-    }
-    */
-    
-
     var displayElement = jsPsych.getDisplayElement();
 
     // 创建一个div元素显示标签文字--------(这个位置可能还需要改一下)
@@ -407,7 +384,7 @@ var feedbackTrial = {
 };
 
 //计算整个练习阶段的总体正确率
-//计算 24 个试次的反应数，挑出正确的试次数，计算准确率 
+//计算 32 个试次的反应数，挑出正确的试次数，计算准确率 
 //如果整体正确率未达到 70% 以及上，则让被试继续练习
 
 var instruction_continuePractice = {
@@ -466,7 +443,7 @@ var instruction_practiceEnd = {
 var if_practiceAgain = {
   timeline: [instruction_continuePractice],
   conditional_function: function () { 
-    var trials = jsPsych.data.get().filter({task: 'response'}).last(24)
+    var trials = jsPsych.data.get().filter({task: 'response'}).last(32)
     var correct_trials = trials.filter({correct: true});
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     if (accuracy >= window.pract_pass_rate) {
@@ -482,7 +459,7 @@ var if_practiceAgain = {
 var if_endPractice = {
   timeline: [instruction_practiceEnd],
   conditional_function: function () {
-    var trials = jsPsych.data.get().filter({task: 'response'}).last(24) //这里的数量视具体情况而定
+    var trials = jsPsych.data.get().filter({task: 'response'}).last(32) //这里的数量视具体情况而定
     var correct_trials = trials.filter({correct: true});
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     if (accuracy >= window.pract_pass_rate) {
@@ -501,12 +478,16 @@ var practice_block_selfLeft = {
     {
       timeline: [fixation, match_RDK, feedbackTrial],
       timeline_variables: conditions_match_selfLeft,
-      repetitions: window.match_pract_mun, 
+      repetitions: 2,
+      //repetitions: window.match_pract_mun, 
       randomize_order: true
     },
     if_practiceAgain,
     if_endPractice,
   ],
+  on_start: function(){
+    console.log('window.match_pract_mun: ', window.match_pract_mun)
+  },
   loop_function: function(){
     var data = jsPsych.data.get().last(1).values()[0];
     if (jsPsych.pluginAPI.compareKeys(data.response, "q")) {
@@ -523,12 +504,16 @@ var practice_block_selfRight = {
     {
       timeline: [fixation, match_RDK, feedbackTrial],
       timeline_variables: conditions_match_selfRight,
-      repetitions: window.match_pract_mun,
+      repetitions: 2,
+      //repetitions: window.match_pract_mun,
       randomize_order: true
     },
     if_practiceAgain,
     if_endPractice,
   ],
+  on_start: function(){
+    console.log('window.match_pract_mun: ', window.match_pract_mun)
+  },
   loop_function: function(){
     var data = jsPsych.data.get().last(1).values()[0];
     if (jsPsych.pluginAPI.compareKeys(data.response, "q")) {
@@ -588,7 +573,31 @@ var instruction_match_formal = {
   }
 }; 
 
-var rest = {
+var rest_match = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: function() {
+    // 根据 currentBlock 生成提示信息
+    return `
+      <div style="text-align: center; color: white; padding: 35px; font-size: 35px">
+        <p>恭喜您，已完成 ${currentBlock}/8</p>
+        <p>请休息一下，若准备好可按空格键继续</p>
+      </div>
+    `;
+  },
+  response_ends_trial: true,
+  choices: " ",
+  on_start: function() {
+    currentBlock += 1
+  },
+  on_finish: function() {
+    document.body.style.backgroundColor = "black";
+  },
+  data: {
+    part: "instruction_rest"
+  }
+};
+
+var rest_rdk = {
   type: jsPsychHtmlKeyboardResponse,
   stimulus: function() {
     // 根据 currentBlock 生成提示信息
@@ -618,7 +627,7 @@ var feedbackBlock_match = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 3000,
   stimulus: function() {
-    var trials = jsPsych.data.get().filter({task: 'response'}).last(32) //这里的数量视具体情况而定
+    var trials = jsPsych.data.get().filter({task: 'response'}).last(48) //这里的数量视具体情况而定
     var correct_trials = trials.filter({correct: true});
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     var rt = Math.round(trials.select('rt').mean());
@@ -633,34 +642,75 @@ var formal_block_selfLeft = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfLeft,
-      repetitions: window.match_formal_mun,
+      repetitions: 3,
+      //repetitions: 12,
       randomize_order: true
     },
     feedbackBlock_match,
-    rest,
+    rest_match,
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfLeft,
-      repetitions: window.match_formal_mun,
+      repetitions: 3,
+      //repetitions: 12,
       randomize_order: true
     },
     feedbackBlock_match,
-    rest,
+    rest_match,
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfLeft,
-      repetitions: window.match_formal_mun,
+      repetitions: 3,
+      //repetitions: 12,
       randomize_order: true
     },
     feedbackBlock_match,
-    rest,
+    rest_match,
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfLeft,
-      repetitions: window.match_formal_mun,
+      repetitions: 3,
+      //repetitions: 12,
       randomize_order: true
     },
     feedbackBlock_match,
+    rest_match,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfLeft,
+      repetitions: 3,
+      //repetitions: 12,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest_match,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfLeft,
+      repetitions: 3,
+      //repetitions: 12,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest_match,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfLeft,
+      repetitions: 3,
+      //repetitions: 12,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest_match,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfLeft,
+      repetitions: 3,
+      //repetitions: 12,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest_match,
   ],
 };
 
@@ -670,34 +720,67 @@ var formal_block_selfRight = {
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRight,
-      repetitions: window.match_formal_mun,
+      repetitions: 3,
       randomize_order: true
     },
     feedbackBlock_match,
-    rest,
+    rest_match,
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRight,
-      repetitions: window.match_formal_mun,
+      repetitions: 3,
       randomize_order: true
     },
     feedbackBlock_match,
-    rest,
+    rest_match,
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRight,
-      repetitions: window.match_formal_mun,
+      repetitions: 3,
       randomize_order: true
     },
     feedbackBlock_match,
-    rest,
+    rest_match,
     {
       timeline: [fixation, match_RDK],
       timeline_variables: conditions_match_selfRight,
-      repetitions: window.match_formal_mun,
+      repetitions: 3,
       randomize_order: true
     },
     feedbackBlock_match,
+    rest_match,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfRight,
+      repetitions: 3,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest_match,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfRight,
+      repetitions: 3,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest_match,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfRight,
+      repetitions: 3,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest_match,
+    {
+      timeline: [fixation, match_RDK],
+      timeline_variables: conditions_match_selfRight,
+      repetitions: 3,
+      randomize_order: true
+    },
+    feedbackBlock_match,
+    rest_match
   ],
 };
 
@@ -877,28 +960,6 @@ var RDK = {
     updateCoherence(conditions_RDK_selfLeft);
     updateCoherence(conditions_RDK_selfRight);
     /*
-    console.log('coherenceArray: ', window.coherence)
-    for (let i = 0; i < 8; i++) {
-      if (conditions_RDK_selfLeft[i].coherence == 0.20) {
-        conditions_RDK_selfLeft[i].coherence = window.coherence[1]
-      } else if (conditions_RDK_selfLeft[i].coherence == 0.16) {
-        conditions_RDK_selfLeft[i].coherence = window.coherence[3]
-      } else if (conditions_match_selfLeft[i].coherence == 0.10) {
-        conditions_RDK_selfLeft[i].coherence = window.coherence[5]
-      } else {
-        conditions_RDK_selfLeft[i].coherence = window.coherence[7]
-      };
-      if (conditions_RDK_selfRight[i].coherence == 0.20) {
-        conditions_RDK_selfRight[i].coherence = window.coherence[1]
-      } else if (conditions_RDK_selfRight[i].coherence == 0.16) {
-        conditions_RDK_selfRight[i].coherence = window.coherence[3]
-      } else if (conditions_RDK_selfRight[i].coherence == 0.10) {
-        conditions_RDK_selfRight[i].coherence = window.coherence[5]
-      } else {
-        conditions_RDK_selfRight[i].coherence = window.coherence[7]
-      }
-    };*/
-    
     var displayElement = jsPsych.getDisplayElement();
     // 1000毫秒后隐藏刺激
     setTimeout(function() {
@@ -906,10 +967,11 @@ var RDK = {
       elements.forEach(function(el) {
         el.style.display = 'none';
       });
-    }, 1000);
+    }, 1000);*/
   },
   on_finish: function(data){
     data.correct = jsPsych.pluginAPI.compareKeys(data.response, data.correct_choice);
+
     // 重新显示元素
     var displayElement = jsPsych.getDisplayElement();
     var elements = displayElement.querySelectorAll("*");
@@ -929,7 +991,7 @@ var practice_block_RDK_selfLeft = {
     {
       timeline: [fixation, RDK, feedbackTrial],
       timeline_variables: conditions_RDK_selfLeft,
-      repetitions: window.rdk_pract_mun,
+      repetitions: 2,
       randomize_order: true
     },
     instruction_RDK_practice_end
@@ -951,7 +1013,7 @@ var practice_block_RDK_selfRight = {
     {
       timeline: [fixation, RDK, feedbackTrial],
       timeline_variables: conditions_RDK_selfRight,
-      repetitions: window.rdk_pract_mun,
+      repetitions: 2,
       randomize_order: true
     },
     instruction_RDK_practice_end
@@ -1005,7 +1067,7 @@ var feedbackBlock_RDK = {
   type: jsPsychHtmlKeyboardResponse,
   trial_duration: 3000,
   stimulus: function() {
-    var trials = jsPsych.data.get().filter({task: 'response'}).last(32)
+    var trials = jsPsych.data.get().filter({task: 'response'}).last(48)
     var correct_trials = trials.filter({correct: true});
     var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
     var rt = Math.round(trials.select('rt').mean());
@@ -1020,23 +1082,31 @@ var formal_block_RDK_selfLeft = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfLeft,
-      repetitions: window.rdk_formal_mun,
+      repetitions: 6,
       randomize_order: true
     },
     feedbackBlock_RDK,
-    rest,
+    rest_rdk,
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfLeft,
-      repetitions: window.rdk_formal_mun,
+      repetitions: 6,
       randomize_order: true
     },
     feedbackBlock_RDK,
-    rest,
+    rest_rdk,
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfLeft,
-      repetitions: window.rdk_formal_mun,
+      repetitions: 6,
+      randomize_order: true
+    },
+    feedbackBlock_RDK,
+    rest_rdk,
+    {
+      timeline: [fixation, RDK],
+      timeline_variables: conditions_RDK_selfLeft,
+      repetitions: 6,
       randomize_order: true
     },
     feedbackBlock_RDK,
@@ -1049,23 +1119,31 @@ var formal_block_RDK_selfRight = {
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfRight,
-      repetitions: window.rdk_formal_mun,
+      repetitions: 6,
       randomize_order: true
     },
     feedbackBlock_RDK,
-    rest,
+    rest_rdk,
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfRight,
-      repetitions: window.rdk_formal_mun,
+      repetitions: 6,
       randomize_order: true
     },
     feedbackBlock_RDK,
-    rest,
+    rest_rdk,
     {
       timeline: [fixation, RDK],
       timeline_variables: conditions_RDK_selfRight,
-      repetitions: window.rdk_formal_mun,
+      repetitions: 6,
+      randomize_order: true
+    },
+    feedbackBlock_RDK,
+    rest_rdk,
+    {
+      timeline: [fixation, RDK],
+      timeline_variables: conditions_RDK_selfRight,
+      repetitions: 6,
       randomize_order: true
     },
     feedbackBlock_RDK,
