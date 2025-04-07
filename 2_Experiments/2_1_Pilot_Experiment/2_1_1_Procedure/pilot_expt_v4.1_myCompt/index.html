@@ -97,10 +97,10 @@
 
   var jsPsych = initJsPsych({
     on_finish: function () {
-      jsPsych.data.get().localSave('csv', `pilot_expt_v4-1_${userId}.csv`);
-      saveJsonToFile(coherence_output, `pilot_expt_v4-1_coherence_${userId}.json`);
+      jsPsych.data.get().localSave('csv', `pilot_expt_v4_${userId}.csv`);
+      saveJsonToFile(coherence_output, `pilot_expt_v4_coherence_${userId}.json`);
     },
-    default_iti: randomInteger(300, 800),
+    default_iti: randomInteger(300, 1000),
   });
 
   // the body of the experiment
@@ -109,7 +109,10 @@
 
   var preload = {
     type: jsPsychPreload,
-    images: ["img//card.png", "img//color_blindness.jpg"],
+    images: [
+    "img//card.png", "img//color_blindness.jpg",
+    "img//she.png", "img//he.png", "img//self.png"
+    ],
     auto_preload: true
   };
 
@@ -397,7 +400,7 @@
   main_timeline = [preload, fullScreen,  //card, resized_stimulus, 
     information, color_test, 
     beginning, 
-    getThreshold, 
+    //getThreshold, 
     assign_group, 
     survey_isMatch, end]
 

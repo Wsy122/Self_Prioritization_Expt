@@ -37,10 +37,10 @@ let initial_difficulty_motion_easy1 = 0.20;
 let initial_difficulty_motion_easy2 = 0.16;
 let initial_difficulty_motion_hard1 = 0.10;
 let initial_difficulty_motion_hard2 = 0.05;
-let initial_difficulty_color_easy1 = 0.64;
-let initial_difficulty_color_easy2 = 0.59;
-let initial_difficulty_color_hard1 = 0.54;
-let initial_difficulty_color_hard2 = 0.52;
+let initial_difficulty_color_easy1 = 0.65;
+let initial_difficulty_color_easy2 = 0.60;
+let initial_difficulty_color_hard1 = 0.55;
+let initial_difficulty_color_hard2 = 0.53;
 
 var randomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
@@ -105,8 +105,8 @@ var fixation = {
 
 //设置难度的调整范围
 const StaircaseColor1 = {
-  // 这里的 max 和 min 是指难度的最大值和最小值，对应的是信号水平，颜色的难度范围为 0.65 - 0.51 = 0.14（参考之前的预实验）
-  max: 0.51,
+  // 这里的 max 和 min 是指难度的最大值和最小值，对应的是信号水平，颜色的难度范围为 0.65 - 0.52 = 0.13（参考之前的预实验）
+  max: 0.52,
   min: 0.65,
   get: () => {
     return initial_difficulty_color_easy1;
@@ -121,7 +121,7 @@ const StaircaseColor1 = {
 };
 
 const StaircaseColor2 = {
-  max: 0.51,
+  max: 0.52,
   min: 0.65,
   get: () => {
     return initial_difficulty_color_easy2;
@@ -135,7 +135,7 @@ const StaircaseColor2 = {
 };
 
 const StaircaseColor3 = {
-  max: 0.51,
+  max: 0.52,
   min: 0.65,
   get: () => {
     return initial_difficulty_color_hard1;
@@ -149,7 +149,7 @@ const StaircaseColor3 = {
 };
 
 const StaircaseColor4 = {
-  max: 0.51,
+  max: 0.52,
   min: 0.65,
   get: () => {
     return initial_difficulty_color_hard2;

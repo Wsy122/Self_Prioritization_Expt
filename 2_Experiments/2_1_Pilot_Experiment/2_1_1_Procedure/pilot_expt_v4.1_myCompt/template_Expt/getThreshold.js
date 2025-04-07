@@ -38,8 +38,8 @@ let initial_difficulty_motion_easy1 = 0.20;
 let initial_difficulty_motion_easy2 = 0.16;
 let initial_difficulty_motion_hard1 = 0.10;
 let initial_difficulty_motion_hard2 = 0.05;
-let initial_difficulty_color_easy1 = 0.62;
-let initial_difficulty_color_easy2 = 0.58;
+let initial_difficulty_color_easy1 = 0.64;
+let initial_difficulty_color_easy2 = 0.59;
 let initial_difficulty_color_hard1 = 0.54;
 let initial_difficulty_color_hard2 = 0.52;
 
@@ -123,10 +123,10 @@ var fixation = {
 
 
 //设置难度的调整范围
-const StaircaseColor1 = {
+let StaircaseColor1 = {
   // 这里的 max 和 min 是指难度的最大值和最小值，对应的是信号水平，颜色的难度范围为 0.66 - 0.54 = 0.12（参考之前的预实验）
-  max: 0.58,
-  min: 0.65, //0.65-0.58=0.07
+  max: 0.54,
+  min: 0.66,
   difficultyType: 'easy1',  // 最容易的条件
   get: () => {
     return initial_difficulty_color_easy1;
@@ -144,7 +144,7 @@ const StaircaseColor1 = {
 
 const StaircaseColor2 = {
   max: 0.54,
-  min: 0.62, //0.62-0.54=0.08
+  min: 0.66,
   difficultyType: 'easy2', 
   get: () => {
     return initial_difficulty_color_easy2;
@@ -160,8 +160,8 @@ const StaircaseColor2 = {
 };
 
 const StaircaseColor3 = {
-  max: 0.53,
-  min: 0.61, //调整范围：0.61-0.53=0.08
+  max: 0.54,
+  min: 0.66,
   difficultyType: 'hard1',
   get: () => {
     return initial_difficulty_color_hard1;
@@ -178,7 +178,7 @@ const StaircaseColor3 = {
 
 const StaircaseColor4 = {
   max: 0.51,
-  min: 0.59, //调整范围：0.59-0.51=0.08
+  min: 0.63,
   difficultyType: 'hard2', //最困难的条件
   get: () => {
     return initial_difficulty_color_hard2;
@@ -193,9 +193,9 @@ const StaircaseColor4 = {
   },
 };
 
-const StaircaseMotion1 = {
-  max: 0.12,
-  min: 0.22, //调整范围：0.22-0.12=0.10
+let StaircaseMotion1 = {
+  max: 0.03,
+  min: 0.22,
   difficultyType: 'easy1',
   get: () => {
     return initial_difficulty_motion_easy1;
@@ -212,8 +212,8 @@ const StaircaseMotion1 = {
 };
 
 const StaircaseMotion2 = {
-  max: 0.10,
-  min: 0.20, //调整范围：0.20-0.10=0.10
+  max: 0.03,
+  min: 0.22,
   difficultyType: 'easy2',  
   saveCount: 0,
   get: () => {
@@ -231,7 +231,7 @@ const StaircaseMotion2 = {
 
 const StaircaseMotion3 = {
   max: 0.03,
-  min: 0.12, //调整范围：0.12-0.03=0.09
+  min: 0.22,
   difficultyType: 'hard1',
   saveCount: 0,
   get: () => {
@@ -248,8 +248,8 @@ const StaircaseMotion3 = {
 };
 
 const StaircaseMotion4 = {
-  max: 0.01,
-  min: 0.06, //调整范围：0.06-0.01=0.05
+  max: 0.03,
+  min: 0.22,
   difficultyType: 'hard2',  
   saveCount: 0,
   get: () => {
@@ -280,8 +280,8 @@ let single_trial_color = {
   coherence: 0,
   aperture_width: 550,
   aperture_height: 550,
-  aperture_center_y: 360,
-  aperture_center_x: 965, 
+  aperture_center_y: 330,
+  aperture_center_x: 700, 
   background_color: "black",
   trial_duration: 3000,
   data: {
@@ -328,8 +328,8 @@ let single_trial_motion = {
   move_distance: 3,
   aperture_width: 550,
   aperture_height: 550,
-  aperture_center_y: 360,
-  aperture_center_x: 965,
+  aperture_center_y: 330,
+  aperture_center_x: 700,
   background_color: "black",
   trial_duration: 3000,
   data: {

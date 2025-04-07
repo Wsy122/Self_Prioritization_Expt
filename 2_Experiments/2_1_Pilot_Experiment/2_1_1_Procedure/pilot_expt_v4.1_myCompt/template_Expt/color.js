@@ -49,8 +49,10 @@ var instruction_match = {
     if (window.subjSex) { 
       if (window.subjSex == "男") {
         labelVar = "他";
+        picture_path = "img/he.png"
       } else if (window.subjSex == "女") {
         labelVar = "她";
+        picture_path = "img/she.png"
       }
     } else {
       labelVar = "TA";
@@ -137,8 +139,8 @@ var example = {
   aperture_height: 400,
   //aperture_center_x: [300, 900],
   //aperture_center_y: [280, 280],
-  aperture_center_y: [330, 330],
-  aperture_center_x: [550, 1335],
+  aperture_center_y: [350, 350],
+  aperture_center_x: [420, 1000],
   background_color: "black",
   trial_duration: 300000,
   data: {
@@ -195,7 +197,7 @@ var example = {
   },
 };
 
-color.timeline.push(example);
+//color.timeline.push(example);
 
 // 练习
 
@@ -295,18 +297,18 @@ var match_RDK = {
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
   dot_color_final: function () { return jsPsych.timelineVariable("dot_color_final") },
   target_color_proportion: function () { return jsPsych.timelineVariable("target_color_proportion") },
-  color_change_delay: 0.5,
+  //color_change_delay: 0.001,
   choices: ["f", "j"],
   correct_choice: function () { return jsPsych.timelineVariable("correct_choice") },
   coherent_direction: 0,
   coherence: 0,
-  dot_radius: 5,
-  move_distance: 3,
+  dot_radius: 4, //单个点的大小是否需要改变
+  move_distance: 2.5, //运动的速度是否需要改变
   //aperture_type: 1,
-  aperture_width: 500,
-  aperture_height: 500,
-  aperture_center_x: 957,
-  aperture_center_y: 250,
+  aperture_width: 300,
+  aperture_height: 300,
+  //aperture_center_x: 730,
+  aperture_center_y: 150,
   background_color: "black",
   trial_duration: 3000,
   data: {
@@ -329,6 +331,8 @@ var match_RDK = {
     //替换proportion值
     updateProportion(conditions_match_selfBlue);
     updateProportion(conditions_match_selfRed);
+
+    /*创建文字标签
   
     var displayElement = jsPsych.getDisplayElement();
 
@@ -344,6 +348,46 @@ var match_RDK = {
     textDiv.style.margintop = "15px";
     textDiv.style.color = "white";
     displayElement.appendChild(textDiv);
+    */
+    var displayElement = jsPsych.getDisplayElement();
+    //创建应该注视点
+    var textDiv = document.createElement("div");
+    textDiv.textContent = "+",
+
+    textDiv.style.position = "absolute";
+    textDiv.style.fontSize = "48px";
+    textDiv.style.top = "50%";          // 从顶部50%位置开始
+    textDiv.style.left = "50%";         // 从左侧50%位置开始
+    textDiv.style.transform = "translate(-50%, -50%)"; 
+    textDiv.style.color = "white";
+    displayElement.appendChild(textDiv);
+
+    //创建图片标签
+    var img = document.createElement("img");
+    // 根据label变量选择图片路径
+    const label = jsPsych.timelineVariable("label");
+    img.src = (() => {
+      switch(jsPsych.timelineVariable("label")) {
+        case "我": return "img/self.png";
+        case "他": return "img/he.png";    // 男性他人
+        case "她": return "img/she.png";  // 女性他人
+        default: console.error("未知标签");
+      }
+    })();
+    
+    // 图片样式设置
+    img.style.position = "absolute";
+    img.style.width = "130px";  // 根据实际图片尺寸调整
+    img.style.height = "auto";
+    img.style.bottom = "28%";   // 微调位置
+    img.style.left = "50%";
+    img.style.transform = "translateX(-50%)";  // 水平居中
+    img.style.objectFit = "contain";
+    
+    // 添加ID便于后续操作
+    img.id = "label-image";
+    displayElement.appendChild(img);
+
 
     // 1000毫秒后隐藏刺激
     /*setTimeout(function() {
@@ -929,8 +973,8 @@ var RDK = {
   //aperture_type: 1,
   aperture_width: 550,
   aperture_height: 550,
-  aperture_center_y: 360,
-  aperture_center_x: 965,
+  aperture_center_y: 330,
+  aperture_center_x: 700,
   background_color: "black",
   trial_duration: 3000,
   data: {

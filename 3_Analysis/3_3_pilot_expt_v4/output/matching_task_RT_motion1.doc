@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<title></title>
+<style>
+body, pre {font-size: 10.5pt; font-family: Times New Roman;}
+p {margin: 0px;}
+table {border-collapse: collapse; border-spacing: 0px; color: #000000;
+       border-top: 2px solid #000000; border-bottom: 2px solid #000000;}
+table thead th {border-bottom: 1px solid #000000;}
+table th, table td {padding-left: 5px; padding-right: 5px; height: 19px;}
+</style>
+</head>
+
+<body>
+<p><b>ANOVA Table:</b></p>
+<p><pre>Dependent variable(s):&#9;avg_rt</pre></p>
+<p><pre>Between-subjects factor(s):&#9;–</pre></p>
+<p><pre>Within-subjects factor(s):&#9;isMatch, association, difficulty</pre></p>
+<p><pre>Covariate(s):&#9;&#9;–</pre></p>
+<table>
+<thead>
+<tr> <th align='left'></th> <th align='right'><i>MS</i></th> <th align='right'><i>MSE</i></th> <th align='right'><i>df</i><sub>1</sub></th> <th align='right'><i>df</i><sub>2</sub></th> <th align='right'><i>F</i></th> <th align='right'><i>p</i></th> <th align='right'> </th> <th align='right'>η<sup>2</sup><sub>p</sub> [90% CI]</th> <th align='right'>η<sup>2</sup><sub>G</sub></th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>isMatch</td> <td align='right'>81304.215</td> <td align='right'>75026.509</td> <td align='right'>1.000</td> <td align='right'>1.000</td> <td align='right'>1.084</td> <td align='right'>.487</td> <td align='left'></td> <td align='right'>.520 [.000, .888]</td> <td align='right'>.043</td> </tr>
+<tr> <td align='left'>association</td> <td align='right'>6437.949</td> <td align='right'>29109.281</td> <td align='right'>1.000</td> <td align='right'>1.000</td> <td align='right'>0.221</td> <td align='right'>.720</td> <td align='left'></td> <td align='right'>.181 [.000, .798]</td> <td align='right'>.004</td> </tr>
+<tr> <td align='left'>difficulty</td> <td align='right'>36075.033</td> <td align='right'>68528.080</td> <td align='right'>3.000</td> <td align='right'>3.000</td> <td align='right'>0.526</td> <td align='right'>.694</td> <td align='left'></td> <td align='right'>.345 [.000, .666]</td> <td align='right'>.057</td> </tr>
+<tr> <td align='left'>isMatch * association</td> <td align='right'>29855.355</td> <td align='right'>465.983</td> <td align='right'>1.000</td> <td align='right'>1.000</td> <td align='right'>64.070</td> <td align='right'>.079</td> <td align='left'>.</td> <td align='right'>.985 [.000, .996]</td> <td align='right'>.016</td> </tr>
+<tr> <td align='left'>isMatch * difficulty</td> <td align='right'>17339.611</td> <td align='right'>1807.992</td> <td align='right'>3.000</td> <td align='right'>3.000</td> <td align='right'>9.591</td> <td align='right'>.048</td> <td align='left'>*</td> <td align='right'>.906 [.033, .963]</td> <td align='right'>.028</td> </tr>
+<tr> <td align='left'>association * difficulty</td> <td align='right'>7409.944</td> <td align='right'>3628.293</td> <td align='right'>3.000</td> <td align='right'>3.000</td> <td align='right'>2.042</td> <td align='right'>.286</td> <td align='left'></td> <td align='right'>.671 [.000, .864]</td> <td align='right'>.012</td> </tr>
+<tr> <td align='left'>isMatch * association * difficulty</td> <td align='right'>13114.362</td> <td align='right'>735.024</td> <td align='right'>3.000</td> <td align='right'>3.000</td> <td align='right'>17.842</td> <td align='right'>.020</td> <td align='left'>*</td> <td align='right'>.947 [.487, .979]</td> <td align='right'>.021</td> </tr>
+</tbody>
+</table>
+<p><i>Note</i>. MSE = Mean Square Error. Sphericity correction method: GG (Greenhouse-Geisser).</p><p><br/><br/></p><p><b>Descriptive Statistics:</b></p>
+<table>
+<thead>
+<tr> <th align='left'>"isMatch"</th> <th align='left'>"association"</th> <th align='left'>"difficulty"</th> <th align='right'><i>M</i></th> <th align='3'><i>SD</i></th> <th align='left'><i>n</i></th> </tr>
+</thead>
+<tbody>
+<tr> <td align='left'>match</td> <td align='left'>other</td> <td align='left'>difficulty1</td> <td align='right'>1028.333</td> <td align='3'>72.832</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>match</td> <td align='left'>other</td> <td align='left'>difficulty2</td> <td align='right'>1299.557</td> <td align='3'>285.650</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>match</td> <td align='left'>other</td> <td align='left'>difficulty3</td> <td align='right'>1229.163</td> <td align='3'>329.871</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>match</td> <td align='left'>other</td> <td align='left'>difficulty4</td> <td align='right'>1349.592</td> <td align='3'>439.598</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>match</td> <td align='left'>self</td> <td align='left'>difficulty1</td> <td align='right'>1017.114</td> <td align='3'>12.213</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>match</td> <td align='left'>self</td> <td align='left'>difficulty2</td> <td align='right'>1075.968</td> <td align='3'>137.872</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>match</td> <td align='left'>self</td> <td align='left'>difficulty3</td> <td align='right'>1258.242</td> <td align='3'>263.644</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>match</td> <td align='left'>self</td> <td align='left'>difficulty4</td> <td align='right'>1197.491</td> <td align='3'>329.820</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>mismatch</td> <td align='left'>other</td> <td align='left'>difficulty1</td> <td align='right'>1233.117</td> <td align='3'>209.610</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>mismatch</td> <td align='left'>other</td> <td align='left'>difficulty2</td> <td align='right'>1310.582</td> <td align='3'>414.833</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>mismatch</td> <td align='left'>other</td> <td align='left'>difficulty3</td> <td align='right'>1285.006</td> <td align='3'>465.150</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>mismatch</td> <td align='left'>other</td> <td align='left'>difficulty4</td> <td align='right'>1236.831</td> <td align='3'>543.003</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>mismatch</td> <td align='left'>self</td> <td align='left'>difficulty1</td> <td align='right'>1265.779</td> <td align='3'>214.095</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>mismatch</td> <td align='left'>self</td> <td align='left'>difficulty2</td> <td align='right'>1295.792</td> <td align='3'>287.203</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>mismatch</td> <td align='left'>self</td> <td align='left'>difficulty3</td> <td align='right'>1251.801</td> <td align='3'>454.421</td> <td align='NA'>2</td> </tr>
+<tr> <td align='left'>mismatch</td> <td align='left'>self</td> <td align='left'>difficulty4</td> <td align='right'>1383.049</td> <td align='3'>378.822</td> <td align='NA'>2</td> </tr>
+</tbody>
+</table>
+<p>Total sample size: <i>N</i> = 2</p>
+</body>
+
+</html>
