@@ -49,10 +49,8 @@ var instruction_match = {
     if (window.subjSex) { 
       if (window.subjSex == "男") {
         labelVar = "他";
-        picture_path = "img/he.png"
       } else if (window.subjSex == "女") {
         labelVar = "她";
-        picture_path = "img/she.png"
       }
     } else {
       labelVar = "TA";
@@ -106,98 +104,6 @@ var instruction_match = {
 
 color.timeline.push(instruction_match);
 
-// 示例
-
-var color_after;
-var example = {
-  type: jsPsychRdk,
-  number_of_apertures: 2,
-  //post_trial_gap: 500,
-  number_of_dots: 100,
-  RDK_type: 3,
-  dot_color: [["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]],
-  dot_color_final: function () {
-    if (!color_after) {
-      if (userId % 2 === 0) {
-        color_after = [["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]];
-      } else {
-        color_after = [["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]];
-      }
-    }
-    return color_after;
-  },
-  target_color_proportion: [0.62, 0.62],
-  color_change_delay: 0.5,
-  choices: [" "],
-  correct_choice: [" "],
-  coherent_direction: 0,
-  coherence: 0,
-  dot_radius: 5,
-  move_distance: 3,
-  aperture_type: 1,
-  aperture_width: 400,
-  aperture_height: 400,
-  //aperture_center_x: [300, 900],
-  //aperture_center_y: [280, 280],
-  aperture_center_y: [350, 350],
-  aperture_center_x: [420, 1000],
-  background_color: "black",
-  trial_duration: 300000,
-  data: {
-    part: "example"
-  },
-  on_start: function () {
-    var displayElement = jsPsych.getDisplayElement();
-    // 创建第一个div元素显示最上面的说明文字
-    var topTextDiv = document.createElement("p");
-    topTextDiv.textContent = "【示例】 如果准备好请按下空格键进入练习阶段";//这里可能还需要调整一下文字的位置
-    topTextDiv.style.position = "absolute";
-    topTextDiv.style.fontSize = "28px";
-    topTextDiv.style.height = "8px";
-    //topTextDiv.style.top = "-20px";
-    //topTextDiv.style.left = "1%";
-    topTextDiv.style.top = "6%";
-    topTextDiv.style.left = "30%";
-    //topTextDiv.style.marginBottom = "30px";
-    topTextDiv.style.color = "hsl(135, 50%, 50%)";
-    displayElement.appendChild(topTextDiv);
-
-    // 创建第二个div元素显示左边的标签文字
-    var leftTextDiv = document.createElement("div");
-    leftTextDiv.textContent = "我";
-    leftTextDiv.style.position = "absolute";
-    leftTextDiv.style.fontSize = "45px";
-    leftTextDiv.style.height = "10px";
-    leftTextDiv.style.bottom = "16%";
-    //leftTextDiv.style.left = "31%";
-    leftTextDiv.style.left = "28%";
-    leftTextDiv.style.color = "white";
-    displayElement.appendChild(leftTextDiv);
-
-    // 创建第三个div元素显示右边的标签文字
-    var rightTextDiv = document.createElement("div");
-    rightTextDiv.textContent = `${labelVar}`;
-    rightTextDiv.style.position = "absolute";
-    rightTextDiv.style.fontSize = "45px";
-    rightTextDiv.style.height = "10px";
-    rightTextDiv.style.bottom = "16%";
-    //rightTextDiv.style.left = "65%";
-    rightTextDiv.style.left = "70%";
-    rightTextDiv.style.color = "white";
-    displayElement.appendChild(rightTextDiv);
-
-    if (!color_after) {
-      if (userId % 2 === 0) {
-        color_after = [["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]];
-      } else {
-        color_after = [["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"], ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"]];
-      }
-    }
-    return color_after;
-  },
-};
-
-//color.timeline.push(example);
 
 // 练习
 
@@ -291,24 +197,25 @@ let conditions_match_selfBlue = [
 
 var match_RDK = {
   type: jsPsychRdk,
+  canvas_height: 370,
   number_of_apertures: 1,
   number_of_dots: 100,
   //post_trial_gap: 500,
   dot_color: ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"],
   dot_color_final: function () { return jsPsych.timelineVariable("dot_color_final") },
   target_color_proportion: function () { return jsPsych.timelineVariable("target_color_proportion") },
-  //color_change_delay: 0.001,
+  color_change_delay: 0.5,
   choices: ["f", "j"],
   correct_choice: function () { return jsPsych.timelineVariable("correct_choice") },
   coherent_direction: 0,
   coherence: 0,
-  dot_radius: 4, //单个点的大小是否需要改变
-  move_distance: 2.5, //运动的速度是否需要改变
+  dot_radius: 4,
+  move_distance: 2.5,
   //aperture_type: 1,
   aperture_width: 300,
   aperture_height: 300,
-  //aperture_center_x: 730,
-  aperture_center_y: 150,
+  //aperture_center_x: 957,
+  aperture_center_y: 250,
   background_color: "black",
   trial_duration: 3000,
   data: {
@@ -331,26 +238,10 @@ var match_RDK = {
     //替换proportion值
     updateProportion(conditions_match_selfBlue);
     updateProportion(conditions_match_selfRed);
-
-    /*创建文字标签
   
     var displayElement = jsPsych.getDisplayElement();
-
-    // 创建一个div元素显示标签文字--------(这个位置可能还需要改一下)
-    var textDiv = document.createElement("div");
-    textDiv.textContent = jsPsych.timelineVariable("label"),
-
-    textDiv.style.position = "absolute";
-    textDiv.style.fontSize = "45px";
-    textDiv.style.height = "10px";
-    textDiv.style.bottom = "20%";
-    textDiv.style.left = "48%";
-    textDiv.style.margintop = "15px";
-    textDiv.style.color = "white";
-    displayElement.appendChild(textDiv);
-    */
-    var displayElement = jsPsych.getDisplayElement();
-    //创建应该注视点
+    
+    //创建注视点
     var textDiv = document.createElement("div");
     textDiv.textContent = "+",
 
@@ -361,6 +252,7 @@ var match_RDK = {
     textDiv.style.transform = "translate(-50%, -50%)"; 
     textDiv.style.color = "white";
     displayElement.appendChild(textDiv);
+
 
     //创建图片标签
     var img = document.createElement("img");
@@ -377,7 +269,7 @@ var match_RDK = {
     
     // 图片样式设置
     img.style.position = "absolute";
-    img.style.width = "130px";  // 根据实际图片尺寸调整
+    img.style.width = "135px";  // 根据实际图片尺寸调整
     img.style.height = "auto";
     img.style.bottom = "28%";   // 微调位置
     img.style.left = "50%";
@@ -439,7 +331,7 @@ var instruction_continuePractice = {
       this.stimulus = `
         <div style="text-align: left; color: white; padding: 10px">  
           <p>您的正确率未达到进入下一阶段的要求</p >
-          <p >您的任务是：判断散点图的整体颜色与文字标签是否匹配 。整体为红色代表 你自己；整体为蓝色代表 生人。</p>
+          <p >您的任务是：判断散点图的整体颜色与文字标签是否匹配 。整体为红色代表你自己；整体为蓝色代表他人。</p>
           <p >如果二者<span style="color: hsl(135, 50%, 50%)">匹配</span>，请按 <span style="color: hsl(135, 50%, 50%)">"F" 键</span></p>
           <p >如果二者<span style="color: red">不匹配</span>，请按 <span style="color: red">"J" 键</span></p>
           <p>请按 "Q" 键继续练习</p >
@@ -448,7 +340,7 @@ var instruction_continuePractice = {
       this.stimulus = `
         <div style="text-align: left; color: white; padding: 10px">  
           <p>您的正确率未达到进入下一阶段的要求</p >
-          <p >您的任务是：判断散点图的运动方向与文字标签是否匹配 。整体为蓝色代表 你自己；整体为红色代表 生人。</p>
+          <p >您的任务是：判断散点图的运动方向与文字标签是否匹配 。整体为蓝色代表你自己；整体为红色代表他人。</p>
           <p >如果二者<span style="color: hsl(135, 50%, 50%)">匹配</span>，请按 <span style="color: hsl(135, 50%, 50%)">"F" 键</span></p>
           <p >如果二者<span style="color: red">不匹配</span>，请按 <span style="color: red">"J" 键</span></p>
           <p>请按 "Q" 键继续练习</p >
@@ -468,7 +360,7 @@ var instruction_practiceEnd = {
   stimulus: `
     <div style="text-align: center; color: white; padding: 30px; font-size: 30px">
       <p>恭喜您完成练习，请按空格键进入正式任务。</p >
-      <p> 正式任务仅在 每组 测试结束后提供反馈</p>
+      <p> 正式任务仅在每组 测试结束后提供反馈</p>
     </div>
     `,
   response_ends_trial: true,
@@ -968,13 +860,13 @@ var RDK = {
   correct_choice: function () { return jsPsych.timelineVariable("correct_choice") },
   coherent_direction: 0,
   coherence: 0,
-  dot_radius: 5.7,
-  move_distance: 3,
+  dot_radius: 4,
+  move_distance: 2.5,
   //aperture_type: 1,
-  aperture_width: 550,
-  aperture_height: 550,
-  aperture_center_y: 330,
-  aperture_center_x: 700,
+  aperture_width: 300,
+  aperture_height: 300,
+  //aperture_center_y: 360,
+  //aperture_center_x: 965,
   background_color: "black",
   trial_duration: 3000,
   data: {

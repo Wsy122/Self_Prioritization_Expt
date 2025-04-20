@@ -116,89 +116,6 @@ var instruction_match = {
 
 move.timeline.push(instruction_match);
 
-// 示例
-
-var direction;
-var example = {
-  type: jsPsychRdk,
-  number_of_apertures: 2,
-  //post_trial_gap: 500,
-  number_of_dots: 100,
-  RDK_type: 3,
-  dot_color: [["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"], ["hsl(0, 50%, 50%)", "hsl(225, 50%, 50%)"]],
-  choices: [" "],
-  correct_choice: [" "],
-  coherent_direction: function() {
-    if (!direction) {
-      if (userId % 2 === 0) {
-        direction = [180, 0];
-      } else {
-        direction = [0, 180];
-      }
-    }
-    return direction;
-  },
-  coherence: 0.2, 
-  dot_radius: 5,
-  move_distance: 3,
-  aperture_type: 1,
-  aperture_width: 400,
-  aperture_height: 400,
-  aperture_center_y: [350, 350],
-  aperture_center_x: [420, 1000],
-  background_color: "black",
-  trial_duration: 3000000,
-  //motion_change_delay: randomInteger(6, 12),
-  data: {
-    part: "example"
-  },
-  on_start: function() {
-    var displayElement = jsPsych.getDisplayElement();
-    // 创建第一个div元素显示最上面的说明文字
-    var topTextDiv = document.createElement("p");
-    topTextDiv.textContent = "【示例】 如果准备好请按下空格键进入练习阶段";//这里可能还需要调整一下文字的位置
-    topTextDiv.style.position = "absolute";
-    topTextDiv.style.fontSize = "28px";
-    topTextDiv.style.height = "8px";
-    topTextDiv.style.top = "6%";
-    topTextDiv.style.left = "30%";
-    //topTextDiv.style.marginBottom = "30px";
-    topTextDiv.style.color = "hsl(135, 50%, 50%)";
-    displayElement.appendChild(topTextDiv);
-
-    // 创建第二个div元素显示左边的标签文字
-    var leftTextDiv = document.createElement("div");
-    leftTextDiv.textContent = "我";
-    leftTextDiv.style.position = "absolute";
-    leftTextDiv.style.fontSize = "45px";
-    leftTextDiv.style.height = "10px";
-    leftTextDiv.style.bottom = "16%";
-    leftTextDiv.style.left = "28%";
-    leftTextDiv.style.color = "white";
-    displayElement.appendChild(leftTextDiv);
-
-    // 创建第三个div元素显示右边的标签文字
-    var rightTextDiv = document.createElement("div");
-    rightTextDiv.textContent = `${labelVar}`;
-    rightTextDiv.style.position = "absolute";
-    rightTextDiv.style.fontSize = "45px";
-    rightTextDiv.style.height = "10px";
-    rightTextDiv.style.bottom = "16%";
-    rightTextDiv.style.left = "70%";
-    rightTextDiv.style.color = "white";
-    displayElement.appendChild(rightTextDiv);
-
-    if ( userId % 2 === 0) {
-      direction = [180, 0];
-    } else {
-      direction = [0, 180];
-    };
-    return direction;
-  },
-};
-
-move.timeline.push(example);
-
 // 练习
 
 var instruction_match_practice = {
@@ -292,6 +209,7 @@ let conditions_match_selfRight = [
 
 var match_RDK = {
   type: jsPsychRdk,
+  canvas_height: 370,
   number_of_apertures: 1,
   number_of_dots: 100,
   dot_color: ["hsl(225, 50%, 50%)", "hsl(0, 50%, 50%)"],
@@ -299,11 +217,11 @@ var match_RDK = {
   correct_choice: function () {return jsPsych.timelineVariable("correct_choice")}, 
   coherent_direction: function () { return jsPsych.timelineVariable("coherent_direction") },
   coherence: function () {return jsPsych.timelineVariable("coherence")},
-  dot_radius: 5,
-  move_distance: 3,
-  aperture_width: 500,
-  aperture_height: 500,
-  aperture_center_x: 700,
+  dot_radius: 4,
+  move_distance: 2.5,
+  aperture_width: 300,
+  aperture_height: 300,
+  //aperture_center_x: 957,
   aperture_center_y: 250,
   background_color: "black",
   trial_duration: 3000,
@@ -333,18 +251,45 @@ var match_RDK = {
     updateCoherence(conditions_match_selfRight);
     
     var displayElement = jsPsych.getDisplayElement();
-
-    // 创建一个div元素显示标签文字--------(这个位置可能还需要改一下)
+    
+    //创建注视点
     var textDiv = document.createElement("div");
-    textDiv.textContent = jsPsych.timelineVariable("label"),
+    textDiv.textContent = "+",
+
     textDiv.style.position = "absolute";
-    textDiv.style.fontSize = "45px";
-    textDiv.style.height = "10px";
-    textDiv.style.bottom = "20%";
-    textDiv.style.left = "48%";
-    textDiv.style.margintop = "15px";
+    textDiv.style.fontSize = "48px";
+    textDiv.style.top = "50%";          // 从顶部50%位置开始
+    textDiv.style.left = "50%";         // 从左侧50%位置开始
+    textDiv.style.transform = "translate(-50%, -50%)"; 
     textDiv.style.color = "white";
     displayElement.appendChild(textDiv);
+
+
+    //创建图片标签
+    var img = document.createElement("img");
+    // 根据label变量选择图片路径
+    const label = jsPsych.timelineVariable("label");
+    img.src = (() => {
+      switch(jsPsych.timelineVariable("label")) {
+        case "我": return "img/self.png";
+        case "他": return "img/he.png";    // 男性他人
+        case "她": return "img/she.png";  // 女性他人
+        default: console.error("未知标签");
+      }
+    })();
+    
+    // 图片样式设置
+    img.style.position = "absolute";
+    img.style.width = "135px";  // 根据实际图片尺寸调整
+    img.style.height = "auto";
+    img.style.bottom = "28%";   // 微调位置
+    img.style.left = "50%";
+    img.style.transform = "translateX(-50%)";  // 水平居中
+    img.style.objectFit = "contain";
+    
+    // 添加ID便于后续操作
+    img.id = "label-image";
+    displayElement.appendChild(img);
 
     // 1000毫秒后隐藏刺激
     /*setTimeout(function() {
@@ -933,10 +878,10 @@ var RDK = {
   coherence: function () { return jsPsych.timelineVariable("coherence") },
   dot_radius: 5.7,
   move_distance: 3,
-  aperture_width: 550,
-  aperture_height: 550,
-  aperture_center_y: 330,
-  aperture_center_x: 700,
+  aperture_width: 300,
+  aperture_height: 300,
+  aperture_center_y: 360,
+  //aperture_center_x: 965,
   background_color: "black",
   trial_duration: 3000,
   //motion_change_delay: randomInteger(6, 12),

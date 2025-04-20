@@ -1,0 +1,112 @@
+{
+  "motion": [
+    0.12,
+    0.12,
+    0.09,
+    0.09,
+    0.08,
+    0.08,
+    0.05,
+    0.06
+  ],
+  "color": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "testOutput": [
+    {
+      "condition": {
+        "firstTask": "motion_test",
+        "motionCoherence": 0.11000000000000003
+      },
+      "result": {
+        "accuracy": 58,
+        "rt": 1040,
+        "rt_sd": 507
+      }
+    },
+    {
+      "condition": {
+        "firstTask": "motion_test",
+        "motionCoherence": 0.08999999999999998
+      },
+      "result": {
+        "accuracy": 67,
+        "rt": 1039,
+        "rt_sd": 521
+      }
+    },
+    {
+      "condition": {
+        "firstTask": "motion_test",
+        "motionCoherence": 0.07000000000000002
+      },
+      "result": {
+        "accuracy": 33,
+        "rt": 1502,
+        "rt_sd": 735
+      }
+    },
+    {
+      "condition": {
+        "firstTask": "motion_test",
+        "motionCoherence": 0.049999999999999996
+      },
+      "result": {
+        "accuracy": 50,
+        "rt": 1064,
+        "rt_sd": 647
+      }
+    },
+    {
+      "condition": {
+        "firstTask": "motion_test",
+        "motionCoherence": 0.049999999999999996
+      },
+      "result": {
+        "accuracy": 25,
+        "rt": 1197,
+        "rt_sd": 593
+      }
+    },
+    {
+      "condition": {
+        "firstTask": "motion_test",
+        "motionCoherence": 0.07999999999999999
+      },
+      "result": {
+        "accuracy": 75,
+        "rt": 1434,
+        "rt_sd": 453
+      }
+    },
+    {
+      "condition": {
+        "firstTask": "motion_test",
+        "motionCoherence": 0.08999999999999998
+      },
+      "result": {
+        "accuracy": 67,
+        "rt": 1783,
+        "rt_sd": 344
+      }
+    },
+    {
+      "condition": {
+        "firstTask": "motion_test",
+        "motionCoherence": 0.12000000000000004
+      },
+      "result": {
+        "accuracy": 100,
+        "rt": 1347,
+        "rt_sd": 473
+      }
+    }
+  ]
+}
