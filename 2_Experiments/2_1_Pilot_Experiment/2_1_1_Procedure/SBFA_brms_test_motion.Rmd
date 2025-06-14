@@ -1,0 +1,566 @@
+---
+title: "采用贝叶斯序列分析确定样本量"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+documentclass: ctexart
+geometry: "left=2cm,right=2cm,top=2cm,bottom=2cm"
+output:
+  html_document:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+**markdown的内容：数据预处理 + BF 值计算**
+
+-   数据预处理
+    -   剔除极端值
+    -   分组计算 RT, ACC, d prime
+    -   将得到的数据以新的 csv 文件输出
+-   BF 值计算
+
+------------------------------------------------------------------------
+
+-   研究中的关键效应
+
+| 研究问题                                       | 统计假设                                                                                           | 因变量                              | 可能的 BF 值（加粗为关键）                                                         |
+|-----------------|-----------------|-----------------|-----------------------|
+| 自我关联是否对知觉判断中不同难度的试次产生影响 | 知觉难度与自我相关性的交互作用<br>知觉难度与自我相关性的交互作用<br>知觉难度与自我相关性的交互作用 | **RT**<br>ACC<br> ***d*** **prime** | **2×4 RM ANOVA 中的交互作用**<br>2×4 RM ANOVA 中的交互作用<br>**One way RM ANOVA** |
+
+-   停止规则：
+    -   贝叶斯因子阈值确定为10
+    -   最小样本量40，最大样本量70
+
+```{r}
+rm(list = ls())
+```
+
+下载和安装需要的R语言程序包
+
+```{r message=FALSE, warning=FALSE}
+# install.packages(c("tidyverse", "BayesFactor", "here"))
+library(BayesFactor)#计算t检验和方差分析的贝叶斯因子
+library(brms)
+library(tidyverse)
+library(showtext)#解决中文字体无法显示问题
+library(latex2exp)#latex语法
+library(bridgesampling)
+# font_add("song", 
+         # "/System/Library/Fonts/Supplemental/Songti.ttc")
+##从系统增加宋体字
+showtext_auto()
+library(here)
+here()
+options(scipen = 9)#将科学计数法改为在万后9位
+set.seed(1234)
+```
+
+BayesFacotr包版本
+
+```{r}
+packageVersion("brms")
+```
+
+# 数据预处理
+
+## 读取原始数据
+
+```{r}
+# 文件路径和文件名根据实际情况调整
+# 设置目标文件夹相对路径
+folder_path <- "../2_1_2_RawData/pilot_expt_all"
+
+# 列出所有含有"pilot_expt_v4_"的csv文件
+file_list <- list.files(
+  path = folder_path,
+  pattern = "*pilot_expt_0421_.*\\.csv$", full.names = TRUE
+)
+
+# 创建一个空列表来存储数据
+df_list_1 <- list()
+
+# 逐个读取文件并存储
+for (file in file_list) {
+  file_name <- tools::file_path_sans_ext(basename(file))  # 获取文件名（不带扩展名）
+  df_list_1[[file_name]] <- read.csv(file)  # 将数据存储在列表中
+}
+#rm(file, file_list, folder_path)
+```
+
+## 数据清洗
+
+```{r}
+# 创建输出文件夹（如果不存在）
+output_path <- "../2_1_3_CleanData/pilot_expt_all"
+if (!dir.exists(output_path)) {
+  dir.create(output_path, recursive = TRUE)
+}
+
+# 逐篇处理每个数据框
+for (file_name in names(df_list_1)) {
+  data <- df_list_1[[file_name]]
+
+  # 提取被试信息
+  participant_info <- data[data$part == "survey", "response"]
+  participant_info <- gsub("[{}\"]", "", participant_info) # 去掉多余的字符
+  info_list <- strsplit(participant_info, ",")[[1]]
+
+  # 创建新的变量
+  participant_data <- data.frame(
+    subj_idx = file_name,
+    Sex = as.character(NA),
+    Age = as.numeric(NA),
+    Handedness = as.character(NA),
+    Color_blindness = as.character(NA),
+    stringsAsFactors = FALSE
+  )
+  
+  # 先按照下划线分割字符串
+  split_data <- strsplit(participant_data$subj_idx, "_")
+  # 提取分割后的第四个元素（数字部分在第四个位置，可根据实际调整）并转换为数值
+  participant_data$subj_idx <- as.numeric(lapply(split_data, function(x) substr(x[[4]], 1, 2)))
+
+  for (info in info_list) {
+    key_value <- strsplit(info, ":")[[1]]
+    key <- trimws(key_value[1])
+    value <- trimws(key_value[2])
+    if (key == "sex") participant_data$Sex <- value
+    if (key == "age") participant_data$Age <- as.numeric(value)
+    if (key == "hands") participant_data$Handedness <- value
+    if (key == "color_blindness") participant_data$Color_blindness <- value
+  }
+
+  # 提取行为数据
+  behavior_data <- data[
+    data$part %in% c("motion_test","match_RDK","RDK"),
+    c(
+      "part", "rt", "response", "correct", "coherent_direction","coherence",
+      "isMatch", "association", "difficulty", "dot_color_final","target_color_proportion"
+    )
+  ]
+  
+  # 分别提取正式试次
+  official_trials <- do.call(
+    rbind,
+    lapply(unique(behavior_data$part), function(part) {
+      part_data <- behavior_data[behavior_data$part == part, ]
+      if (part == "match_RDK") {
+        return(tail(part_data, 384)) # 匹配任务384次
+      } else if (part == "RDK") {
+        return(tail(part_data, 192)) # 辨别任务192次
+      } else {
+        return(NULL)
+      }
+    })
+  )
+
+  # 合并被试信息和行为数据
+  final_data <- cbind(participant_data, official_trials)
+
+  # 输出到新的CSV文件
+  output_file <- file.path(output_path, paste0(file_name, "_Clean.csv"))
+  write.csv(final_data, output_file, row.names = FALSE)
+}
+```
+
+## 读取清洗后的数据
+
+```{r message=FALSE}
+# 设置目标文件夹相对路径
+folder_path <- "../2_1_3_CleanData/pilot_expt_all"
+
+# 列出所有含有"pilot_expt_"的csv文件
+file_list <- list.files(
+  path = folder_path,
+  pattern = "*pilot_expt_0421_.*\\.csv$", full.names = TRUE
+)
+
+# 创建一个空列表来存储数据
+df_list_1 <- list()
+
+# 逐个读取文件并存储
+for (file in file_list) {
+  file_name <- tools::file_path_sans_ext(basename(file)) # 获取文件名（不带扩展名）
+  df_list_1[[file_name]] <- read.csv(file) # 将数据存储在列表中
+}
+
+# 清除不需要的变量
+rm(output_path, participant_info, info_list, participant_data, split_data,
+   behavior_data, official_trials, final_data, output_file, file, file_list,
+   file_name, folder_path, info, key, key_value, value)
+
+# 把 df_list_1 传送给 data
+data <- do.call(rbind, df_list_1)
+```
+
+## 分组计算RT, ACC
+
+定义函数，用来计算不同条件下的平均反应时和正确率
+
+```{r}
+# 计算平均正确率和反应时
+copmute_rt_acc <- function(data){
+  data <- data %>%
+  filter(part %in% c("match_RDK","RDK")) %>%
+    group_by(subj_idx, part, difficulty, association) %>%  #按被试与难度和关联类型分组
+    summarise(
+      rt = mean(rt, na.rm = TRUE),#每个被试所有trial的平均反应时
+      rt_max = max(rt, na.rm = TRUE),#每个被试所有trial的最大反应时
+      rt_min = min(rt, na.rm = TRUE),#每个被试所有trial的最小反应时
+      sd_rt = sd(rt, na.rm = TRUE), #每个被试所有trial的反应时的方差
+      all_count = n(),#每个被试在每个条件的总trial数量
+      row_count = sum(rt >= 200 & rt <= 3000, na.rm = TRUE), #舍弃按键太快和按键太慢的反应时
+      correct_count = sum(correct == 'true' & rt >= 200 & rt <= 3000, na.rm = TRUE),
+      acc = correct_count /all_count, #计算每个被试在每个条件的正确率= 正确/总数
+      .groups = "drop")
+   
+    # 返回处理后的数据
+    return(data)
+}
+```
+
+```{r}
+# 计算自我-他人的平均正确率和反应时
+copmute_rt_acc_diff <- function(data){
+  # 先按subj_idx, part, difficulty聚合，确保self和other数据在同一组内
+  data_agg <- data %>%
+    filter(part %in% c("match_RDK","RDK")) %>%
+    group_by(subj_idx, part, difficulty) %>%
+    summarise(
+      rt_other = mean(rt[association == "other"], na.rm = TRUE),
+      rt_self = mean(rt[association == "self"], na.rm = TRUE),
+      acc_other = mean(acc[association == "other"], na.rm = TRUE),
+      acc_self = mean(acc[association == "self"], na.rm = TRUE),
+      .groups = "drop"
+    )
+  
+  # 计算差值
+  data_result <- data_agg %>%
+    mutate(
+      rt_diff_so = rt_self - rt_other, # so = self - other
+      acc_diff_so = acc_self - acc_other
+    )
+  
+  return(data_result)
+}
+```
+
+```{r}
+data <- data %>%
+  #筛出反应时在200~3000)
+  filter(rt >= 200 & rt <= 3000)
+
+# Motion
+data1 <- data %>%
+  filter(
+    subj_idx %in% c( seq(1, 20))) # 被试编号 1-20 为运动组
+
+data_motion_rt_acc <- copmute_rt_acc(data1) %>%
+  dplyr::mutate(group = "motion")
+
+data_motion_rt_acc_diff <- copmute_rt_acc_diff(data_motion_rt_acc)
+```
+
+## 数据整理
+
+### RT
+
+#### 匹配任务
+
+
+```{r}
+#分析因变量为RT的使用数据
+df_rt_motion_match <- data_motion_rt_acc %>%
+  filter(part %in% c('match_RDK')) %>%
+  #选择被试信息以及RT_开头的列
+  dplyr::select(subj_idx, rt, association, difficulty, group) %>%
+  # 添加新列 dv_name，值为 RT
+  dplyr::mutate(dv_name = "RT") %>%
+  #类型为character的转换为因子类型，便于后续分析
+  mutate(subj_idx = as.factor(subj_idx),
+         association = as.factor(association),
+         difficulty = as.factor(difficulty))
+
+df_rt_motion_diff_match <- data_motion_rt_acc_diff %>%
+  # 只选择难度为1 和 4 的
+  filter(difficulty %in% c(1, 4), part %in% c('match_RDK')) %>%
+  #选择被试信息以及RT_开头的列
+  dplyr::select(subj_idx, rt_diff_so, difficulty) %>%
+  # 添加新列 dv_name，值为 RT
+  dplyr::mutate(dv_name = "RT_diff") %>%
+  #类型为character的转换为因子类型，便于后续分析
+  mutate(subj_idx = as.factor(subj_idx),
+         difficulty = as.factor(difficulty)) %>%
+  tidyr::pivot_wider(names_from = difficulty, values_from = rt_diff_so) %>%
+  dplyr::rename(easiest = `1`, hardest = `4`)
+
+head(df_rt_motion_match, 13)
+```
+
+#### 辨别任务
+```{r}
+#分析因变量为RT的使用数据
+df_rt_motion_rdk <- data_motion_rt_acc %>%
+  # 只选择难度为1 和 4 的
+  filter(part %in% c('RDK')) %>%
+  #选择被试信息以及RT_开头的列
+  dplyr::select(subj_idx, rt, association, difficulty, group) %>%
+  # 添加新列 dv_name，值为 RT
+  dplyr::mutate(dv_name = "RT") %>%
+  #类型为character的转换为因子类型，便于后续分析
+  mutate(subj_idx = as.factor(subj_idx),
+         association = as.factor(association),
+         difficulty = as.factor(difficulty))
+
+df_rt_motion_diff_rdk <- data_motion_rt_acc_diff %>%
+  # 只选择难度为1 和 4 的
+  filter(difficulty %in% c(1, 4), part %in% c('RDK')) %>%
+  #选择被试信息以及RT_开头的列
+  dplyr::select(subj_idx, rt_diff_so, difficulty) %>%
+  # 添加新列 dv_name，值为 RT
+  dplyr::mutate(dv_name = "RT_diff") %>%
+  #类型为character的转换为因子类型，便于后续分析
+  mutate(subj_idx = as.factor(subj_idx),
+         difficulty = as.factor(difficulty)) %>%
+  tidyr::pivot_wider(names_from = difficulty, values_from = rt_diff_so) %>%
+  dplyr::rename(easiest = `1`, hardest = `4`)
+
+head(df_rt_motion_rdk)
+```
+
+### ACC
+
+#### 匹配任务
+
+```{r}
+df_acc_motion_match <- data_motion_rt_acc %>% 
+  filter(part %in% c('match_RDK')) %>%
+  dplyr::select(subj_idx, acc, association, difficulty, group) %>%
+  # 添加新列 dv_name，值为 ACC
+  dplyr::mutate(dv_name = "ACC") %>%
+  #类型为character的转换为因子类型，便于后续分析
+  mutate(subj_idx = as.factor(subj_idx),
+         association = as.factor(association),
+         difficulty = as.factor(difficulty))
+
+df_acc_motion_diff_match <- data_motion_rt_acc_diff %>%
+  # 只选择难度为1 和 4 的
+  filter(difficulty %in% c(1, 4), 
+         part %in% c('match_RDK')) %>%
+  #选择被试信息以及RT_开头的列
+  dplyr::select(subj_idx, acc_diff_so, difficulty) %>%
+  # 添加新列 dv_name，值为 RT
+  dplyr::mutate(dv_name = "ACC_diff") %>%
+  #类型为character的转换为因子类型，便于后续分析
+  mutate(subj_idx = as.factor(subj_idx),
+         difficulty = as.factor(difficulty)) %>%
+  tidyr::pivot_wider(names_from = difficulty, values_from = acc_diff_so) %>%
+  dplyr::rename(easiest = `1`, hardest = `4`)
+
+head(df_acc_motion_match, 20)
+```
+
+#### 辨别任务
+
+```{r}
+df_acc_motion_rdk <- data_motion_rt_acc %>% 
+  filter(part %in% c('RDK')) %>%
+  dplyr::select(subj_idx, acc, association, difficulty, group) %>%
+  # 添加新列 dv_name，值为 ACC
+  dplyr::mutate(dv_name = "ACC") %>%
+  #类型为character的转换为因子类型，便于后续分析
+  mutate(subj_idx = as.factor(subj_idx),
+         association = as.factor(association),
+         difficulty = as.factor(difficulty))
+
+df_acc_motion_diff_rdk <- data_motion_rt_acc_diff %>%
+  # 只选择难度为1 和 4 的
+  filter(difficulty %in% c(1, 4), part %in% c('RDK')) %>%
+  #选择被试信息以及RT_开头的列
+  dplyr::select(subj_idx, acc_diff_so, difficulty) %>%
+  # 添加新列 dv_name，值为 RT
+  dplyr::mutate(dv_name = "ACC_diff") %>%
+  #类型为character的转换为因子类型，便于后续分析
+  mutate(subj_idx = as.factor(subj_idx),
+         difficulty = as.factor(difficulty)) %>%
+  tidyr::pivot_wider(names_from = difficulty, values_from = acc_diff_so) %>%
+  dplyr::rename(easiest = `1`, hardest = `4`)
+
+head(df_acc_motion_rdk, 20)
+```
+
+# BF 值计算
+## 匹配任务
+### 重复测量方差分析
+####  ACC
+```{r}
+# 使用逐次差分对比编码对 association 和 difficulty 进行编码
+contrasts(df_acc_motion_match$association) <- MASS::contr.sdif(2) # association 有两水平
+
+# 修改 difficulty 变量的参考水平为 2
+df_acc_motion_match$difficulty <- relevel(df_acc_motion_match$difficulty, ref = "2")
+
+# contrasts(df_acc_motion_match$difficulty) <- MASS::contr.sdif(4) # difficulty 有四水平
+
+
+
+# 查看新的对比矩阵
+print("新的对称差异对比矩阵：")
+print(contrasts(df_acc_motion_match$association))
+print(contrasts(df_acc_motion_match$difficulty))
+```
+```{r}
+model_association <- brms::brm(
+  acc ~ association + (1 | subj_idx),  # 移除 difficulty 的固定效应
+  data = df_motion_match,
+  prior = c(fixed_prior),
+  save_pars = save_pars(all = TRUE)
+)
+
+# 零模型
+model_null <- brms::brm(
+  acc ~ 1 + (1 | subj_idx),  # 只有随机截距，无固定效应
+  data = df_motion_match,
+  # prior =random_prior,
+  save_pars = save_pars(all = TRUE)
+)
+```
+
+```{r}
+summary(model_association)
+summary(model_null)
+post <- post_prob(model_association, model_null)
+post
+
+bf_ass <- post[1] + post[2]
+bf_ass
+```
+
+先复现被试间分析的，即只有随机截距，没有随机斜率
+```{r}
+set.seed = 1234
+# 设置先验
+fixed_prior <- prior(cauchy(0, 0.5), class = "b")
+random_prior <- prior(cauchy(0, 1), class = "sd")
+
+# 全模型（含交互作用）
+model_full <- brms::brm(
+  acc ~ association + difficulty + association : difficulty + (1 | subj_idx),
+  data = df_motion_match,
+  prior = c(fixed_prior),
+  save_pars = save_pars(all = TRUE)
+)
+
+# 不包含交互作用的模型（仅主效应）
+model_main <- brms::brm(
+  acc ~ association + difficulty + (1 | subj_idx),  # 移除交互作用的固定效应
+  data = df_motion_match,
+  prior = c(fixed_prior),
+  save_pars = save_pars(all = TRUE)
+)
+
+# 仅含 association 的模型
+model_association <- brms::brm(
+  acc ~ association + (1 | subj_idx),  # 移除 difficulty 的固定效应
+  data = df_motion_match,
+  prior = c(fixed_prior),
+  save_pars = save_pars(all = TRUE)
+)
+
+# 仅含 difficulty 的模型
+model_difficulty <- brms::brm(
+  acc ~ difficulty + (1 | subj_idx),  # 移除 association 的固定效应
+  data = df_motion_match,
+  prior = c(fixed_prior),
+  save_pars = save_pars(all = TRUE)
+)
+
+# 零模型
+model_null <- brms::brm(
+  acc ~ 1 + (1 | subj_idx),  # 只有随机截距，无固定效应
+  data = df_motion_match,
+  # prior =random_prior,
+  save_pars = save_pars(all = TRUE)
+)
+```
+
+```{r}
+prior_summary(model_association)
+```
+
+```{r}
+# 计算贝叶斯因子 -----------------------------------------------------------
+
+# 交互作用检验：全模型 vs. 主效应模型
+bf_int <- brms::bayes_factor(model_full, model_main)
+
+# association 主效应检验：主效应模型 vs. 仅含 difficulty 的模型
+bf_association <- brms::bayes_factor(model_main, model_difficulty)
+bf_association
+
+# difficulty 主效应检验：主效应模型 vs. 仅含 association 的模型
+bf_difficulty <- brms::bayes_factor(model_main, model_association)
+```
+
+```{r}
+post <- post_prob(model_null, model_main, model_full, model_difficulty, model_association, prior_prob = c(0.2, 0.2, 0.2, 0.2, 0.2))
+post
+```
+
+```{r}
+bridge_fit0 <- bridge_sampler(model_null)
+bridge_fit1 <- bridge_sampler(model_full)
+bridge_fit2 <- bridge_sampler(model_main)
+bridge_fit3 <- bridge_sampler(model_association)
+bridge_fit4 <- bridge_sampler(model_difficulty)
+bridge_fit0$logml
+bridge_fit1$logml
+bridge_fit2$logml
+bridge_fit3$logml
+bridge_fit4$logml
+
+bf_full <- post[3] / post[2]
+bf_ass <- (post[1] + post[2]) / (post[1] + post[4])
+bf_diff <- post[4] / post[1]
+bf_main <- post[2] / post[1]
+
+
+# bf <- bayes_factor(bridge_fit1, bridge_fit2)
+bf_full
+bf_ass
+bf_diff
+bf_main
+```
+
+```{r}
+bf_int 
+bf_association
+bf_difficulty 
+```
+**对结果的解读：**
+
+  - Intercept是模型的固定截距，表示所有被试的平均正确率；
+  - association2M1表示在平均(控制）难度水平的效应之后，self - other的差值，即association的主效应
+  - difficulty主效应显著，难度增加，acc降低，尤其在难度水平 4 时更明显
+  - 交互效应中，association2M1:difficulty2 和 association2M1:difficulty4显著，意味着高难度下association不同水平对acc影响差异明显，association2M1:difficulty3不显著
+
+## hypothesis-bf
+### 提取出最关键的假设
+self vs. other 在最难条件下对 acc 的影响大于 self vs. other 在最容易条件下对 acc 的影响
+
+```{r}
+# result <- hypothesis(acc_match_m, 'association2M1:difficulty4 < association2M1')
+result <- hypothesis(acc_match_m, 'association2M1:difficulty4 > association2M1:difficulty1')
+result
+result$hypothesis$Evid.Ratio
+```
+
+记录：
+  - 如果以 difficulty1为基线 hypothesis= 'association2M1:difficulty4 > association2M1:difficulty2' 得到的 Evid.Ratio 约为 0.4左右
+  - 零假设下的 Evid.Ratio 为 NA
+
+
+
+
