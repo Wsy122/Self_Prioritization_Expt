@@ -19,7 +19,9 @@
 |    └── 3_1_pilot_expt_1a  # 预实验 1a 分析
 |         └── output  # 输出
 |    └── 3_2_pilot_expt_v3  # 预实验 v3 分析
-|         └── output  # 输出
+|         └── output  
+|    └── 3_2_pilot_expt_v4  # 预实验 v4 分析
+|         └── output  
 └── 4_Reports  
      └── 4_1_FirsTime  
      └── 4_2_SecondTime(pilot_expt_1a)  # 预实验 1a 报告
